@@ -1,0 +1,269 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* ทั่วไปทั้งหมด */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Prompt", sans-serif;
+}
+
+html {
+    font-size: 16px;
+}
+/* จบทั่วไปทั้งหมด */
+
+.container {
+    max-width: 1110px;
+    margin: 0 auto;
+}
+
+/* section header เมนู */
+/* header {
+    height: 1920px;
+    background-position: center bottom 50px;
+} */
+
+nav {
+    height: 120px;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    width: 734px;
+    height: 24px;
+    /* border: 1px solid red; */
+    justify-content: space-between;
+}
+
+/* nav ul li{
+        margin-right: 50px;
+    } */
+
+nav ul li a {
+    color: #777777;
+    text-decoration: none;
+}
+
+.logo {
+    text-align: center;
+    width: 212px;
+    height: 80px;
+}
+
+.logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+/* จบ section header เมนู */
+
+/* section header banner */
+section.banner .banner-images {
+    text-align: center;
+    width: 100%;
+    height: 550px;
+}
+
+.banner-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* จบ section header banner */
+
+/* section what-wedo */
+section.what-wedo {
+    width: 100%;
+    /* เดิม 816 px */
+    height: 900px;
+    background: url("../images/what-we-do-bg.svg") no-repeat;
+    background-position-x: calc(50% - 38px);
+    background-position-y: calc(50% - 56px);
+    z-index: 100;
+    position: relative;
+}
+
+.what-wedo-core {
+    width: 315px;
+    display: flex;
+    justify-content: space-between;
+    /* padding: 50px; */
+}
+
+.what-wedo-info {
+    margin-top: 216px;
+}
+
+.what-wedo-content{
+    margin-top: 5px;
+}
+
+.what-wedo-content p{
+    width: 632px;
+    height: 109px;
+    left: 408px;
+    top: 985px;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: justify;
+    color: #777777;
+}
+
+.what-wedo-title{
+    text-align: center;
+}
+
+.what {
+    font-style: normal;
+    font-weight: 200;
+    font-size: 60px;
+    line-height: 91px;
+    text-transform: uppercase;
+}
+
+.wedo {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 60px;
+    line-height: 91px;
+    text-transform: uppercase;
+}
+
+.what-wedo-btn{
+    margin-top: 29px;
+}
+
+.what-wedo-btn a {
+    display:inline-block;
+}
+.readmore{
+    width: 124px;
+    height: 40px;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    /* left: 18px;
+    top: 10px; */
+    /* padding: -0.5rem 1.5rem; */
+    line-height: 40px;
+    text-decoration: none;
+    background: linear-gradient(114.56deg, #00A5E7 49.84%, rgba(0, 165, 231, 0) 108.73%), #007AE8;
+    border-radius: 30px;
+
+}
+
+.what-wedo-images {
+    width: 420px;
+    height: 311px;
+    margin-top: 223px;
+}
+.what-wedo-images img {
+    /* width: 100%; */
+    height: 100%;
+    margin-left: 65px;
+    object-fit: cover;
+}
+/* จบ section what-wedo */
+
+/* section our-service */
+section.our-service {
+    width: 100%;
+    height: 717px;
+    background: url("../images/our-service-bg.jpg") no-repeat;
+    background-position-x: calc(50% - -9px);
+    background-position-y: calc(50% - 26px);
+    z-index: 95;
+    position: relative;
+}
+
+.our-service-title{
+    margin-top: -148px;
+    text-align: center;
+}
+
+.our {
+    color: #000000;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 60px;
+    line-height: 91px;
+    text-transform: uppercase;
+}
+
+.service {
+    color: #000000;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 60px;
+    line-height: 91px;
+    text-transform: uppercase;
+}
+
+.our-service-core {
+    margin-top: 115px;
+    width: 1109px;
+    height: 599px;
+    display: flex;
+    justify-content: space-between;
+    /* padding: 50px; */
+}
+
+.our-service-info-left{
+    width: 347px;
+    height: 369px;
+}
+
+.our-service-images-left{
+    width: 255px;
+    height: 193px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.our-service-images-left img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.our-service-title-left{
+    width: 347px;
+    height: 48px;
+    text-align: center;
+}
+
+.our-serv-tl{
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+}
+
+.our-service-content-left{
+    width: 347px;
+    height: 102px;
+    left: 406px;
+    top: 1917px;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: justify;
+    color: #777777;
+}
+
+
+
+
+
+
+
+
+
+
+/* จบ section our-service */
