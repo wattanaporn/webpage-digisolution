@@ -13,10 +13,10 @@ html {
 }
 /* จบทั่วไปทั้งหมด */
 
-.container {
-    max-width: 1110px;
-    margin: 0 auto;
-}
+/* .container { */
+    /* max-width: 1110px; */
+    /* margin: 0 auto; */
+/* } */
 
 /* section header เมนู */
 /* header {
@@ -85,7 +85,7 @@ section.what-wedo {
     background: url("../images/what-we-do-bg.svg") no-repeat;
     background-position-x: calc(50% - 38px);
     background-position-y: calc(50% - 56px);
-    z-index: 100;
+    /* z-index: 100; */
     position: relative;
 }
 
@@ -183,7 +183,7 @@ section.our-service {
     background: url("../images/our-service-bg.jpg") no-repeat;
     background-position-x: calc(50% - -9px);
     background-position-y: calc(50% - 26px);
-    z-index: 95;
+    /* z-index: 95; */
     position: relative;
 }
 
@@ -368,7 +368,7 @@ section.our-client {
     background: url("../images/our-client-bg.png") no-repeat;
     background-position-x: calc(50% - -9px);
     background-position-y: calc(50% - 0px);
-    z-index: 96;
+    /* z-index: 96; */
     position: relative;
 }
 
@@ -632,7 +632,7 @@ section.logo-Client {
     background: url("../images/logo-client-bg.png") no-repeat;
     background-position-x: calc(50% - -9px);
     background-position-y: calc(50% - -27px);
-    z-index: 90;
+    /* z-index: 90; */
     position: relative;
 }
 
@@ -648,7 +648,7 @@ section.knowledge-sharing {
     background: url("../images/knowledge-sharing-bg.png") no-repeat;
     background-position-x: calc(50% - -223px);
     background-position-y: calc(50% - 16px);
-    z-index: 91;
+    /* z-index: 91; */
     position: relative;
 }
 
@@ -658,7 +658,11 @@ section.knowledge-sharing {
     text-align: center;
 }
 
+.txt-grey{
+color: #777777;
+}
 
 
 
 /* จบ section knowledge-sharing*/
+

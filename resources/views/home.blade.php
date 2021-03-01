@@ -1,35 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>DiGi Solution</title>
-    <link rel="stylesheet" href="/css/app.css">
-</head>
-
-<body>
-    <section class="header">
-        <header>
-            <div class="container">
-                <nav>
-                    <div class="logo">
-                        <img src="{{ URL::asset('/images/logo_digiso.png') }}" alt="">
-                    </div>
-                    <ul>
-                        <li><a href="#">HOME</a></li>
-                        <li><a href="#">ABOUT US</a></li>
-                        <li><a href="#">SERVICE</a></li>
-                        <li><a href="#">OUR CLIENTS</a></li>
-                        <li><a href="#">ARTICLE</a></li>
-                        <li><a href="#">CONTACT US</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-    </section>
-
+@extends('layout.app')
+@push('css')
+<style>
+</style>
+@endpush('css')
+@section('content')
+<div id="block-content">
     <section class="banner">
         <div class="banner-images">
             <img src="{{ URL::asset('/images/banner.jpg') }}" alt="">
@@ -198,30 +173,32 @@
 
     <section class="logo-Client">
         {{-- <div class="logo-Client-images-1">
-            <img src="{{ URL::asset('/images/logo-Client-img-major1.png') }}" alt="">
-        </div> --}}
-        <div class="logo-Client-images-2">
-            <img src="{{ URL::asset('/images/logo-Client-img-planB.png') }}" alt="">
-        </div>
-        <div class="logo-Client-images-3">
-            <img src="{{ URL::asset('/images/logo-Client-img-3.png') }}" alt="">
-        </div>
-        <div class="logo-Client-images-4">
-            <img src="{{ URL::asset('/images/logo-Client-img-4.png') }}" alt="">
-        </div>
-        <div class="logo-Client-images-5">
-            <img src="{{ URL::asset('/images/logo-Client-img-5.png') }}" alt="">
-        </div>
+                <img src="{{ URL::asset('/images/logo-Client-img-major1.png') }}" alt="">
+</div> --}}
+<div class="logo-Client-images-2">
+    {{-- <img src="{{ URL::asset('/images/logo-Client-img-planB.png') }}" alt=""> --}}
+</div>
+<div class="logo-Client-images-3">
+    {{-- <img src="{{ URL::asset('/images/logo-Client-img-3.png') }}" alt=""> --}}
+</div>
+<div class="logo-Client-images-4">
+    {{-- <img src="{{ URL::asset('/images/logo-Client-img-4.png') }}" alt=""> --}}
+</div>
+<div class="logo-Client-images-5">
+    {{-- <img src="{{ URL::asset('/images/logo-Client-img-5.png') }}" alt=""> --}}
+</div>
 
-    </section>
+</section>
 
-    <section class="knowledge-sharing">
-        <div class="knowledge-sharing-title">
-            <span class="knowledge-st">KNOWLEDGE </span><span class="sharing-st">SHARING</span>
-        </div>
+<section class="knowledge-sharing">
+    <div class="knowledge-sharing-title">
+        <span class="knowledge-st">KNOWLEDGE </span><span class="sharing-st">SHARING</span>
+    </div>
 
-    </section>
-
-</body>
-
-</html>
+</section>
+</div>
+@endsection
+@push('js')
+<script>
+</script>
+@endpush

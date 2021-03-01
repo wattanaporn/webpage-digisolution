@@ -1,6 +1,6 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::get('/', function () {
-    return view('index');
+Route::namespace('App\Http\Controllers')->group(function () {
+Route::get('/', 'HomeController@index')->name('home');
 });
+
+// Route::get('/', function () {
+//     return view('home');
+// });
 
 Route::get('/digi-admin', function () {
     return view('admin.digi-admin');
