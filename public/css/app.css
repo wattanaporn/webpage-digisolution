@@ -97,14 +97,14 @@ section.what-wedo {
 }
 
 .what-wedo-info {
-    margin-top: 216px;
+    padding-top: 216px;
 }
 
-.what-wedo-content{
+.what-wedo-content {
     margin-top: 5px;
 }
 
-.what-wedo-content p{
+.what-wedo-content p {
     width: 632px;
     height: 109px;
     left: 408px;
@@ -115,7 +115,7 @@ section.what-wedo {
     color: #777777;
 }
 
-.what-wedo-title{
+.what-wedo-title {
     text-align: center;
 }
 
@@ -135,28 +135,32 @@ section.what-wedo {
     text-transform: uppercase;
 }
 
-.what-wedo-btn{
+.what-wedo-btn {
     margin-top: 29px;
 }
 
 .what-wedo-btn a {
-    display:inline-block;
+    display: inline-block;
 }
-.readmore{
+.readmore {
     width: 124px;
     height: 40px;
     font-size: 14px;
     text-align: center;
     text-transform: uppercase;
-    color: #FFFFFF;
+    color: #ffffff;
     /* left: 18px;
     top: 10px; */
     /* padding: -0.5rem 1.5rem; */
     line-height: 40px;
     text-decoration: none;
-    background: linear-gradient(114.56deg, #00A5E7 49.84%, rgba(0, 165, 231, 0) 108.73%), #007AE8;
+    background: linear-gradient(
+            114.56deg,
+            #00a5e7 49.84%,
+            rgba(0, 165, 231, 0) 108.73%
+        ),
+        #007ae8;
     border-radius: 30px;
-
 }
 
 .what-wedo-images {
@@ -183,14 +187,13 @@ section.our-service {
     position: relative;
 }
 
-.our-service-title{
-    margin-top: -148px;
+.our-service-title {
+    margin-top: -147px;
     text-align: center;
 }
 
 .our {
     color: #000000;
-    font-style: normal;
     font-weight: 200;
     font-size: 60px;
     line-height: 91px;
@@ -207,46 +210,33 @@ section.our-service {
 }
 
 .our-service-core {
-    margin-top: 115px;
+    padding-top: 115px;
     width: 1109px;
     height: 599px;
     display: flex;
     justify-content: space-between;
-    /* padding: 50px; */
 }
 
-.our-service-info-left{
+.our-service-info-left {
     width: 347px;
     height: 369px;
 }
 
-.our-service-images-left{
-    width: 255px;
-    height: 193px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.our-service-images-left img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.our-service-title-left{
+.our-service-title-left {
+    margin-top: 47px;
     width: 347px;
     height: 48px;
     text-align: center;
 }
 
-.our-serv-tl{
+.our-serv-tl {
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
     color: #000000;
 }
 
-.our-service-content-left{
+.our-service-content-left {
     width: 347px;
     height: 102px;
     left: 406px;
@@ -257,13 +247,418 @@ section.our-service {
     color: #777777;
 }
 
+.our-service-images-left {
+    width: 255px;
+    height: 193px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+.our-service-images-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
+.our-service-info-center {
+    width: 420px;
+    height: 404px;
+    padding: 0px 2.5rem;
+}
 
+.our-service-title-center {
+    width: 347px;
+    height: 24px;
+    left: 786px;
+    top: 1627px;
+    text-align: center;
+}
 
+.our-serv-tl {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+}
 
+.our-service-content-center {
+    margin-top: 27px;
+    width: 347px;
+    height: 74px;
+    left: 786px;
+    top: 1678px;
+}
 
+.our-service-content-center p {
+    font-size: 16px;
+    line-height: 24px;
+    text-align: justify;
+    color: #777777;
+}
 
+.our-service-images-center {
+    margin-top: 67px;
+    width: 255px;
+    height: 193px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+.our-service-images-center img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.our-service-info-right {
+    width: 406px;
+    height: 404px;
+}
+
+.our-service-title-right {
+    margin-top: 50px;
+    width: 348px;
+    height: 48px;
+    left: 1167px;
+    top: 1866px;
+    text-align: center;
+}
+
+.our-serv-tr {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+}
+
+.our-service-content-right {
+    width: 347px;
+    height: 78px;
+    left: 1167px;
+    top: 1917px;
+}
+
+.our-service-content-right p {
+    font-size: 16px;
+    line-height: 24px;
+    text-align: justify;
+    color: #777777;
+}
+
+.our-service-images-right {
+    width: 255px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.our-service-images-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
 /* จบ section our-service */
+
+/* section our-client*/
+section.our-client {
+    margin-top: -27px;
+    width: 100%;
+    height: 1025px;
+    background: url("../images/our-client-bg.png") no-repeat;
+    background-position-x: calc(50% - -9px);
+    background-position-y: calc(50% - 0px);
+    z-index: 96;
+    position: relative;
+}
+
+.our-client-core {
+    padding-top: 67px;
+}
+
+.our-client-header-title {
+    text-align: center;
+}
+
+.our-hct {
+    color: #ffffff;
+    font-weight: 200;
+    font-size: 60px;
+    line-height: 91px;
+    text-transform: uppercase;
+}
+
+.service-hct {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 60px;
+    line-height: 91px;
+    text-transform: uppercase;
+}
+
+.our-client-menu ul {
+    display: flex;
+    list-style: none;
+    width: 1110px;
+    height: 47px;
+    border-bottom: 1px solid white;
+    justify-content: space-between;
+}
+
+.our-client-menu ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.our-client-menu ul li a {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.our-client-product {
+    padding-top: 93px;
+    width: 100%;
+    height: 693px;
+    left: 410px;
+    top: 2407px;
+    grid-gap: 0px 36px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* OUR CLIENT บริษัท แพลน บี มีเดีย จำกัด (มหาชน) */
+.our-client-product-left-top{
+    width: 345px;
+    height: 315px;
+}
+.our-client-images-left-top{
+    width: 350px;
+    height: 204px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.our-client-images-left-top img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.our-client-title-left-top{
+    padding-top: 57px;
+    width: 350px;
+    height: 42px;
+}
+.our-ctlt{
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+/* OUR CLIENT Major Group : Movie Happiness */
+.our-client-product-center-top{
+    width: 345px;
+    height: 315px;
+}
+.our-client-images-center-top{
+    width: 350px;
+    height: 204px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.our-client-images-center-top img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.our-client-title-center-top{
+    padding-top: 57px;
+    width: 350px;
+    height: 42px;
+}
+.our-ctct{
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+/* OUR CLIENT jorakay E-commerce */
+.our-client-product-right-top{
+    width: 345px;
+    height: 315px;
+}
+.our-client-images-right-top{
+    width: 350px;
+    height: 204px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.our-client-images-right-top img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.our-client-title-right-top{
+    padding-top: 57px;
+    width: 350px;
+    height: 42px;
+}
+.our-ctrt{
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+/* OUR CLIENT โรงแรม ศรีพันวา ภูเก็ต */
+.our-client-product-left-down{
+    width: 345px;
+    height: 315px;
+}
+.our-client-images-left-down{
+    margin-top: 37px;
+    width: 350px;
+    height: 204px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.our-client-images-left-down img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.our-client-title-left-down{
+    padding-top: 57px;
+    width: 350px;
+    height: 42px;
+}
+.our-ctld{
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+/* OUR CLIENT GMM Concert */
+.our-client-product-center-down{
+    width: 345px;
+    height: 315px;
+}
+.our-client-images-center-down{
+    margin-top: 37px;
+    width: 350px;
+    height: 204px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.our-client-images-center-down img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.our-client-title-center-down{
+    padding-top: 57px;
+    width: 350px;
+    height: 42px;
+}
+.our-ctcd{
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+/* OUR CLIENT Campaign Teapot */
+.our-client-product-right-down{
+    width: 345px;
+    height: 315px;
+}
+.our-client-images-right-down{
+    margin-top: 37px;
+    width: 350px;
+    height: 204px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.our-client-images-right-down img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.our-client-title-right-down{
+    padding-top: 57px;
+    width: 350px;
+    height: 42px;
+}
+.our-ctrd{
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+/* จบ section our-client*/
+
+
+/* section our-client*/
+
+section.logo-Client {
+    margin-top: -27px;
+    width: 100%;
+    height: 717px;
+    background: url("../images/logo-client-bg.png") no-repeat;
+    background-position-x: calc(50% - -9px);
+    background-position-y: calc(50% - -27px);
+    z-index: 90;
+    position: relative;
+}
+
+/* จบ section logo-Client*/
+
+
+/* section knowledge-sharing*/
+
+section.knowledge-sharing {
+    margin-top: -230px;
+    width: 100%;
+    height: 800px;
+    background: url("../images/knowledge-sharing-bg.png") no-repeat;
+    background-position-x: calc(50% - -223px);
+    background-position-y: calc(50% - 16px);
+    z-index: 91;
+    position: relative;
+}
+
+.knowledge-sharing-title{
+    width: 650px;
+    height: 91px;
+    text-align: center;
+}
+
+
+
+
+/* จบ section knowledge-sharing*/

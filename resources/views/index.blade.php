@@ -64,13 +64,10 @@
 
     <section class="our-service">
         <div class="container">
-
             <div class="our-service-title">
                 <span class="our">OUR </span><span class="service">SERVICE</span>
             </div>
-
             <div class="our-service-core">
-
                 <div class="our-service-info-left">
                     <div class="our-service-images-left">
                         <img src="{{ URL::asset('/images/our-service-img-left.svg') }}" alt="">
@@ -87,40 +84,140 @@
                         </p>
                     </div>
                 </div>
-
                 <div class="our-service-info-center">
                     <div class="our-service-title-center">
-                        <span class="our-serv-tl">บริการออกแบบเว็บไซต์ และระบบเฉพาะตามความต้องการ</span>
+                        <span class="our-serv-tl">บริการทำแอปพลิเคชันทุกแพลตฟอร์ม</span>
                     </div>
                     <div class="our-service-content-center">
                         <p>
                             ตอบโจทย์ทุกความต้องการจากลูกค้าโดยโปรเกมมิ่ง
-                            ผู้เชี่ยวชาญด้านการพัฒนาสื่อดิจิทัลที่ได้รับความ
-                            ไว้วางใจจากบริษัทชั้นนำ
+                            ผู้เชี่ยวชาญด้านการพัฒนาสื่อดิจิทัลที่ได้รับความไว้
+                            วางใจจากบริษัทชั้นนำ
                         </p>
                     </div>
                     <div class="our-service-images-center">
                         <img src="{{ URL::asset('/images/our-service-img-center.svg') }}" alt="">
                     </div>
                 </div>
-
                 <div class="our-service-info-right">
-                    <div class="our-service-title-right">
-                        <span class="our-serv-tl">บริการออกแบบเว็บไซต์ และระบบเฉพาะตามความต้องการ</span>
-                    </div>
-                    <div class="our-service-content-right">
-                        <p>
-                            ตอบโจทย์ทุกความต้องการจากลูกค้าโดยโปรเกมมิ่ง
-                            ผู้เชี่ยวชาญด้านการพัฒนาสื่อดิจิทัลที่ได้รับความ
-                            ไว้วางใจจากบริษัทชั้นนำ
-                        </p>
-                    </div>
                     <div class="our-service-images-right">
                         <img src="{{ URL::asset('/images/our-service-img-right.svg') }}" alt="">
                     </div>
+                    <div class="our-service-title-right">
+                        <span class="our-serv-tr">บริการดูแล Social Marketing และ Digital Media Design</span>
+                    </div>
+                    <div class="our-service-content-right">
+                        <p>
+                            ให้บริการทำ Social Marketing อาทิเช่นFacebook,
+                            Instagram รวมไปถึงทำ Digital Media Design
+                            ทั้ง Online และ Offline ทั้งหมด
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="our-client">
+        <div class="container">
+            <div class="our-client-core">
+
+                <div class="our-client-header-title">
+                    <span class="our-hct">OUR </span><span class="service-hct">CLIENT</span>
                 </div>
 
+                <div class="our-client-menu">
+                    <ul>
+                        <li><a href="#">WEBSITE DESIGN</a></li>
+                        <li><a href="#">APPLICATION DESIGN</a></li>
+                        <li><a href="#">ONLINE MARKETING </a></li>
+                    </ul>
+                </div>
+
+                <div class="our-client-product">
+
+                    <div class="our-client-product-left-top">
+                        <div class="our-client-images-left-top">
+                            <img src="{{ URL::asset('/images/our-client-img-lt.png') }}" alt="">
+                        </div>
+                        <div class="our-client-title-left-top">
+                            <span class="our-ctlt">บริษัท แพลน บี มีเดีย จำกัด (มหาชน)</span>
+                        </div>
+                    </div>
+
+                    <div class="our-client-product-center-top">
+                        <div class="our-client-images-center-top">
+                            <img src="{{ URL::asset('/images/our-client-img-ct.png') }}" alt="">
+                        </div>
+                        <div class="our-client-title-center-top">
+                            <span class="our-ctct">Major Group : Movie Happiness</span>
+                        </div>
+                    </div>
+
+                    <div class="our-client-product-right-top">
+                        <div class="our-client-images-right-top">
+                            <img src="{{ URL::asset('/images/our-client-img-rt.png') }}" alt="">
+                        </div>
+                        <div class="our-client-title-right-top">
+                            <span class="our-ctrt">jorakay E-commerce</span>
+                        </div>
+                    </div>
+
+                    <div class="our-client-product-left-down">
+                        <div class="our-client-images-left-down">
+                            <img src="{{ URL::asset('/images/our-client-img-ld.png') }}" alt="">
+                        </div>
+                        <div class="our-client-title-left-down">
+                            <span class="our-ctld">โรงแรม ศรีพันวา ภูเก็ต</span>
+                        </div>
+                    </div>
+
+                    <div class="our-client-product-center-down">
+                        <div class="our-client-images-center-down">
+                            <img src="{{ URL::asset('/images/our-client-img-cd.png') }}" alt="">
+                        </div>
+                        <div class="our-client-title-center-down">
+                            <span class="our-ctcd">GMM Concert</span>
+                        </div>
+                    </div>
+
+                    <div class="our-client-product-right-down">
+                        <div class="our-client-images-right-down">
+                            <img src="{{ URL::asset('/images/our-client-img-rd.png') }}" alt="">
+                        </div>
+                        <div class="our-client-title-right-down">
+                            <span class="our-ctrd">Campaign Teapot</span>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+        </div>
+    </section>
+
+    <section class="logo-Client">
+        {{-- <div class="logo-Client-images-1">
+            <img src="{{ URL::asset('/images/logo-Client-img-major1.png') }}" alt="">
+        </div> --}}
+        <div class="logo-Client-images-2">
+            <img src="{{ URL::asset('/images/logo-Client-img-planB.png') }}" alt="">
+        </div>
+        <div class="logo-Client-images-3">
+            <img src="{{ URL::asset('/images/logo-Client-img-3.png') }}" alt="">
+        </div>
+        <div class="logo-Client-images-4">
+            <img src="{{ URL::asset('/images/logo-Client-img-4.png') }}" alt="">
+        </div>
+        <div class="logo-Client-images-5">
+            <img src="{{ URL::asset('/images/logo-Client-img-5.png') }}" alt="">
+        </div>
+
+    </section>
+
+    <section class="knowledge-sharing">
+        <div class="knowledge-sharing-title">
+            <span class="knowledge-st">KNOWLEDGE </span><span class="sharing-st">SHARING</span>
         </div>
 
     </section>
