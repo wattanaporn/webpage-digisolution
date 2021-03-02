@@ -8,6 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DiGi Solution</title>
     <link rel="stylesheet" href="/css/app.css">
+    <script src="{{url('assets/js/jquery-3.4.1.min.js')}}"></script>
+    <script src="{{url('assets/js/jquery.ba-throttle-debounce.js')}}"></script>
+    <script src="{{url('assets/framework/bootstrap4/bootstrap.bundle.min.js')}}"></script>
     <link rel="stylesheet" href="{{url('assets/framework/bootstrap4/bootstrap.min.css')}}">
     <style>
         body {

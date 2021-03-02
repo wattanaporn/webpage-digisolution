@@ -11,11 +11,12 @@
 html {
     font-size: 16px;
 }
+
 /* จบทั่วไปทั้งหมด */
 
 /* .container { */
-    /* max-width: 1110px; */
-    /* margin: 0 auto; */
+/* max-width: 1110px; */
+/* margin: 0 auto; */
 /* } */
 
 /* section header เมนู */
@@ -56,11 +57,21 @@ nav ul li a {
     height: 80px;
 }
 
+.logo-footer {
+    width: 80%;
+    height: 80%
+}
+
 .logo img {
     max-width: 100%;
     max-height: 100%;
     object-fit: cover;
 }
+
+.bg-nav-collapse {
+    background: #E5E5E5;
+}
+
 /* จบ section header เมนู */
 
 /* section header banner */
@@ -75,6 +86,7 @@ section.banner .banner-images {
     height: 100%;
     object-fit: cover;
 }
+
 /* จบ section header banner */
 
 /* section what-wedo */
@@ -142,6 +154,7 @@ section.what-wedo {
 .what-wedo-btn a {
     display: inline-block;
 }
+
 .readmore {
     width: 124px;
     height: 40px;
@@ -155,11 +168,11 @@ section.what-wedo {
     line-height: 40px;
     text-decoration: none;
     background: linear-gradient(
-            114.56deg,
-            #00a5e7 49.84%,
-            rgba(0, 165, 231, 0) 108.73%
-        ),
-        #007ae8;
+        114.56deg,
+        #00a5e7 49.84%,
+        rgba(0, 165, 231, 0) 108.73%
+    ),
+    #007ae8;
     border-radius: 30px;
 }
 
@@ -168,12 +181,14 @@ section.what-wedo {
     height: 311px;
     margin-top: 223px;
 }
+
 .what-wedo-images img {
     /* width: 100%; */
     height: 100%;
     margin-left: 65px;
     object-fit: cover;
 }
+
 /* จบ section what-wedo */
 
 /* section our-service */
@@ -438,27 +453,31 @@ section.our-client {
 
 
 /* OUR CLIENT บริษัท แพลน บี มีเดีย จำกัด (มหาชน) */
-.our-client-product-left-top{
+.our-client-product-left-top {
     width: 345px;
     height: 315px;
 }
-.our-client-images-left-top{
+
+.our-client-images-left-top {
     width: 350px;
     height: 204px;
     margin-left: auto;
     margin-right: auto;
 }
-.our-client-images-left-top img{
+
+.our-client-images-left-top img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.our-client-title-left-top{
+
+.our-client-title-left-top {
     padding-top: 57px;
     width: 350px;
     height: 42px;
 }
-.our-ctlt{
+
+.our-ctlt {
     font-weight: 500;
     font-size: 1rem;
     line-height: 24px;
@@ -468,27 +487,31 @@ section.our-client {
 }
 
 /* OUR CLIENT Major Group : Movie Happiness */
-.our-client-product-center-top{
+.our-client-product-center-top {
     width: 345px;
     height: 315px;
 }
-.our-client-images-center-top{
+
+.our-client-images-center-top {
     width: 350px;
     height: 204px;
     margin-left: auto;
     margin-right: auto;
 }
-.our-client-images-center-top img{
+
+.our-client-images-center-top img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.our-client-title-center-top{
+
+.our-client-title-center-top {
     padding-top: 57px;
     width: 350px;
     height: 42px;
 }
-.our-ctct{
+
+.our-ctct {
     font-weight: 500;
     font-size: 1rem;
     line-height: 24px;
@@ -498,27 +521,31 @@ section.our-client {
 }
 
 /* OUR CLIENT jorakay E-commerce */
-.our-client-product-right-top{
+.our-client-product-right-top {
     width: 345px;
     height: 315px;
 }
-.our-client-images-right-top{
+
+.our-client-images-right-top {
     width: 350px;
     height: 204px;
     margin-left: auto;
     margin-right: auto;
 }
-.our-client-images-right-top img{
+
+.our-client-images-right-top img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.our-client-title-right-top{
+
+.our-client-title-right-top {
     padding-top: 57px;
     width: 350px;
     height: 42px;
 }
-.our-ctrt{
+
+.our-ctrt {
     font-weight: 500;
     font-size: 1rem;
     line-height: 24px;
@@ -528,28 +555,32 @@ section.our-client {
 }
 
 /* OUR CLIENT โรงแรม ศรีพันวา ภูเก็ต */
-.our-client-product-left-down{
+.our-client-product-left-down {
     width: 345px;
     height: 315px;
 }
-.our-client-images-left-down{
+
+.our-client-images-left-down {
     margin-top: 37px;
     width: 350px;
     height: 204px;
     margin-left: auto;
     margin-right: auto;
 }
-.our-client-images-left-down img{
+
+.our-client-images-left-down img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.our-client-title-left-down{
+
+.our-client-title-left-down {
     padding-top: 57px;
     width: 350px;
     height: 42px;
 }
-.our-ctld{
+
+.our-ctld {
     font-weight: 500;
     font-size: 1rem;
     line-height: 24px;
@@ -559,28 +590,32 @@ section.our-client {
 }
 
 /* OUR CLIENT GMM Concert */
-.our-client-product-center-down{
+.our-client-product-center-down {
     width: 345px;
     height: 315px;
 }
-.our-client-images-center-down{
+
+.our-client-images-center-down {
     margin-top: 37px;
     width: 350px;
     height: 204px;
     margin-left: auto;
     margin-right: auto;
 }
-.our-client-images-center-down img{
+
+.our-client-images-center-down img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.our-client-title-center-down{
+
+.our-client-title-center-down {
     padding-top: 57px;
     width: 350px;
     height: 42px;
 }
-.our-ctcd{
+
+.our-ctcd {
     font-weight: 500;
     font-size: 1rem;
     line-height: 24px;
@@ -590,28 +625,32 @@ section.our-client {
 }
 
 /* OUR CLIENT Campaign Teapot */
-.our-client-product-right-down{
+.our-client-product-right-down {
     width: 345px;
     height: 315px;
 }
-.our-client-images-right-down{
+
+.our-client-images-right-down {
     margin-top: 37px;
     width: 350px;
     height: 204px;
     margin-left: auto;
     margin-right: auto;
 }
-.our-client-images-right-down img{
+
+.our-client-images-right-down img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.our-client-title-right-down{
+
+.our-client-title-right-down {
     padding-top: 57px;
     width: 350px;
     height: 42px;
 }
-.our-ctrd{
+
+.our-ctrd {
     font-weight: 500;
     font-size: 1rem;
     line-height: 24px;
@@ -652,16 +691,15 @@ section.knowledge-sharing {
     position: relative;
 }
 
-.knowledge-sharing-title{
+.knowledge-sharing-title {
     width: 650px;
     height: 91px;
     text-align: center;
 }
 
-.txt-grey{
-color: #777777;
+.txt-grey {
+    color: #777777;
 }
-
 
 
 /* จบ section knowledge-sharing*/
