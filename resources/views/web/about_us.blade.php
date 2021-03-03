@@ -9,21 +9,19 @@
 @endpush('css')
 @section('content')
     <div>
-        <div class="row">
-            <div class="col-12">
-                <img src="{{ URL::asset('/assets/images/banner.svg') }}" style="width: 100%">
-            </div>
+        <div>
+            <img src="{{ URL::asset('/assets/images/banner.svg') }}" style="width: 100%">
         </div>
-        <div class="row some-class">
-            <div class="col-12">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 text-center pt-5">
-                            <h5>เกี่ยวกับเรา digi solution</h5>
-                        </div>
+        <div class="some-class mt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center pt-5 mt-3">
+                        <span class="head-contain-font font-weight-light mr-3">เกี่ยวกับเรา</span>
+                        <span class="head-contain-font font-weight-bold">DIGI SOLUTION</span>
                     </div>
-                    <div class="row">
-                        <div class="col-12 text-center">
+                </div>
+                <div class="row">
+                    <div class="col-xl-6 col-sm-12 pt-5 mt-5 ml-md-5">
                    <span>
                          เราให้บริการทางด้าน Technology และ Digital Innovation แบบครบวงจรให้แก่ลูกค้า
 อาทิเช่น พัฒนาระบบ System Online, Website, Custom ERP System,
@@ -34,7 +32,6 @@
 ออนไลน์ และบริการเว็บไซต์ครบวงจร เรามุ่งมั่น ค้นคว้า วิจัย เทคโนโลยีใหม่ๆ เพื่อพัฒนาบริการ
 ของเราให้เกิดผลลัพธ์ที่ดีให้กับลูกค้า
                 </span>
-                        </div>
                     </div>
                 </div>
             </div>

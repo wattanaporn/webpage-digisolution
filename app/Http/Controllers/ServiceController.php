@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AboutUsContoller extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class AboutUsContoller extends Controller
      */
     public function index()
     {
-        return view('web.about_us');
+        return view('web.service');
     }
 
     /**

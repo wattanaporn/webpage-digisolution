@@ -15,6 +15,7 @@
 
         #main-content-body {
             padding-top: 122px;
+            background: white;s
             /*padding-bottom: 270px;*/
         }
 
@@ -58,9 +59,9 @@
                 </div>
                 <div class="collapse navbar-collapse bg-white" id="navbarNavAltMarkup">
                     <div class="navbar-nav px-2 pt-2">
-                        <a class="nav-item nav-link mr-2" href="{{route('home')}}">Home</a>
+                        <a class="nav-item nav-link mr-2" href="{{route('web')}}">Home</a>
                         <a class="nav-item nav-link mr-2" href="{{route('about-us')}}">ABOUT</a>
-                        <a class="nav-item nav-link mr-2" href="#">SERVICE</a>
+                        <a class="nav-item nav-link mr-2" href="{{route('service')}}">SERVICE</a>
                         <a class="nav-item nav-link mr-2" href="#">OUR CLIENTS</a>
                         <a class="nav-item nav-link mr-2" href="#">ARTICLE</a>
                         <a class="nav-item nav-link" href="#"> CONTACT US</a>
@@ -107,13 +108,11 @@
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-4 mt-5 text-center">
-                    <iframe name="f25ad4c358f9988" width="1000px" height="1000px"
-                            data-testid="fb:page Facebook Social Plugin" title="fb:page Facebook Social Plugin"
-                            frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no"
-                            allow="encrypted-media"
-                            src="https://web.facebook.com/v10.0/plugins/page.php?adapt_container_width=true&app_id=113869198637480&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df3dfebeec5b486%26domain%3Ddevelopers.facebook.com%26origin%3Dhttps%253A%252F%252Fdevelopers.facebook.com%252Ff3cf0a8a7239dfc%26relation%3Dparent.parent&container_width=735&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2FDigisolutionofficial%2F&locale=th_TH&sdk=joey&show_facepile=true&small_header=false&tabs=timeline"
-                            style="border: none; visibility: visible; width: 340px; height: 130px;"
-                            class=""></iframe>
+                    <iframe
+                        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FDigisolutionofficial%2F&tabs=timeline&width=350&height=130&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1066555983401141"
+                        width="350" height="130" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                        allowfullscreen="true"
+                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                 </div>
             </div>
         </div>

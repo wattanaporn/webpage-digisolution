@@ -15,12 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::namespace('App\Http\Controllers')->group(function () {
-    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/', 'HomeController@index')->name('web');
     Route::get('/about-us', 'AboutUsContoller@index')->name('about-us');
+    Route::get('/service', 'ServiceController@index')->name('service');
 });
 
 // Route::get('/', function () {
-//     return view('home');
+//     return view('web');
 // });
 
 Route::get('/digi-admin', function () {
