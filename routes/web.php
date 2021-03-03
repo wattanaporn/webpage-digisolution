@@ -18,6 +18,7 @@ Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('/', 'HomeController@index')->name('web');
     Route::get('/about-us', 'AboutUsContoller@index')->name('about-us');
     Route::get('/service', 'ServiceController@index')->name('service');
+    Route::get('/contact', 'ContactController@index')->name('contact');
 });
 
 // Route::get('/', function () {

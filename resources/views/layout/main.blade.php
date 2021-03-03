@@ -6,14 +6,19 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-{{--    <meta name="description" content="แพลตฟอร์มที่รวบรวมงานอีเว้นท์ทั้งหมด ไว้ในที่เดียว เพื่อให้ตอบโจทย์ทุกความต้องการของผู้เข้าชมงาน สามารถเข้าถึงได้ง่ายและเปิดประสบการณ์การชมอีเว้นท์ในรูปใหม่">--}}
-{{--    <meta name="keywords" content="livestreaming, wexib, event, exhibitor, show, liveshow, Ecommerce, อีเว้นท์, งานแสดงสินค้า, มหกรรม, นิทรรศการ, streaming, งานอีเว้นท์">--}}
+    {{--    <meta name="description" content="แพลตฟอร์มที่รวบรวมงานอีเว้นท์ทั้งหมด ไว้ในที่เดียว เพื่อให้ตอบโจทย์ทุกความต้องการของผู้เข้าชมงาน สามารถเข้าถึงได้ง่ายและเปิดประสบการณ์การชมอีเว้นท์ในรูปใหม่">--}}
+    {{--    <meta name="keywords" content="livestreaming, wexib, event, exhibitor, show, liveshow, Ecommerce, อีเว้นท์, งานแสดงสินค้า, มหกรรม, นิทรรศการ, streaming, งานอีเว้นท์">--}}
     <title>DiGi Solution</title>
     <link rel="stylesheet" href="/css/app.css">
     <script src="{{url('assets/js/jquery-3.4.1.min.js')}}"></script>
     <script src="{{url('assets/js/jquery.ba-throttle-debounce.js')}}"></script>
     <script src="{{url('assets/framework/bootstrap4/bootstrap.bundle.min.js')}}"></script>
     <link rel="stylesheet" href="{{url('assets/framework/bootstrap4/bootstrap.min.css')}}">
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key={{config('app.google_map_key')}}&callback=initMap&libraries=&v=weekly"
+        defer>
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <style>
         body, html {
             font-family: 'Sarabun', sans-serif;

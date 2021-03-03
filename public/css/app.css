@@ -12,8 +12,13 @@ html {
     font-size: 16px;
 }
 
-.head-contain-font{
+.head-contain-font {
     font-size: 60px;
+}
+
+.form-control {
+    padding: 0 .75rem;
+    line-height: 38px;
 }
 
 /* จบทั่วไปทั้งหมด */

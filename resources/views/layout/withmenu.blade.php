@@ -64,13 +64,13 @@
                         <a class="nav-item nav-link mr-2" href="{{route('service')}}">SERVICE</a>
                         <a class="nav-item nav-link mr-2" href="#">OUR CLIENTS</a>
                         <a class="nav-item nav-link mr-2" href="#">ARTICLE</a>
-                        <a class="nav-item nav-link" href="#"> CONTACT US</a>
+                        <a class="nav-item nav-link" href="{{route('contact')}}"> CONTACT US</a>
                     </div>
                 </div>
             </div>
         </nav>
     </div>
-    <div id="main-content-body">
+    <div id="main-content-body" class="pb-5">
         @yield('content')
     </div>
     <div id="main-content-footer">

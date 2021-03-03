@@ -15,7 +15,7 @@
         <div class="some-class mt-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 text-center pt-5 mt-3">
+                    <div class="col-12 text-center pt-5">
                         <span class="head-contain-font font-weight-light mr-3">เกี่ยวกับเรา</span>
                         <span class="head-contain-font font-weight-bold">DIGI SOLUTION</span>
                     </div>
