@@ -62,7 +62,7 @@
                         <a class="nav-item nav-link mr-2" href="{{route('web')}}">Home</a>
                         <a class="nav-item nav-link mr-2" href="{{route('about-us')}}">ABOUT</a>
                         <a class="nav-item nav-link mr-2" href="{{route('service')}}">SERVICE</a>
-                        <a class="nav-item nav-link mr-2" href="#">OUR CLIENTS</a>
+                        <a class="nav-item nav-link mr-2" href="{{route('our-clients')}}">OUR CLIENTS</a>
                         <a class="nav-item nav-link mr-2" href="#">ARTICLE</a>
                         <a class="nav-item nav-link" href="{{route('contact')}}"> CONTACT US</a>
                     </div>

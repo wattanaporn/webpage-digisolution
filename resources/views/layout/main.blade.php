@@ -14,11 +14,8 @@
     <script src="{{url('assets/js/jquery.ba-throttle-debounce.js')}}"></script>
     <script src="{{url('assets/framework/bootstrap4/bootstrap.bundle.min.js')}}"></script>
     <link rel="stylesheet" href="{{url('assets/framework/bootstrap4/bootstrap.min.css')}}">
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key={{config('app.google_map_key')}}&callback=initMap&libraries=&v=weekly"
-        defer>
-    </script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
     <style>
         body, html {
             font-family: 'Sarabun', sans-serif;

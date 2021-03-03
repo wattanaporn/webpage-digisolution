@@ -32,7 +32,7 @@
 @section('content')
     <div>
         <div>
-            <img src="{{ URL::asset('/assets/images/banner.svg') }}" style="width: 100%">
+            <img src="{{ URL::asset('/assets/images/banner.svg') }}" class="sub-banner">
         </div>
         <div class="container">
             <div class="row">
@@ -79,7 +79,7 @@
                             <span class="txt-grey">info@digisolution.com</span>
                         </div>
                     </div>
-                    <div class="row pt-3">
+                    <div class="row pt-3 pb-3">
                         <div class="col-12">
                             <div id="map"></div>
                         </div>
@@ -123,6 +123,10 @@
     </div>
 @endsection
 @push('js')
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key={{config('app.google_map_key')}}&callback=initMap&libraries=&v=weekly"
+        defer>
+    </script>
     <script>
         function initMap() {
             const myLatLng = {

@@ -10,7 +10,7 @@
 @section('content')
     <div>
         <div>
-            <img src="{{ URL::asset('/assets/images/banner.svg') }}" style="width: 100%">
+            <img src="{{ URL::asset('/assets/images/banner.svg') }}" class="sub-banner">
         </div>
         <div class="some-class mt-5">
             <div class="container">
