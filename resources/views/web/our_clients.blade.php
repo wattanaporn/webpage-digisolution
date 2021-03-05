@@ -60,6 +60,37 @@
             border-radius: 50px;
         }
 
+        .pagination,
+        .jsgrid .jsgrid-pager {
+            display: flex;
+            padding-left: 0;
+            list-style: none;
+            border-radius: 0.25rem
+        }
+
+        .page-link {
+            color: black
+        }
+
+        .pagination.pagination-rounded-flat .page-item {
+            margin: 0 .25rem
+        }
+
+        .pagination-rounded-flat {
+        }
+
+        .pagination-success .page-item.active .page-link {
+            background: #007AE8;
+            border-color: #007AE8;
+            color: white;
+            width: 30px;
+        }
+
+        .pagination.pagination-rounded-flat .page-item .page-link {
+            border: none;
+            border-radius: 50px
+        }
+
     </style>
 @endpush('css')
 @section('content')
