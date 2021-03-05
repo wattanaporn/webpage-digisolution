@@ -6,7 +6,6 @@
             box-shadow: 0px 1px 0px #E3E3E3;
             font-size: 16px;
             color: #3064C6;
-            /*font-weight: bold;*/
             position: fixed;
             width: 100%;
             background: white;
@@ -59,11 +58,11 @@
                 </div>
                 <div class="collapse navbar-collapse bg-white" id="navbarNavAltMarkup">
                     <div class="navbar-nav px-2 pt-2">
-                        <a class="nav-item nav-link mr-2" href="{{route('web')}}">Home</a>
-                        <a class="nav-item nav-link mr-2" href="{{route('about-us')}}">ABOUT</a>
-                        <a class="nav-item nav-link mr-2" href="{{route('service')}}">SERVICE</a>
-                        <a class="nav-item nav-link mr-2" href="{{route('our-clients')}}">OUR CLIENTS</a>
-                        <a class="nav-item nav-link mr-2" href="#">ARTICLE</a>
+                        <a class="nav-item nav-link mr-4" href="{{route('web')}}">Home</a>
+                        <a class="nav-item nav-link mr-4" href="{{route('about-us')}}">ABOUT</a>
+                        <a class="nav-item nav-link mr-4" href="{{route('service')}}">SERVICE</a>
+                        <a class="nav-item nav-link mr-4" href="{{route('our-clients')}}">OUR CLIENTS</a>
+                        <a class="nav-item nav-link mr-4" href="#">ARTICLE</a>
                         <a class="nav-item nav-link" href="{{route('contact')}}"> CONTACT US</a>
                     </div>
                 </div>
