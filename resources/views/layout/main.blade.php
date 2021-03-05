@@ -14,6 +14,7 @@
     <script src="{{url('assets/js/jquery.ba-throttle-debounce.js')}}"></script>
     <script src="{{url('assets/framework/bootstrap4/bootstrap.bundle.min.js')}}"></script>
     <link rel="stylesheet" href="{{url('assets/framework/bootstrap4/bootstrap.min.css')}}">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css'>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
     <style>
