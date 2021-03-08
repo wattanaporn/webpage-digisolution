@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,13 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::get('/', function () {
-    return view('index');
+Route::namespace('App\Http\Controllers')->group(function () {
+    Route::get('/', 'HomeController@index')->name('web');
+    Route::get('/about-us', 'AboutUsContoller@index')->name('about-us');
+    Route::get('/service', 'ServiceController@index')->name('service');
+    Route::get('/our-clients', 'OurClientsController@index')->name('our-clients');
+    Route::get('/contact', 'ContactController@index')->name('contact');
 });
+
+// Route::get('/', function () {
+//     return view('web');
+// });
 
 Route::get('/digi-admin', function () {
     return view('admin.digi-admin');

@@ -73,7 +73,7 @@
                         <img src="{{ URL::asset('/images/our-service-img-left.svg') }}" alt="">
                     </div>
                     <div class="our-service-title-left">
-                        <span class="our-serv-tl">บริการออกแบบเว็บไซต์ และระบบเฉพาะ<br/>ตามความต้องการ</span>
+                        <span class="our-serv-tl">บริการออกแบบเว็บไซต์ และระบบเฉพาะ<br />ตามความต้องการ</span>
                     </div>
                     <div class="our-service-content-left">
                         <p>
