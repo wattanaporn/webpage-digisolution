@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="77974624-1261-4504-9d9d-af474ec1798c" name="Default Changelist" comment="" />
+    <list default="true" id="77974624-1261-4504-9d9d-af474ec1798c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
     <list id="8ec203ed-adda-4df5-a90b-8ff2c686d07b" name="Revert &quot;fix pagination&quot;" comment="Revert &quot;fix pagination&quot;&#10;&#10;This reverts commit 9334efe9" />
     <list id="5a086c18-3e55-4bc1-b54d-56468fd181a2" name="Revert &quot;fix pagination&quot;-2" comment="Revert &quot;fix pagination&quot;&#10;&#10;This reverts commit 9334efe9" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,7 +18,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="feature/admin" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -190,7 +192,7 @@
       <option name="presentableId" value="Default" />
       <updated>1615170701951</updated>
       <workItem from="1615170716815" duration="28000" />
-      <workItem from="1615170750189" duration="13347000" />
+      <workItem from="1615170750189" duration="13442000" />
     </task>
     <task id="LOCAL-00004" summary="fix home ui">
       <created>1615179409804</created>
@@ -220,7 +222,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615188658634</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fix .idea">
+      <created>1615190018005</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1615190018005</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,6 +253,7 @@
     <MESSAGE value="fix menu" />
     <MESSAGE value="fix home ui" />
     <MESSAGE value="fix ui about" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix ui about" />
+    <MESSAGE value="fix .idea" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix .idea" />
   </component>
 </project>
