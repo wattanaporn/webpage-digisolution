@@ -499,6 +499,9 @@
                             <span class="head-contain-font font-weight-light mr-3">KNOWLEDGE</span>
                             <span class="head-contain-font font-weight-bold">SHARING</span>
                         </div>
+                        <div class="col-12 text-center pt-5">
+                            CK
+                        </div>
                     </div>
                 </div>
             </div>
