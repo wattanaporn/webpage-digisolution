@@ -17,10 +17,12 @@
             /* z-index: 100; */
             /*position: relative;*/
         }
-        .pad-top-about{
+
+        .pad-top-about {
             padding-top: 80px;
         }
-        .pad-top-txt-about{
+
+        .pad-top-txt-about {
             padding-top: 50px;
         }
 
