@@ -105,12 +105,12 @@ section.banner .banner-images {
 section.what-wedo {
     width: 100%;
     /* เดิม 816 px */
-    height: 900px;
-    background: url("../images/what-we-do-bg.svg") no-repeat;
+    height: 750px;
+    background: url("../images/what-we-do-bg.svg");
     background-position-x: calc(50% - 38px);
-    background-position-y: calc(50% - 56px);
+    background-position-y: calc(20% - 40px);
     /* z-index: 100; */
-    position: relative;
+    /*position: relative;*/
 }
 
 .what-wedo-core {
@@ -204,9 +204,9 @@ section.what-wedo {
 /* จบ section what-wedo */
 
 /* section our-service */
-section.our-service {
+.our-service {
     width: 100%;
-    height: 717px;
+    min-height: 750px;
     background: url("../images/our-service-bg.jpg") no-repeat;
     background-position-x: calc(50% - -9px);
     background-position-y: calc(50% - 26px);
@@ -388,13 +388,13 @@ section.our-service {
 /* จบ section our-service */
 
 /* section our-client*/
-section.our-client {
-    margin-top: -27px;
+.our-client {
+    margin-top: -42px;
     width: 100%;
-    height: 1025px;
+    height: 100%;
     background: url("../images/our-client-bg.png") no-repeat;
-    background-position-x: calc(50% - -9px);
-    background-position-y: calc(50% - 0px);
+    /*background-position-x: calc(50% - -9px);*/
+    /*background-position-y: calc(50% - 0px);*/
     /* z-index: 96; */
     position: relative;
 }
@@ -677,7 +677,7 @@ section.our-client {
 /* section our-client*/
 
 section.logo-Client {
-    margin-top: -27px;
+    margin-top: -28px;
     width: 100%;
     height: 717px;
     background: url("../images/logo-client-bg.png") no-repeat;
@@ -692,7 +692,7 @@ section.logo-Client {
 
 /* section knowledge-sharing*/
 
-section.knowledge-sharing {
+.knowledge-sharing {
     margin-top: -230px;
     width: 100%;
     height: 800px;

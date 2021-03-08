@@ -1,204 +1,579 @@
 @extends('layout.app')
 @push('css')
-<style>
-</style>
+    <style>
+        .wedo-pad-top {
+            padding-top: 200px;
+        }
+
+        @media only screen and (max-width: 992px) {
+            .div-logo-what-we-do {
+                display: none;
+            }
+        }
+
+        .img-logo-what-we-do {
+            width: 400px;
+            height: 312px;
+        }
+
+        .img-circle {
+            border-radius: 50%;
+            width: 158px;
+            height: 158px;
+            box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-width {
+            width: 30px
+        }
+
+        .img-our {
+            width: 320px;
+            height: 203px;
+        }
+
+        .slick-prev:before {
+            content: "<" !important;
+            color: #C4C4C4 !important;
+            font-size: 40px !important;
+        }
+
+        .slick-next:before {
+            content: ">" !important;
+            color: #C4C4C4 !important;
+            font-size: 40px !important;
+        }
+
+        .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link {
+            border-top: #ffffff;
+            border-left: #ffffff;
+            border-right: #ffffff;
+            padding-top: 10px;
+            /*background: white;*/
+            color: black;
+            /*font-weight: bold;*/
+        }
+
+        .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+            color: #FFFFFF !important;
+            background: transparent;
+            border-color: transparent;
+        }
+
+        .border-active-tab {
+            border-bottom: 8px solid #007AE8;
+            border-radius: 5px;
+            width: 50px;
+            position: absolute;
+            margin-top: -4px;
+        }
+
+        .txt-bold {
+            color: #777777;
+            font-weight: bold;
+        }
+
+        /**, ::after, ::before {*/
+        /*    box-sizing: border-box;*/
+        /*    border-radius: 50px;*/
+        /*}*/
+        .page-link {
+            border-radius: 50px;
+        }
+
+        .pagination,
+        .jsgrid .jsgrid-pager {
+            display: flex;
+            padding-left: 0;
+            list-style: none;
+            border-radius: 0.25rem
+        }
+
+        .page-link {
+            color: black
+        }
+
+        .pagination.pagination-rounded-flat .page-item {
+            margin: 0 .25rem
+        }
+
+        .pagination-rounded-flat {
+        }
+
+        .pagination-success .page-item.active .page-link {
+            background: #007AE8;
+            border-color: #007AE8;
+            color: white;
+            width: 30px;
+        }
+
+        .pagination.pagination-rounded-flat .page-item .page-link {
+            border: none;
+            border-radius: 50px
+        }
+    </style>
 @endpush('css')
 @section('content')
-<div id="block-content">
-    <section class="banner">
-        <div class="banner-images">
-            <img src="{{ URL::asset('/images/banner.jpg') }}" alt="">
-        </div>
-    </section>
-
-    <section class="what-wedo">
-        <div class="container">
-            <div class="what-wedo-core">
-                <div class="what-wedo-info">
-                    <div class="what-wedo-title">
-                        <span class="what">What</span><span class="wedo">we do</span>
-                    </div>
-                    <div class="what-wedo-content">
-                        <p>
-                            ให้บริการทางด้าน Technology และ Digital Innovation แบบครบวงจรให้แก่ลูกค้าอาทิเช่น
-                            พัฒนาระบบ System Online, Website, Custom ERP System, และ Digital
-                            Transformation Solution รวมถึง Digital Media และ Events ทั้ง Online และ Offline
-                            ทุกประเภท เพื่อให้สามารถ ตอบโจทย์ ตามความต้องการของลูกค้าทุกกลุ่มทุกประเภท
-                        </p>
-                    </div>
-                    <div class="what-wedo-btn">
-                        <a href="#" class="readmore">Read More</a>
-                    </div>
-                </div>
-                <div class="what-wedo-images">
-                    <img src="{{ URL::asset('/images/what-wedo-img.png') }}" alt="">
-                </div>
+    <div id="block-content">
+        <section class="banner">
+            <div class="banner-images">
+                <img src="{{ URL::asset('/images/banner.jpg') }}" alt="">
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="our-service">
-        <div class="container">
-            <div class="our-service-title">
-                <span class="our">OUR </span><span class="service">SERVICE</span>
-            </div>
-            <div class="our-service-core">
-                <div class="our-service-info-left">
-                    <div class="our-service-images-left">
-                        <img src="{{ URL::asset('/images/our-service-img-left.svg') }}" alt="">
+        <section class="what-wedo">
+            <div class="container">
+                <div class="row wedo-pad-top">
+                    <div class="col-lg-7 col-md-12">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <span class="head-contain-font font-weight-light mr-3">WHAT</span>
+                                <span class="head-contain-font font-weight-bold">WE DO</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 pt-3">
+                                <p class="txt-grey">
+                                    ให้บริการทางด้าน Technology และ Digital Innovation แบบครบวงจรให้แก่ลูกค้าอาทิเช่น
+                                    พัฒนาระบบ System Online, Website, Custom ERP System, และ Digital
+                                    Transformation Solution รวมถึง Digital Media และ Events ทั้ง Online และ Offline
+                                    ทุกประเภท เพื่อให้สามารถ ตอบโจทย์ ตามความต้องการของลูกค้าทุกกลุ่มทุกประเภท
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="our-service-title-left">
-                        <span class="our-serv-tl">บริการออกแบบเว็บไซต์ และระบบเฉพาะ<br />ตามความต้องการ</span>
-                    </div>
-                    <div class="our-service-content-left">
-                        <p>
-                            ออกแบบและพัฒนาเว็บไซต์ ระบบออนไลน์ โดย ออก
-                            แบบตามรายละเอียดงานที่ลูกค้าต้องการ เพื่อให้ตรง
-                            ตามความต้องการมากที่สุด รวมถึงการดูแลหลังการ
-                            ขายที่ครบครัน
-                        </p>
-                    </div>
-                </div>
-                <div class="our-service-info-center">
-                    <div class="our-service-title-center">
-                        <span class="our-serv-tl">บริการทำแอปพลิเคชันทุกแพลตฟอร์ม</span>
-                    </div>
-                    <div class="our-service-content-center">
-                        <p>
-                            ตอบโจทย์ทุกความต้องการจากลูกค้าโดยโปรเกมมิ่ง
-                            ผู้เชี่ยวชาญด้านการพัฒนาสื่อดิจิทัลที่ได้รับความไว้
-                            วางใจจากบริษัทชั้นนำ
-                        </p>
-                    </div>
-                    <div class="our-service-images-center">
-                        <img src="{{ URL::asset('/images/our-service-img-center.svg') }}" alt="">
-                    </div>
-                </div>
-                <div class="our-service-info-right">
-                    <div class="our-service-images-right">
-                        <img src="{{ URL::asset('/images/our-service-img-right.svg') }}" alt="">
-                    </div>
-                    <div class="our-service-title-right">
-                        <span class="our-serv-tr">บริการดูแล Social Marketing และ Digital Media Design</span>
-                    </div>
-                    <div class="our-service-content-right">
-                        <p>
-                            ให้บริการทำ Social Marketing อาทิเช่นFacebook,
-                            Instagram รวมไปถึงทำ Digital Media Design
-                            ทั้ง Online และ Offline ทั้งหมด
-                        </p>
+                    <div class="col-lg-5 div-logo-what-we-do text-center">
+                        <img src="{{ URL::asset('/assets/images/home/wedo-logo.svg') }}"
+                             class="ml-5 pt-3 img-logo-what-we-do">
                     </div>
                 </div>
             </div>
+        </section>
+
+        <div class="our-service">
+            <div class="container">
+                <div class="row pt-3">
+                    <div class="col-12 text-center">
+                        <span class="head-contain-font font-weight-light mr-3">OUR</span>
+                        <span class="head-contain-font font-weight-bold">SERVICE</span>
+                    </div>
+                    <div class="col-md-12">
+                        CK
+                        {{--                        <div class="our-service-core">--}}
+                        {{--                            <div class="our-service-info-left">--}}
+                        {{--                                <div class="our-service-images-left">--}}
+                        {{--                                    <img src="{{ URL::asset('/images/our-service-img-left.svg') }}" alt="">--}}
+                        {{--                                </div>--}}
+                        {{--                                <div class="our-service-title-left">--}}
+                        {{--                                    <span--}}
+                        {{--                                        class="our-serv-tl">บริการออกแบบเว็บไซต์ และระบบเฉพาะ<br/>ตามความต้องการ</span>--}}
+                        {{--                                </div>--}}
+                        {{--                                <div class="our-service-content-left">--}}
+                        {{--                                    <p>--}}
+                        {{--                                        ออกแบบและพัฒนาเว็บไซต์ ระบบออนไลน์ โดย ออก--}}
+                        {{--                                        แบบตามรายละเอียดงานที่ลูกค้าต้องการ เพื่อให้ตรง--}}
+                        {{--                                        ตามความต้องการมากที่สุด รวมถึงการดูแลหลังการ--}}
+                        {{--                                        ขายที่ครบครัน--}}
+                        {{--                                    </p>--}}
+                        {{--                                </div>--}}
+                        {{--                            </div>--}}
+                        {{--                            <div class="our-service-info-center">--}}
+                        {{--                                <div class="our-service-title-center">--}}
+                        {{--                                    <span class="our-serv-tl">บริการทำแอปพลิเคชันทุกแพลตฟอร์ม</span>--}}
+                        {{--                                </div>--}}
+                        {{--                                <div class="our-service-content-center">--}}
+                        {{--                                    <p>--}}
+                        {{--                                        ตอบโจทย์ทุกความต้องการจากลูกค้าโดยโปรเกมมิ่ง--}}
+                        {{--                                        ผู้เชี่ยวชาญด้านการพัฒนาสื่อดิจิทัลที่ได้รับความไว้--}}
+                        {{--                                        วางใจจากบริษัทชั้นนำ--}}
+                        {{--                                    </p>--}}
+                        {{--                                </div>--}}
+                        {{--                                <div class="our-service-images-center">--}}
+                        {{--                                    <img src="{{ URL::asset('/images/our-service-img-center.svg') }}" alt="">--}}
+                        {{--                                </div>--}}
+                        {{--                            </div>--}}
+                        {{--                            <div class="our-service-info-right">--}}
+                        {{--                                <div class="our-service-images-right">--}}
+                        {{--                                    <img src="{{ URL::asset('/images/our-service-img-right.svg') }}" alt="">--}}
+                        {{--                                </div>--}}
+                        {{--                                <div class="our-service-title-right">--}}
+                        {{--                                    <span--}}
+                        {{--                                        class="our-serv-tr">บริการดูแล Social Marketing และ Digital Media Design</span>--}}
+                        {{--                                </div>--}}
+                        {{--                                <div class="our-service-content-right">--}}
+                        {{--                                    <p>--}}
+                        {{--                                        ให้บริการทำ Social Marketing อาทิเช่นFacebook,--}}
+                        {{--                                        Instagram รวมไปถึงทำ Digital Media Design--}}
+                        {{--                                        ทั้ง Online และ Offline ทั้งหมด--}}
+                        {{--                                    </p>--}}
+                        {{--                                </div>--}}
+                        {{--                            </div>--}}
+                        {{--                        </div>--}}
+                    </div>
+                </div>
+
+
+            </div>
         </div>
-    </section>
 
 
-    <section class="our-client">
-        <div class="container">
-            <div class="our-client-core">
-
-                <div class="our-client-header-title">
-                    <span class="our-hct">OUR </span><span class="service-hct">CLIENT</span>
-                </div>
-
-                <div class="our-client-menu">
-                    <ul>
-                        <li><a href="#">WEBSITE DESIGN</a></li>
-                        <li><a href="#">APPLICATION DESIGN</a></li>
-                        <li><a href="#">ONLINE MARKETING </a></li>
-                    </ul>
-                </div>
-
-                <div class="our-client-product">
-
-                    <div class="our-client-product-left-top">
-                        <div class="our-client-images-left-top">
-                            <img src="{{ URL::asset('/images/our-client-img-lt.png') }}" alt="">
+        <div class="our-client">
+            <div class="container">
+                <div class="our-client-core">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <span class="head-contain-font font-weight-light mr-3 text-white">OUR</span>
+                            <span class="head-contain-font font-weight-bold text-white">CLIENT</span>
                         </div>
-                        <div class="our-client-title-left-top">
-                            <span class="our-ctlt">บริษัท แพลน บี มีเดีย จำกัด (มหาชน)</span>
+                        <div class="mt-5 pt-3">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs nav-justified">
+                                <li class="nav-item" onclick="tab1()">
+
+                                    <a class="nav-link nav-1" data-toggle="tab" href="#Website_Design">
+                                        <span class="txt-bold-nav-1 text-white">Website Design</span></a>
+
+                                    <div class="row">
+                                        <div class="col-12 d-flex justify-content-center">
+                                            <div class="border-active-tab tab1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item" onclick="tab2()">
+                                    <a class="nav-link" data-toggle="tab" href="#Application_Design">
+                                        <span class="txt-bold-nav-2 text-white">Application Design</span></a>
+                                    <div class="row">
+                                        <div class="col-12 d-flex justify-content-center">
+                                            <div class="border-active-tab tab2">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item" onclick="tab3()">
+                                    <a class="nav-link" data-toggle="tab" href="#Online_Marketing">
+                                        <span class="txt-bold-nav-3 text-white">Online Marketing</span></a>
+                                    <div class="row">
+                                        <div class="col-12 d-flex justify-content-center">
+                                            <div class="border-active-tab tab3">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div id="Website_Design" class="tab-pane active">
+                                    <div class="row pt-5 justify-content-sm-center justify-content-xl-start">
+                                        <div class="col-auto">
+                                            <div class="row">
+                                                <div class="col-12 d-flex justify-content-center">
+                                                    <img
+                                                        src="{{ URL::asset('/assets/images/client/our-client-img-cd.png') }}"
+                                                        class="img-our">
+                                                </div>
+                                                <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <span class="font-weight-bold text-white">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto px-0">
+                                            <div class="row">
+                                                <div class="col-12 d-flex justify-content-center">
+                                                    <img
+                                                        src="{{ URL::asset('/assets/images/client/our-client-img-ct.png') }}"
+                                                        class="img-our">
+                                                </div>
+                                                <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <span class="font-weight-bold text-white">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto px-0">
+                                            <div class="row">
+                                                <div class="col-12 d-flex justify-content-center">
+                                                    <img
+                                                        src="{{ URL::asset('/assets/images/client/our-client-img-ld.png') }}"
+                                                        class="img-our">
+                                                </div>
+                                                <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <span class="font-weight-bold text-white">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto px-0">
+                                            <div class="row">
+                                                <div class="col-12 d-flex justify-content-center">
+                                                    <img
+                                                        src="{{ URL::asset('/assets/images/client/our-client-img-lt.png') }}"
+                                                        class="img-our">
+                                                </div>
+                                                <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <span class="font-weight-bold text-white">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="Application_Design" class="container tab-pane fade">
+                                    <div class="row pt-5 justify-content-sm-center justify-content-xl-start">
+                                        <div class="col-auto px-0">
+                                            <div class="row">
+                                                <div class="col-12 d-flex justify-content-center">
+                                                    <img
+                                                        src="{{ URL::asset('/assets/images/client/our-client-img-lt.png') }}"
+                                                        class="img-our">
+                                                </div>
+                                                <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <span class="font-weight-bold text-white">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto px-0">
+                                            <div class="row">
+                                                <div class="col-12 d-flex justify-content-center">
+                                                    <img
+                                                        src="{{ URL::asset('/assets/images/client/our-client-img-rd.png') }}"
+                                                        class="img-our">
+                                                </div>
+                                                <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <span class="font-weight-bold text-white">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto px-0">
+                                            <div class="row">
+                                                <div class="col-12 d-flex justify-content-center">
+                                                    <img
+                                                        src="{{ URL::asset('/assets/images/client/our-client-img-rt.png') }}"
+                                                        class="img-our">
+                                                </div>
+                                                <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <span class="font-weight-bold text-white">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto px-0">
+                                            <div class="row">
+                                                <div class="col-12 d-flex justify-content-center">
+                                                    <img
+                                                        src="{{ URL::asset('/assets/images/client/our-client-img-rt.png') }}"
+                                                        class="img-our">
+                                                </div>
+                                                <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <span class="font-weight-bold text-white">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="Online_Marketing" class="container tab-pane fade">
+                                    <div class="row pt-5 justify-content-sm-center justify-content-xl-start">
+                                        <div class="col-auto px-0">
+                                            <div class="row">
+                                                <div class="col-12 d-flex justify-content-center">
+                                                    <img
+                                                        src="{{ URL::asset('/assets/images/client/our-client-img-cd.png') }}"
+                                                        class="img-our">
+                                                </div>
+                                                <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <span
+                                                        class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto px-0">
+                                            <div class="row">
+                                                <div class="col-12 d-flex justify-content-center">
+                                                    <img
+                                                        src="{{ URL::asset('/assets/images/client/our-client-img-cd.png') }}"
+                                                        class="img-our">
+                                                </div>
+                                                <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <span
+                                                        class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto px-0">
+                                            <div class="row">
+                                                <div class="col-12 d-flex justify-content-center">
+                                                    <img
+                                                        src="{{ URL::asset('/assets/images/client/our-client-img-cd.png') }}"
+                                                        class="img-our">
+                                                </div>
+                                                <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <span
+                                                        class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto px-0">
+                                            <div class="row">
+                                                <div class="col-12 d-flex justify-content-center">
+                                                    <img
+                                                        src="{{ URL::asset('/assets/images/client/our-client-img-cd.png') }}"
+                                                        class="img-our">
+                                                </div>
+                                                <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <span
+                                                        class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12 d-flex justify-content-end">
+                                        <ul class="pagination d-flex justify-content-center flex-wrap pagination-rounded-flat pagination-success">
+                                            <li class="page-item"><a class="page-link" href="#" data-abc="true"><span
+                                                        aria-hidden="true">&laquo;</span>
+                                                    <span class="sr-only">Previous</span></a></li>
+                                            <li class="page-item"><a class="page-link" href="#" data-abc="true"><</a>
+                                            </li>
+                                            <li class="page-item active"><a class="page-link" href="#"
+                                                                            data-abc="true">1</a>
+                                            </li>
+                                            <li class="page-item"><a class="page-link" href="#" data-abc="true">2</a>
+                                            </li>
+                                            <li class="page-item"><a class="page-link" href="#" data-abc="true">3</a>
+                                            </li>
+                                            <li class="page-item"><a class="page-link" href="#" data-abc="true">4</a>
+                                            </li>
+                                            <li class="page-item"><a class="page-link" href="#" data-abc="true">></a>
+                                            </li>
+                                            <li class="page-item"><a class="page-link" href="#" data-abc="true"><span
+                                                        aria-hidden="true">&raquo;</span>
+                                                    <span class="sr-only">Next</span></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
-
-                    <div class="our-client-product-center-top">
-                        <div class="our-client-images-center-top">
-                            <img src="{{ URL::asset('/images/our-client-img-ct.png') }}" alt="">
-                        </div>
-                        <div class="our-client-title-center-top">
-                            <span class="our-ctct">Major Group : Movie Happiness</span>
-                        </div>
-                    </div>
-
-                    <div class="our-client-product-right-top">
-                        <div class="our-client-images-right-top">
-                            <img src="{{ URL::asset('/images/our-client-img-rt.png') }}" alt="">
-                        </div>
-                        <div class="our-client-title-right-top">
-                            <span class="our-ctrt">jorakay E-commerce</span>
-                        </div>
-                    </div>
-
-                    <div class="our-client-product-left-down">
-                        <div class="our-client-images-left-down">
-                            <img src="{{ URL::asset('/images/our-client-img-ld.png') }}" alt="">
-                        </div>
-                        <div class="our-client-title-left-down">
-                            <span class="our-ctld">โรงแรม ศรีพันวา ภูเก็ต</span>
-                        </div>
-                    </div>
-
-                    <div class="our-client-product-center-down">
-                        <div class="our-client-images-center-down">
-                            <img src="{{ URL::asset('/images/our-client-img-cd.png') }}" alt="">
-                        </div>
-                        <div class="our-client-title-center-down">
-                            <span class="our-ctcd">GMM Concert</span>
-                        </div>
-                    </div>
-
-                    <div class="our-client-product-right-down">
-                        <div class="our-client-images-right-down">
-                            <img src="{{ URL::asset('/images/our-client-img-rd.png') }}" alt="">
-                        </div>
-                        <div class="our-client-title-right-down">
-                            <span class="our-ctrd">Campaign Teapot</span>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
-    </section>
+        <section class="logo-Client">
+            <div class="container pt-5">
+                <div class="row autoplay d-flex justify-content-center pt-5 mt-5">
+                    <div class="col-auto px-5 d-flex justify-content-center">
+                        <img src="{{ URL::asset('/assets/images/client/major.svg') }}"
+                             class="img-circle">
+                    </div>
+                    <div class="col-auto px-5  d-flex justify-content-center">
+                        <img src="{{ URL::asset('/assets/images/client/plan-b.svg') }}"
+                             class="img-circle">
+                    </div>
+                    <div class="col-auto px-5  d-flex justify-content-center">
+                        <img src="{{ URL::asset('/assets/images/client/spa.svg') }}"
+                             class="img-circle">
+                    </div>
+                    <div class="col-auto px-5 d-flex justify-content-center">
+                        <img src="{{ URL::asset('/assets/images/client/unii.svg') }}"
+                             class="img-circle">
+                    </div>
+                    <div class="col-auto px-5 d-flex justify-content-center">
+                        <img src="{{ URL::asset('/assets/images/client/sharp.svg') }}"
+                             class="img-circle">
+                    </div>
+                    <div class="col-auto px-5 d-flex justify-content-center">
+                        <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
+                             class="img-circle">
+                    </div>
+                    <div class="col-auto px-5 d-flex justify-content-center">
+                        <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
+                             class="img-circle">
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section class="logo-Client">
-        {{-- <div class="logo-Client-images-1">
-                <img src="{{ URL::asset('/images/logo-Client-img-major1.png') }}" alt="">
-</div> --}}
-<div class="logo-Client-images-2">
-    {{-- <img src="{{ URL::asset('/images/logo-Client-img-planB.png') }}" alt=""> --}}
-</div>
-<div class="logo-Client-images-3">
-    {{-- <img src="{{ URL::asset('/images/logo-Client-img-3.png') }}" alt=""> --}}
-</div>
-<div class="logo-Client-images-4">
-    {{-- <img src="{{ URL::asset('/images/logo-Client-img-4.png') }}" alt=""> --}}
-</div>
-<div class="logo-Client-images-5">
-    {{-- <img src="{{ URL::asset('/images/logo-Client-img-5.png') }}" alt=""> --}}
-</div>
-
-</section>
-
-<section class="knowledge-sharing">
-    <div class="knowledge-sharing-title">
-        <span class="knowledge-st">KNOWLEDGE </span><span class="sharing-st">SHARING</span>
+        <div class="knowledge-sharing">
+            <div class="container">
+                <div class="our-client-core">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <span class="head-contain-font font-weight-light mr-3">KNOWLEDGE</span>
+                            <span class="head-contain-font font-weight-bold">SHARING</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-</section>
-</div>
 @endsection
 @push('js')
-<script>
-</script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            auto();
+            tab1();
+        });
+
+        function auto() {
+            $('.autoplay').slick({
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                draggable: true,
+                autoplay: false,
+                autoplaySpeed: 2000,
+                responsive: [{
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        infinite: true
+                    }
+
+                }, {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        dots: true
+                    }
+                },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 1,
+                            dots: true
+                        }
+
+                    }]
+            });
+        }
+
+        function tab1() {
+            $('.tab1').show();
+            $('.tab2').hide();
+            $('.tab3').hide();
+            $('.txt-bold-nav-1').addClass('txt-bold');
+            $('.txt-bold-nav-2').removeClass('txt-bold');
+            $('.txt-bold-nav-3').removeClass('txt-bold');
+        }
+
+        function tab2() {
+            $('.tab1').hide();
+            $('.tab2').show();
+            $('.tab3').hide();
+            $('.txt-bold-nav-1').removeClass('txt-bold');
+            $('.txt-bold-nav-2').addClass('txt-bold');
+            $('.txt-bold-nav-3').removeClass('txt-bold');
+
+        }
+
+        function tab3() {
+            $('.tab1').hide();
+            $('.tab2').hide();
+            $('.tab3').show();
+            $('.txt-bold-nav-1').removeClass('txt-bold');
+            $('.txt-bold-nav-2').removeClass('txt-bold');
+            $('.txt-bold-nav-3').addClass('txt-bold');
+        }
+    </script>
 @endpush

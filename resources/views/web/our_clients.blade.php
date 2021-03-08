@@ -19,13 +19,13 @@
 
         .slick-prev:before {
             content: "<" !important;
-            color: red !important;
+            color: #C4C4C4 !important;
             font-size: 40px !important;
         }
 
         .slick-next:before {
             content: ">" !important;
-            color: red !important;
+            color: #C4C4C4 !important;
             font-size: 40px !important;
         }
 

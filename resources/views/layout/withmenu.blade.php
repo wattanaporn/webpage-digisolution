@@ -69,7 +69,7 @@
             </div>
         </nav>
     </div>
-    <div id="main-content-body" class="pb-5">
+    <div id="main-content-body">
         @yield('content')
     </div>
     <div id="main-content-footer">
