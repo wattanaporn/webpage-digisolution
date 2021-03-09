@@ -45,6 +45,13 @@
             z-index: 10;
             border-top: 1px solid #E5E5E5;
         }
+        nav {
+            height: 20px;
+            /* border: 1px solid red; */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
     </style>
 @endpush
 @section('content')
@@ -188,8 +195,8 @@
 {{--                        </a>--}}
 {{--                    </li>--}}
                     <li>
-                        <a href="Blank.Page.html">
-                            <i class="iconsminds-bucket"></i> Blank Page
+                        <a href="{{route('admin.about.index')}}">
+                            <i class="iconsminds-bucket"></i> about
                         </a>
                     </li>
                     <li>
@@ -683,21 +690,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <h1>Blank Page</h1>
-                    <nav class="breadcrumb-container d-none d-sm-block d-lg-inline-block" aria-label="breadcrumb">
-                        <ol class="breadcrumb pt-0">
-                            <li class="breadcrumb-item">
-                                <a href="#">Home</a>
-                            </li>
-                            <li class="breadcrumb-item">
-                                <a href="#">Library</a>
-                            </li>
-                            <li class="breadcrumb-item active" aria-current="page">Data</li>
-                        </ol>
-                    </nav>
-                    <div class="separator mb-5">
-                        @yield('content')
-                    </div>
+                    @yield('content')
                 </div>
             </div>
         </div>

@@ -25,10 +25,12 @@ Route::namespace('App\Http\Controllers')->group(function () {
 
 Route::group([
     'prefix' => 'admin',
-    'as' => 'admin'
+    'as' => 'admin.'
 ], function () {
     Route::namespace('App\Http\Controllers\Admin')->group(function () {
         Route::resource('home', 'HomeAdminController');
+        Route::get('/image/about/{path}', 'AboutController@ImageBanner');
+        Route::resource('about', 'AboutController');
     });
 });
 
