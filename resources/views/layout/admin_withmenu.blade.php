@@ -201,6 +201,11 @@
                     </li>
                     <li>
                         <a href="Blank.Page.html">
+                            <i class="iconsminds-pantone"></i> service
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Blank.Page.html">
                             <i class="iconsminds-bucket"></i> Blank Page
                         </a>
                     </li>
