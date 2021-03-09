@@ -20,11 +20,23 @@ Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('/service', 'ServiceController@index')->name('service');
     Route::get('/our-clients', 'OurClientsController@index')->name('our-clients');
     Route::get('/contact', 'ContactController@index')->name('contact');
+
 });
 
-// Route::get('/', function () {
-//     return view('web');
-// });
+Route::group([
+    'prefix' => 'admin',
+    'as' => 'admin'
+], function () {
+    Route::namespace('App\Http\Controllers\Admin')->group(function () {
+        Route::resource('home', 'HomeAdminController');
+    });
+});
+
+//Route::name('admin.')->group(function () {
+//    Route::namespace('App\Http\Controllers\Admin')->group(function () {
+//        Route::get('home', 'HomeAdminController@index')->name('admin.home');
+//    });
+//});
 
 Route::get('/digi-admin', function () {
     return view('admin.digi-admin');
