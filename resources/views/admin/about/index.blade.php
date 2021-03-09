@@ -38,28 +38,28 @@
                 <label for="" class="col-sm-2 col-form-label text-right">title</label>
                 <div class="col-sm-10">
                     <input type="text" name="title" class="form-control" placeholder="title"
-                           value="{{ old('phone',$about->title ?:'') }}">
+                           value="{{ $about->title ?:'' }}">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="" class="col-sm-2 col-form-label text-right">description</label>
                 <div class="col-sm-10">
                     <input type="text" name="description" class="form-control" placeholder="description"
-                           value="{{ old('phone',$about->description ?:'') }}">
+                           value="{{$about->description ?:''}}">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="" class="col-sm-2 col-form-label text-right">keyword</label>
                 <div class="col-sm-10">
                     <input type="text" name="keyword" class="form-control" placeholder="keyword"
-                           value="{{ old('phone',$about->keyword ?:'') }}">
+                           value="{{$about->keyword ?:'' }}">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="" class="col-sm-2 col-form-label text-right">head</label>
                 <div class="col-sm-10">
-                    <input type="text" name="head" class="form-control" placeholder="เกี่ยวกับเรา"
-                           value="{{ old('phone',$about->head ?:'') }}">
+                    <input type="text" name="head" class="form-control" placeholder="head"
+                           value="{{$about->head ?:'' }}">
                 </div>
             </div>
             <div class="form-group row">
