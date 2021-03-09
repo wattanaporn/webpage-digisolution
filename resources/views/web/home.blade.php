@@ -98,6 +98,7 @@
         }
 
         .pagination-rounded-flat {
+            margin: 0 .25rem
         }
 
         .pagination-success .page-item.active .page-link {
