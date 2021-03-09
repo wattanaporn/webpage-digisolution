@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use Illuminate\Http\Request;
 
 class AboutUsContoller extends Controller
@@ -13,7 +14,12 @@ class AboutUsContoller extends Controller
      */
     public function index()
     {
-        return view('web.about_us');
+        $about = About::select('id', 'title', 'description', 'keyword', 'head', 'content', 'path_img_banner')
+            ->first();
+        if (!$about) {
+            $about = new About();
+        }
+        return view('web.about_us', compact('about'));
     }
 
     /**
@@ -29,7 +35,7 @@ class AboutUsContoller extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -40,7 +46,7 @@ class AboutUsContoller extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -51,7 +57,7 @@ class AboutUsContoller extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -62,8 +68,8 @@ class AboutUsContoller extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -74,11 +80,16 @@ class AboutUsContoller extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
+    }
+
+    public function ImageBanner($path)
+    {
+        return response()->download(storage_path('app/about/' . $path));
     }
 }

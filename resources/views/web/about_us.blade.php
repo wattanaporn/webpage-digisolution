@@ -36,33 +36,41 @@
 @section('content')
     <div>
         <div class="pb-5">
-            <img src="{{ URL::asset('/assets/images/banner.svg') }}" class="sub-banner">
+            <img src="{{URL::asset('/assets/images/banner.svg')}}"
+                 style="display: {{isset($about->path_img_banner)?'none':'block'}}"
+                 class="sub-banner">
+            <img src="{{url('/admin/image/about/'.$about->path_img_banner)}}"
+                 style="display: {{isset($about->path_img_banner)?'inline-block':'none'}}"
+                 class="sub-banner">
         </div>
         <div class="some-class">
             <div class="container">
                 <div class="row pad-top-txt-about">
                     <div class="col-12 text-center">
                         <span class="head-contain-font font-weight-light mr-3">เกี่ยวกับเรา</span>
-                        <span class="head-contain-font font-weight-bold">DIGI SOLUTION</span>
+                        <span
+                            class="head-contain-font font-weight-bold"> {{$about->head?$about->head:'DIGI SOLUTION'}}</span>
                     </div>
                 </div>
                 <div class="row pad-top-about">
                     <div class="col-lg-7 col-md-12">
                         <div class="row">
                             <div class="col-12 pt-3">
-                                <p class="txt-grey">
-                                    เราให้บริการทางด้าน Technology และ Digital Innovation แบบครบวงจรให้แก่ลูกค้า
-                                    อาทิเช่น พัฒนาระบบ System Online, Website, Custom ERP System,
-                                    และ Digital Transformation Solution รวมถึง Digital Media และ Events ทั้ง Online และ
-                                    Offline
-                                    ทุกประเภท เพื่อให้สามารถ ตอบโจทย์
-                                    ตามความต้องการของลูกค้าทุกกลุ่มทุกประเภท
+                                @if($about->content)
+                                    {!! $about->content !!}
+                                @else
+                                    <p class="txt-grey"> เราให้บริการทางด้าน Technology และ Digital Innovation
+                                        แบบครบวงจรให้แก่ลูกค้า
+                                        อาทิเช่น พัฒนาระบบ System Online, Website, Custom ERP System,
+                                        และ Digital Transformation Solution รวมถึง Digital Media และ Events ทั้ง Online
+                                        และ Offline ทุกประเภท เพื่อให้สามารถ ตอบโจทย์
+                                        ตามความต้องการของลูกค้าทุกกลุ่มทุกประเภท
 
-                                    พวกเราเป็นของคนรุ่นใหม่ที่ มุ่งเน้นการพัฒนาระบบซอฟท์แวร์ การออกแบบความรู้การตลาด
-                                    ออนไลน์ และบริการเว็บไซต์ครบวงจร เรามุ่งมั่น ค้นคว้า วิจัย เทคโนโลยีใหม่ๆ
-                                    เพื่อพัฒนาบริการ
-                                    ของเราให้เกิดผลลัพธ์ที่ดีให้กับลูกค้า
-                                </p>
+                                        พวกเราเป็นของคนรุ่นใหม่ที่ มุ่งเน้นการพัฒนาระบบซอฟท์แวร์ การออกแบบความรู้การตลาด
+                                        ออนไลน์ และบริการเว็บไซต์ครบวงจร เรามุ่งมั่น ค้นคว้า วิจัย เทคโนโลยีใหม่ๆ
+                                        เพื่อพัฒนาบริการ
+                                        ของเราให้เกิดผลลัพธ์ที่ดีให้กับลูกค้า</p>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -77,5 +85,8 @@
 @endsection
 @push('js')
     <script>
+        document.title = '{{$about->title}}'
+        document.getElementsByTagName('meta')["keywords"].content = '{{$about->keyword}}';
+        document.getElementsByTagName('meta')["description"].content = '{{$about->description}}';
     </script>
 @endpush

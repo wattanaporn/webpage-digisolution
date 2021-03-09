@@ -80,7 +80,7 @@ class AboutController extends Controller
     {
         if ($request->file('image')) {
             $imageName = time() . '.' . request()->image->getClientOriginalExtension();
-            request()->image->move(storage_path('app/admin/about/'), $imageName);
+            request()->image->move(storage_path('app/about/'), $imageName);
             $path = $imageName;
         }
 
@@ -114,6 +114,6 @@ class AboutController extends Controller
 
     public function ImageBanner($path)
     {
-        return response()->download(storage_path('app/admin/about/' . $path));
+        return response()->download(storage_path('app/about/' . $path));
     }
 }

@@ -105,7 +105,6 @@
 @endsection
 @push('js')
     <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-    {{--    <script type="text/javascript" src="{{asset('admin/js/ckeditor.js')}}"></script>--}}
     <script>
         $(document).ready(function () {
             task_editor();
