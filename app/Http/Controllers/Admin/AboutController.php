@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\About;
+use App\Models\Content;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -15,10 +16,11 @@ class AboutController extends Controller
      */
     public function index()
     {
-        $about = About::select('id', 'title', 'description', 'keyword', 'head', 'content', 'path_img_banner')
+        $about = Content::select('id', 'meta_title', 'meta_description', 'meta_keyword', 'title', 'content', 'path_img_banner')
+            ->where('page_type','about-us-main')
             ->first();
         if (!$about) {
-            $about = new About();
+            $about = new Content();
         }
         return view('admin.about.index', compact('about'));
     }
@@ -63,9 +65,6 @@ class AboutController extends Controller
      */
     public function edit()
     {
-//        $about = About::select('title', 'description', 'keyword', 'head', 'content', 'path_img_banner')
-//            ->get();
-//        return view('admin.about.index', compact('about'));
 
     }
 
@@ -78,24 +77,23 @@ class AboutController extends Controller
      */
     public function update(Request $request)
     {
+        $id = $request->get('id');
+        if ($id) {
+            $about = Content::find($id);
+        } else {
+            $about = new Content();
+        }
+        $about->meta_title = $request->get('meta_title');
+        $about->meta_description = $request->get('meta_description');
+        $about->meta_keyword = $request->get('meta_keyword');
+        $about->title = $request->get('title');
+        $about->content = $request->get('content');
         if ($request->file('image')) {
             $imageName = time() . '.' . request()->image->getClientOriginalExtension();
             request()->image->move(storage_path('app/about/'), $imageName);
-            $path = $imageName;
+            $about->path_img_banner = $imageName;
         }
-
-        $id = $request->get('id');
-        if ($id) {
-            $about = About::find($id);
-        } else {
-            $about = new About();
-        }
-        $about->title = $request->get('title');
-        $about->description = $request->get('description');
-        $about->keyword = $request->get('keyword');
-        $about->head = $request->get('head');
-        $about->content = $request->get('content');
-        $about->path_img_banner = $path;
+        $about->page_type = 'about-us-main';
         $about->save();
 
         return back()->with('success', true);

@@ -39,17 +39,20 @@
             <img src="{{URL::asset('/assets/images/banner.svg')}}"
                  style="display: {{isset($about->path_img_banner)?'none':'block'}}"
                  class="sub-banner">
-            <img src="{{url('/admin/image/about/'.$about->path_img_banner)}}"
+            <img src="{{url('/about/image/'.$about->path_img_banner)}}"
                  style="display: {{isset($about->path_img_banner)?'inline-block':'none'}}"
                  class="sub-banner">
         </div>
         <div class="some-class">
             <div class="container">
                 <div class="row pad-top-txt-about">
-                    <div class="col-12 text-center">
-                        <span class="head-contain-font font-weight-light mr-3">เกี่ยวกับเรา</span>
-                        <span
-                            class="head-contain-font font-weight-bold"> {{$about->head?$about->head:'DIGI SOLUTION'}}</span>
+                    <div class="col-12 text-center head-title">
+                        @if($about->title)
+                            {!! $about->title !!}
+                        @else
+                            <span class="head-contain-font font-weight-light mr-3">เกี่ยวกับเรา</span>
+                            <span class="head-contain-font font-weight-bold">DIGI SOLUTION</span>
+                        @endif
                     </div>
                 </div>
                 <div class="row pad-top-about">
@@ -85,8 +88,8 @@
 @endsection
 @push('js')
     <script>
-        document.title = '{{$about->title}}'
-        document.getElementsByTagName('meta')["keywords"].content = '{{$about->keyword}}';
-        document.getElementsByTagName('meta')["description"].content = '{{$about->description}}';
+        document.title = '{{$about->meta_title}}'
+        document.getElementsByTagName('meta')["keywords"].content = '{{$about->meta_keyword}}';
+        document.getElementsByTagName('meta')["description"].content = '{{$about->meta_description}}';
     </script>
 @endpush

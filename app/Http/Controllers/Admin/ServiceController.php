@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Content;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
-class AboutUsContoller extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,13 +17,14 @@ class AboutUsContoller extends Controller
      */
     public function index()
     {
-        $about = Content::select('id', 'meta_title', 'meta_description', 'meta_keyword', 'title', 'content', 'path_img_banner')
-            ->where('page_type','about-us-main')
+        $service = Content::select('id', 'meta_title', 'meta_description', 'meta_keyword', 'title', 'content', 'path_img_banner')
+            ->where('page_type','service-main')
             ->first();
-        if (!$about) {
-            $about = new Content();
+        if (!$service) {
+            $service = new Content();
         }
-        return view('web.about_us', compact('about'));
+        return view('admin.service.service_index', compact('service'));
+
     }
 
     /**
@@ -42,7 +45,7 @@ class AboutUsContoller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $this->update($request, null);
     }
 
     /**
@@ -76,7 +79,27 @@ class AboutUsContoller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $id = $request->get('id');
+        if ($id) {
+            $service = Content::find($id);
+        } else {
+            $service = new Content();
+        }
+        $service->meta_title = $request->get('meta_title');
+        $service->meta_description = $request->get('meta_description');
+        $service->meta_keyword = $request->get('meta_keyword');
+        $service->title = $request->get('title');
+        $service->content = $request->get('content');
+        if ($request->file('image')) {
+            $imageName = time() . '.' . request()->image->getClientOriginalExtension();
+            request()->image->move(storage_path('app/service/'), $imageName);
+            $service->path_img_banner = $imageName;
+        }
+        $service->page_type = 'service-main';
+        $service->save();
+
+        return back()->with('success', true);
     }
 
     /**
@@ -92,6 +115,6 @@ class AboutUsContoller extends Controller
 
     public function ImageBanner($path)
     {
-        return response()->download(storage_path('app/about/' . $path));
+        return response()->download(storage_path('app/service/' . $path));
     }
 }

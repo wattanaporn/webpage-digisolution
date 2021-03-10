@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Content;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -13,7 +14,13 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        return view('web.service');
+        $service = Content::select('id', 'meta_title', 'meta_description', 'meta_keyword', 'title', 'content', 'path_img_banner')
+            ->where('page_type','service-main')
+            ->first();
+        if (!$service) {
+            $service = new Content();
+        }
+        return view('web.service', compact('service'));
     }
 
     /**
@@ -80,5 +87,10 @@ class ServiceController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function ImageBanner($path)
+    {
+        return response()->download(storage_path('app/service/' . $path));
     }
 }

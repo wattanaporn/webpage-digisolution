@@ -16,9 +16,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('/', 'HomeController@index')->name('web');
-    Route::get('/image/about/{path}', 'AboutUsContoller@ImageBanner');
+
+    Route::get('/about/image/{path}', 'AboutUsContoller@ImageBanner');
     Route::get('/about-us', 'AboutUsContoller@index')->name('about-us');
+
+    Route::get('/service/image/{path}', 'ServiceController@ImageBanner');
     Route::get('/service', 'ServiceController@index')->name('service');
+
     Route::get('/our-clients', 'OurClientsController@index')->name('our-clients');
     Route::get('/contact', 'ContactController@index')->name('contact');
 
@@ -30,8 +34,11 @@ Route::group([
 ], function () {
     Route::namespace('App\Http\Controllers\Admin')->group(function () {
         Route::resource('home', 'HomeAdminController');
-        Route::get('/image/about/{path}', 'AboutController@ImageBanner');
+        Route::get('/about/image/{path}', 'AboutController@ImageBanner');
         Route::resource('about', 'AboutController');
+        Route::get('/service/image/{path}', 'ServiceController@ImageBanner');
+        Route::resource('service', 'ServiceController');
+        Route::resource('service-content', 'ServiceContentController');
     });
 });
 

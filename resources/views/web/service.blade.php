@@ -10,9 +10,11 @@
             box-sizing: border-box;
             box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
         }
+
         .text-width {
             width: 50px
         }
+
         .img-circle {
             border-radius: 50%;
             width: 240px;
@@ -22,14 +24,23 @@
 @endpush('css')
 @section('content')
     <div>
-        <div>
-            <img src="{{ URL::asset('/assets/images/banner.svg') }}" class="sub-banner">
+        <div class="pb-5">
+            <img src="{{URL::asset('/assets/images/banner.svg')}}"
+                 style="display: {{isset($service->path_img_banner)?'none':'block'}}"
+                 class="sub-banner">
+            <img src="{{url('/service/image/'.$service->path_img_banner)}}"
+                 style="display: {{isset($service->path_img_banner)?'inline-block':'none'}}"
+                 class="sub-banner">
         </div>
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center pt-5">
-                    <span class="head-contain-font font-weight-light mr-3">บริการของเรา</span>
-                    <span class="head-contain-font font-weight-bold">DIGI SOLUTION</span>
+                    @if($service->title)
+                        {!! $service->title !!}
+                    @else
+                        <span class="head-contain-font font-weight-light mr-3">บริการของเรา</span>
+                        <span class="head-contain-font font-weight-bold">DIGI SOLUTION</span>
+                    @endif
                 </div>
             </div>
             <div class="row d-flex justify-content-center pt-5">

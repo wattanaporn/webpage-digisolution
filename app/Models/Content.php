@@ -2,21 +2,23 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class About extends Model
+class Content extends Model
 {
     use SoftDeletes;
     protected $softDelete = true;
-    protected $table = 'abouts';
+    protected $table = 'contents';
     protected $primaryKey = 'id';
     protected $fillable = [
+        'meta_title',
+        'meta_description',
+        'meta_keyword',
         'title',
-        'description',
-        'keyword',
-        'head',
         'content',
+        'page_type',
         'path_img_banner',
     ];
 }

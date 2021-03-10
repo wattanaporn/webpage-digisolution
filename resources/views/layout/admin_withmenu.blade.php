@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/vendor/component-custom-switch.min.css"/>
     <link rel="stylesheet" href="css/vendor/perfect-scrollbar.css"/>
     <link rel="stylesheet" href="css/main.css"/>
+    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
     <style>
         #main-content-title {
             height: 120px;
@@ -45,6 +46,7 @@
             z-index: 10;
             border-top: 1px solid #E5E5E5;
         }
+
         nav {
             height: 20px;
             /* border: 1px solid red; */
@@ -55,9 +57,9 @@
     </style>
 @endpush
 @section('content')
-{{--    <div id="main-content-body">--}}
-{{--        @yield('content')--}}
-{{--    </div>--}}
+    {{--    <div id="main-content-body">--}}
+    {{--        @yield('content')--}}
+    {{--    </div>--}}
 
 
     <body id="app-container" class="menu-default show-spinner">
@@ -65,22 +67,22 @@
         <div class="d-flex align-items-center navbar-left">
             <a href="#" class="menu-button d-none d-md-block">
                 <svg class="main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 17">
-                    <rect x="0.48" y="0.5" width="7" height="1" />
-                    <rect x="0.48" y="7.5" width="7" height="1" />
-                    <rect x="0.48" y="15.5" width="7" height="1" />
+                    <rect x="0.48" y="0.5" width="7" height="1"/>
+                    <rect x="0.48" y="7.5" width="7" height="1"/>
+                    <rect x="0.48" y="15.5" width="7" height="1"/>
                 </svg>
                 <svg class="sub" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 17">
-                    <rect x="1.56" y="0.5" width="16" height="1" />
-                    <rect x="1.56" y="7.5" width="16" height="1" />
-                    <rect x="1.56" y="15.5" width="16" height="1" />
+                    <rect x="1.56" y="0.5" width="16" height="1"/>
+                    <rect x="1.56" y="7.5" width="16" height="1"/>
+                    <rect x="1.56" y="15.5" width="16" height="1"/>
                 </svg>
             </a>
 
             <a href="#" class="menu-button-mobile d-xs-block d-sm-block d-md-none">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 17">
-                    <rect x="0.5" y="0.5" width="25" height="1" />
-                    <rect x="0.5" y="7.5" width="25" height="1" />
-                    <rect x="0.5" y="15.5" width="25" height="1" />
+                    <rect x="0.5" y="0.5" width="25" height="1"/>
+                    <rect x="0.5" y="7.5" width="25" height="1"/>
+                    <rect x="0.5" y="15.5" width="25" height="1"/>
                 </svg>
             </a>
         </div>
@@ -149,7 +151,7 @@
                         aria-expanded="false">
                     <span class="name">Sarah Kortney</span>
                     <span>
-                        <img alt="Profile Picture" src="img/profiles/l-1.jpg" />
+                        <img alt="Profile Picture" src="img/profiles/l-1.jpg"/>
                     </span>
                 </button>
 
@@ -174,41 +176,42 @@
                             <span>Dashboards</span>
                         </a>
                     </li>
-{{--                    <li>--}}
-{{--                        <a href="#layouts">--}}
-{{--                            <i class="iconsminds-digital-drawing"></i> Pages--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                    <li>--}}
-{{--                        <a href="#applications">--}}
-{{--                            <i class="iconsminds-air-balloon-1"></i> Applications--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                    <li>--}}
-{{--                        <a href="#ui">--}}
-{{--                            <i class="iconsminds-pantone"></i> UI--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                    <li>--}}
-{{--                        <a href="#menu">--}}
-{{--                            <i class="iconsminds-three-arrow-fork"></i> Menu--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
+                    {{--                    <li>--}}
+                    {{--                        <a href="#layouts">--}}
+                    {{--                            <i class="iconsminds-digital-drawing"></i> Pages--}}
+                    {{--                        </a>--}}
+                    {{--                    </li>--}}
+                    {{--                    <li>--}}
+                    {{--                        <a href="#applications">--}}
+                    {{--                            <i class="iconsminds-air-balloon-1"></i> Applications--}}
+                    {{--                        </a>--}}
+                    {{--                    </li>--}}
+                    {{--                    <li>--}}
+                    {{--                        <a href="#ui">--}}
+                    {{--                            <i class="iconsminds-pantone"></i> UI--}}
+                    {{--                        </a>--}}
+                    {{--                    </li>--}}
+                    {{--                    <li>--}}
+                    {{--                        <a href="#menu">--}}
+                    {{--                            <i class="iconsminds-three-arrow-fork"></i> Menu--}}
+                    {{--                        </a>--}}
+                    {{--                    </li>--}}
                     <li>
-                        <a href="{{route('admin.about.index')}}">
-                            <i class="iconsminds-bucket"></i> about
+                        <a href="#main_menu">
+                            <i class="iconsminds-three-arrow-fork"></i>
+                            <span>Main Page</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="Blank.Page.html">
-                            <i class="iconsminds-pantone"></i> service
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Blank.Page.html">
-                            <i class="iconsminds-bucket"></i> Blank Page
-                        </a>
-                    </li>
+                    {{--                    <li>--}}
+                    {{--                        <a href="{{route('admin.about.index')}}">--}}
+                    {{--                            <i class="iconsminds-bucket"></i> about--}}
+                    {{--                        </a>--}}
+                    {{--                    </li>--}}
+                    {{--                    <li>--}}
+                    {{--                        <a href="{{route('admin.service.index')}}">--}}
+                    {{--                            <i class="iconsminds-pantone"></i> service--}}
+                    {{--                        </a>--}}
+                    {{--                    </li>--}}
                     <li>
                         <a href="Blank.Page.html">
                             <i class="iconsminds-bucket"></i> Blank Page
@@ -234,6 +237,31 @@
                     <li>
                         <a href="Dashboard.Ecommerce.html">
                             <i class="simple-icon-basket-loaded"></i> <span class="d-inline-block">Ecommerce</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Dashboard.Content.html">
+                            <i class="simple-icon-doc"></i> <span class="d-inline-block">Content</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="list-unstyled" data-link="main_menu">
+                    <li>
+                        <a href="{{route('admin.about.index')}}">
+                            <i class="simple-icon-rocket"></i>
+                            <span class="d-inline-block">about</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin.service.index')}}">
+                            <i class="simple-icon-pie-chart"></i>
+                            <span class="d-inline-block">service</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Dashboard.Ecommerce.html">
+                            <i class="simple-icon-basket-loaded"></i>
+                            <span class="d-inline-block">our clients</span>
                         </a>
                     </li>
                     <li>
