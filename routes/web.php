@@ -43,8 +43,8 @@ Route::group([
         Route::get('service/image/{path}', 'ServiceController@ImageBanner');
         Route::resource('service', 'ServiceController');
 
-        Route::get('service-list-create', 'ServiceListController@create')->name('service-list-create');
-        Route::get('service-list-edit/{id}', 'ServiceListController@edit')->name('service-list-edit');
+        Route::get('service-list/image/{path}', 'ServiceListController@ImageBanner');
+        Route::get('service-list-items', 'ServiceListController@List')->name('service-list-items');
         Route::resource('service-list', 'ServiceListController');
 
         Route::get('our-client/image/{path}', 'OurClientController@ImageBanner');

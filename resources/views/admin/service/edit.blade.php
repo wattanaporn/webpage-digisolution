@@ -25,15 +25,14 @@
         <div class="separator mb-5">
         </div>
         <form class="form form-horizontal"
-{{--              action="{{route('admin.about.store')}}"--}}
               action="{{$service_list->id?route('admin.service-list.update',['service_list'=>$service_list->id]):route('admin.service-list.store')}}"
               method="post"
               autocomplete="off"
               enctype="multipart/form-data">
             {{ csrf_field() }}
-                        @if($service_list->id)
-                            <input name="_method" type="hidden" value="PUT">
-                        @endif
+            @if($service_list->id)
+                <input name="_method" type="hidden" value="PUT">
+            @endif
             <input name="id" type="hidden" value="{{$service_list->id}}">
             <div class="form-group row">
                 <label for="" class="col-sm-2 col-form-label text-right">meta title</label>

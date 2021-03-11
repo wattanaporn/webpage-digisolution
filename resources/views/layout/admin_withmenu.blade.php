@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{{asset('admin/css/vendor/component-custom-switch.min.css')}}"/>
     <link rel="stylesheet" href="{{asset('admin/css/vendor/perfect-scrollbar.css')}}"/>
     <link rel="stylesheet" href="{{asset('admin/css/main.css')}}"/>
+    <link rel="stylesheet" href="{{asset('admin/css/dore.light.bluenavy.min.css')}}"/>
     <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
     <style>
         #main-content-title {

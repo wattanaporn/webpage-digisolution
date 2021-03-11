@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Content;
 use Illuminate\Http\Request;
+//use Yajra\DataTables\DataTables;
 
 class ServiceListController extends Controller
 {
@@ -60,7 +61,7 @@ class ServiceListController extends Controller
     public function edit($id)
     {
         $service_list = Content::select('id', 'meta_title', 'meta_description', 'meta_keyword', 'title', 'content', 'path_img_banner')
-            ->where('id',$id)
+            ->where('id', $id)
             ->first();
         return view('admin.service.edit', compact('service_list'));
     }
@@ -106,4 +107,18 @@ class ServiceListController extends Controller
     {
         //
     }
+
+    public function ImageBanner($path)
+    {
+        return response()->download(storage_path('app/service_list/' . $path));
+    }
+
+    public function List()
+    {
+        $service = Content::query()->select('id', 'title', 'content', 'path_img_banner')
+        ->where('page_type', 'service-list')
+        ->get();
+        return datatables($service)->toJson();
+    }
+
 }
