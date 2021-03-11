@@ -176,6 +176,17 @@
                             <span>Dashboards</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="#main_menu">
+                            <i class="iconsminds-digital-drawing"></i>
+                            <span>Main Page</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin.service-list.index')}}">
+                            <i class="iconsminds-pantone"></i> Service
+                        </a>
+                    </li>
                     {{--                    <li>--}}
                     {{--                        <a href="#layouts">--}}
                     {{--                            <i class="iconsminds-digital-drawing"></i> Pages--}}
@@ -196,12 +207,6 @@
                     {{--                            <i class="iconsminds-three-arrow-fork"></i> Menu--}}
                     {{--                        </a>--}}
                     {{--                    </li>--}}
-                    <li>
-                        <a href="#main_menu">
-                            <i class="iconsminds-three-arrow-fork"></i>
-                            <span>Main Page</span>
-                        </a>
-                    </li>
                     {{--                    <li>--}}
                     {{--                        <a href="{{route('admin.about.index')}}">--}}
                     {{--                            <i class="iconsminds-bucket"></i> about--}}
