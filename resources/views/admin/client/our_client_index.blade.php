@@ -10,22 +10,11 @@
 @endpush('css')
 @section('content')
     <div>
-        <h1>About</h1>
-{{--        <nav class="breadcrumb-container d-none d-sm-block d-lg-inline-block" aria-label="breadcrumb">--}}
-{{--            <ol class="breadcrumb pt-0">--}}
-{{--                <li class="breadcrumb-item">--}}
-{{--                    <a href="#">Home</a>--}}
-{{--                </li>--}}
-{{--                <li class="breadcrumb-item">--}}
-{{--                    <a href="#">Library</a>--}}
-{{--                </li>--}}
-{{--                <li class="breadcrumb-item active" aria-current="page">Data</li>--}}
-{{--            </ol>--}}
-{{--        </nav>--}}
+        <h1>Our Client</h1>
         <div class="separator mb-5">
         </div>
         <form class="form form-horizontal"
-              action="{{route('admin.about.store')}}"
+              action="{{route('admin.our-client.store')}}"
               method="post"
               autocomplete="off"
               enctype="multipart/form-data">
@@ -33,46 +22,46 @@
             {{--            @if($about->id)--}}
             {{--                <input name="_method" type="hidden" value="PUT">--}}
             {{--            @endif--}}
-            <input name="id" type="hidden" value="{{$about->id}}">
+            <input name="id" type="hidden" value="{{$our_client->id}}">
             <div class="form-group row">
                 <label for="" class="col-sm-2 col-form-label text-right">meta title</label>
                 <div class="col-sm-10">
                     <input type="text" name="meta_title" class="form-control" placeholder="title"
-                           value="{{ $about->meta_title ?:'' }}">
+                           value="{{ $our_client->meta_title ?:'' }}">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="" class="col-sm-2 col-form-label text-right">meta description</label>
                 <div class="col-sm-10">
                     <input type="text" name="meta_description" class="form-control" placeholder="description"
-                           value="{{$about->meta_description ?:''}}">
+                           value="{{$our_client->meta_description ?:''}}">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="" class="col-sm-2 col-form-label text-right">meta keyword</label>
                 <div class="col-sm-10">
                     <input type="text" name="meta_keyword" class="form-control" placeholder="keyword"
-                           value="{{$about->meta_keyword ?:'' }}">
+                           value="{{$our_client->meta_keyword ?:'' }}">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="" class="col-sm-2 col-form-label text-right">title</label>
                 <div class="col-sm-10">
-                    <textarea class="form-control" id="title" name="title">{{$about->title}}</textarea>
+                    <textarea class="form-control" id="title" name="title">{{$our_client->title}}</textarea>
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="" class="col-sm-2 col-form-label text-right">content</label>
-                <div class="col-sm-10">
-                    <textarea class="form-control" id="content" name="content">{{$about->content}}</textarea>
-                </div>
-            </div>
+{{--            <div class="form-group row">--}}
+{{--                <label for="" class="col-sm-2 col-form-label text-right">content</label>--}}
+{{--                <div class="col-sm-10">--}}
+{{--                    <textarea class="form-control" id="content" name="content">{{$our_client->content}}</textarea>--}}
+{{--                </div>--}}
+{{--            </div>--}}
             <div class="form-group row">
                 <label for="" class="col-sm-2 col-form-label text-right">picture banner</label>
                 <div class="col-sm-10 text-center">
                     <div id="block-upload-image">
                         <div id="upload-image"
-                             style="display: {{isset($about->path_img_banner)?'none':'block'}};text-align: center;">
+                             style="display: {{isset($our_client->path_img_banner)?'none':'block'}};text-align: center;">
                             <div style="margin-top: 80px"><img src="{{url('admin/img/icon/upload.png')}}">
                             </div>
                             <div style="font-size: 14px;line-height: 18px;color: #C8C7CC;padding-top: 15px">
@@ -88,9 +77,9 @@
                         </div>
                         <div>
                             <img id="showImage"
-                                 src="{{url('/admin/about/image/'.$about->path_img_banner)}}"
+                                 src="{{url('/admin/our-client/image/'.$our_client->path_img_banner)}}"
                                  class="OpenImgUpload" title="อัพโหลดรูป"
-                                 style="display: {{isset($about->path_img_banner)?'inline-block':'none'}};width: 100%;min-height: 269px;max-height: 270px;">
+                                 style="display: {{isset($our_client->path_img_banner)?'inline-block':'none'}};width: 100%;min-height: 269px;max-height: 270px;">
                         </div>
                     </div>
                 </div>
@@ -103,7 +92,7 @@
     </div>
 @endsection
 @push('js')
-{{--    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>--}}
+    {{--    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>--}}
     <script>
         $(document).ready(function () {
             task_editor();

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Content;
 use Illuminate\Http\Request;
 
 class OurClientsController extends Controller
@@ -13,7 +14,13 @@ class OurClientsController extends Controller
      */
     public function index()
     {
-        return view('web.our_clients');
+        $our_client = Content::select('id', 'meta_title', 'meta_description', 'meta_keyword', 'title', 'content', 'path_img_banner')
+            ->where('page_type','our-client-main')
+            ->first();
+        if (!$our_client) {
+            $our_client = new Content();
+        }
+        return view('web.our_clients', compact('our_client'));
     }
 
     /**
@@ -80,5 +87,10 @@ class OurClientsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function ImageBanner($path)
+    {
+        return response()->download(storage_path('app/client/' . $path));
     }
 }

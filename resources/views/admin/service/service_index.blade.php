@@ -61,12 +61,12 @@
                     <textarea class="form-control" id="title" name="title">{{$service->title}}</textarea>
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="" class="col-sm-2 col-form-label text-right">content</label>
-                <div class="col-sm-10">
-                    <textarea class="form-control" id="content" name="content">{{$service->content}}</textarea>
-                </div>
-            </div>
+{{--            <div class="form-group row">--}}
+{{--                <label for="" class="col-sm-2 col-form-label text-right">content</label>--}}
+{{--                <div class="col-sm-10">--}}
+{{--                    <textarea class="form-control" id="content" name="content">{{$service->content}}</textarea>--}}
+{{--                </div>--}}
+{{--            </div>--}}
             <div class="form-group row">
                 <label for="" class="col-sm-2 col-form-label text-right">picture banner</label>
                 <div class="col-sm-10 text-center">
@@ -90,7 +90,7 @@
                             <img id="showImage"
                                  src="{{url('/admin/service/image/'.$service->path_img_banner)}}"
                                  class="OpenImgUpload" title="อัพโหลดรูป"
-                                 style="display: {{isset($service->path_img_banner)?'inline-block':'none'}};max-width: 280px;min-height: 269px;max-height: 270px;">
+                                 style="display: {{isset($service->path_img_banner)?'inline-block':'none'}};width: 100%;min-height: 269px;max-height: 270px;">
                         </div>
                     </div>
                 </div>

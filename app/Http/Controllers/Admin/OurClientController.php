@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\About;
 use App\Models\Content;
-use App\Models\Service;
 use Illuminate\Http\Request;
 
-class ServiceController extends Controller
+class OurClientController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,13 +15,13 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $service = Content::select('id', 'meta_title', 'meta_description', 'meta_keyword', 'title', 'content', 'path_img_banner')
-            ->where('page_type','service-main')
+        $our_client = Content::select('id', 'meta_title', 'meta_description', 'meta_keyword', 'title', 'content', 'path_img_banner')
+            ->where('page_type','our-client-main')
             ->first();
-        if (!$service) {
-            $service = new Content();
+        if (!$our_client) {
+            $our_client = new Content();
         }
-        return view('admin.service.service_index', compact('service'));
+        return view('admin.client.our_client_index', compact('our_client'));
 
     }
 
@@ -40,7 +38,7 @@ class ServiceController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -51,7 +49,7 @@ class ServiceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -62,7 +60,7 @@ class ServiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -73,13 +71,12 @@ class ServiceController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-
         $id = $request->get('id');
         if ($id) {
             $service = Content::find($id);
@@ -93,10 +90,10 @@ class ServiceController extends Controller
 //        $service->content = '';
         if ($request->file('image')) {
             $imageName = time() . '.' . request()->image->getClientOriginalExtension();
-            request()->image->move(storage_path('app/service/'), $imageName);
+            request()->image->move(storage_path('app/client/'), $imageName);
             $service->path_img_banner = $imageName;
         }
-        $service->page_type = 'service-main';
+        $service->page_type = 'our-client-main';
         $service->save();
 
         return back()->with('success', true);
@@ -105,7 +102,7 @@ class ServiceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -115,6 +112,6 @@ class ServiceController extends Controller
 
     public function ImageBanner($path)
     {
-        return response()->download(storage_path('app/service/' . $path));
+        return response()->download(storage_path('app/client/' . $path));
     }
 }

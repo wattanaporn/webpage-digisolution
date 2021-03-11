@@ -96,14 +96,23 @@
 @endpush('css')
 @section('content')
     <div>
-        <div>
-            <img src="{{ URL::asset('/assets/images/banner.svg') }}" class="sub-banner">
+        <div class="pb-5 box-banner">
+            <img src="{{URL::asset('/assets/images/banner.svg')}}"
+                 style="display: {{isset($our_client->path_img_banner)?'none':'block'}}"
+                 class="img-banner">
+            <img src="{{url('/our-clients/image/'.$our_client->path_img_banner)}}"
+                 style="display: {{isset($our_client->path_img_banner)?'inline-block':'none'}}"
+                 class="img-banner">
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-12 text-center pt-5">
-                    <span class="head-contain-font font-weight-light mr-3">OUR</span>
-                    <span class="head-contain-font font-weight-bold">CLIENT</span>
+                <div class="col-12 text-center head-title">
+                    @if($our_client->title)
+                        {!! $our_client->title !!}
+                    @else
+                        <span class="head-contain-font font-weight-light mr-3">OUR</span>
+                        <span class="head-contain-font font-weight-bold">CLIENT</span>
+                    @endif
                 </div>
             </div>
             <div class="row autoplay d-flex justify-content-center pt-5 mt-3">
@@ -356,11 +365,17 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>
-
         $(document).ready(function () {
             auto();
             tab1();
+            meta();
         });
+
+        function meta() {
+            document.title = '{{$our_client->meta_title}}'
+            document.getElementsByTagName('meta')["keywords"].content = '{{$our_client->meta_keyword}}';
+            document.getElementsByTagName('meta')["description"].content = '{{$our_client->meta_description}}';
+        }
 
         function auto() {
             $('.autoplay').slick({

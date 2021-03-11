@@ -21,9 +21,13 @@ html {
     line-height: 38px;
 }
 
-.sub-banner {
+.img-banner {
     width: 100%;
-    height: 265px;
+    height: 100%;
+}
+.box-banner {
+    width: 100%;
+    height: 240px;
 }
 
 .head-title{

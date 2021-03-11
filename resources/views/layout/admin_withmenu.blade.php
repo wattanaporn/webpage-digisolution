@@ -259,7 +259,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="Dashboard.Ecommerce.html">
+                        <a href="{{route('admin.our-client.index')}}">
                             <i class="simple-icon-basket-loaded"></i>
                             <span class="d-inline-block">our clients</span>
                         </a>

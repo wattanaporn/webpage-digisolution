@@ -32,7 +32,7 @@
 @section('content')
     <div>
         <div>
-            <img src="{{ URL::asset('/assets/images/banner.svg') }}" class="sub-banner">
+            <img src="{{ URL::asset('/assets/images/banner.svg') }}" class="img-banner">
         </div>
         <div class="container">
             <div class="row">

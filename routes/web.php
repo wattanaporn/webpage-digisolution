@@ -23,7 +23,9 @@ Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('/service/image/{path}', 'ServiceController@ImageBanner');
     Route::get('/service', 'ServiceController@index')->name('service');
 
+    Route::get('/our-clients/image/{path}', 'OurClientsController@ImageBanner');
     Route::get('/our-clients', 'OurClientsController@index')->name('our-clients');
+
     Route::get('/contact', 'ContactController@index')->name('contact');
 
 });
@@ -34,11 +36,15 @@ Route::group([
 ], function () {
     Route::namespace('App\Http\Controllers\Admin')->group(function () {
         Route::resource('home', 'HomeAdminController');
-        Route::get('/about/image/{path}', 'AboutController@ImageBanner');
+
+        Route::get('about/image/{path}', 'AboutController@ImageBanner');
         Route::resource('about', 'AboutController');
-        Route::get('/service/image/{path}', 'ServiceController@ImageBanner');
+
+        Route::get('service/image/{path}', 'ServiceController@ImageBanner');
         Route::resource('service', 'ServiceController');
-        Route::resource('service-content', 'ServiceContentController');
+
+        Route::get('our-client/image/{path}', 'OurClientController@ImageBanner');
+        Route::resource('our-client', 'OurClientController');
     });
 });
 

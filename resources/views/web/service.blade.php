@@ -24,13 +24,13 @@
 @endpush('css')
 @section('content')
     <div>
-        <div class="pb-5">
+        <div class="pb-5 box-banner">
             <img src="{{URL::asset('/assets/images/banner.svg')}}"
                  style="display: {{isset($service->path_img_banner)?'none':'block'}}"
-                 class="sub-banner">
+                 class="img-banner">
             <img src="{{url('/service/image/'.$service->path_img_banner)}}"
                  style="display: {{isset($service->path_img_banner)?'inline-block':'none'}}"
-                 class="sub-banner">
+                 class="img-banner">
         </div>
         <div class="container">
             <div class="row">
@@ -83,5 +83,8 @@
 @endsection
 @push('js')
     <script>
+        document.title = '{{$service->meta_title}}'
+        document.getElementsByTagName('meta')["keywords"].content = '{{$service->meta_keyword}}';
+        document.getElementsByTagName('meta')["description"].content = '{{$service->meta_description}}';
     </script>
 @endpush
