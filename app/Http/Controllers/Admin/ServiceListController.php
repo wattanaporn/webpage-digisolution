@@ -141,7 +141,6 @@ class ServiceListController extends Controller
     public function ServiceListDelete(Request $request)
     {
         if ($request->get('service_list_id')) {
-
             $service_list_delete = Content::find($request->get('service_list_id'));
             $service_list_delete->delete();
             if ($service_list_delete) {

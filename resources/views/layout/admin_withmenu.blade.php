@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="{{asset('admin/css/vendor/perfect-scrollbar.css')}}"/>
     <link rel="stylesheet" href="{{asset('admin/css/main.css')}}"/>
     <link rel="stylesheet" href="{{asset('admin/css/dore.light.bluenavy.min.css')}}"/>
+    <script src="{{url('admin/js/sweetalert2.js')}}"></script>
     <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+{{--    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>--}}
     <style>
         #main-content-title {
             height: 120px;
