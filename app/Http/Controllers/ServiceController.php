@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Budget;
 use App\Models\Content;
 use Illuminate\Http\Request;
 
@@ -109,5 +110,17 @@ class ServiceController extends Controller
             ->where('id', $id)
             ->first();
         return view('web.service_list', compact('service_list'));
+    }
+
+    public function SentBudget(Request $request)
+    {
+        $budget = new Budget();
+        $budget->full_name = $request->get('full_name');
+        $budget->company = $request->get('company');
+        $budget->tell = $request->get('tell');
+        $budget->budget = $request->get('budget');
+        $budget->note = $request->get('note');
+        $budget->save();
+        return back()->with('success', true);
     }
 }

@@ -52,47 +52,53 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12" id="contact">
-                        <div class="row">
-                            <div class="col-md-12 col-xl-6">
-                                <input class="form-control contact-input" type="text" name="full_name"
-                                       placeholder="ชื่อ - นามสกุล">
-                            </div>
+                        <form class="form form-horizontal"
+                              action="{{route('sent-budget')}}"
+                              method="post"
+                              autocomplete="off"
+                              enctype="multipart/form-data">
+                            {{ csrf_field() }}
+                            <div class="row pb-3">
+                                <div class="col-md-12 col-xl-6">
+                                    <input class="form-control contact-input" type="text" name="full_name"
+                                           placeholder="ชื่อ - นามสกุล">
+                                </div>
 
-                            <div class="col-md-12 col-xl-6">
-                                <input class="form-control contact-input" type="text" name="company"
-                                       placeholder="บริษัท/องกรค์">
+                                <div class="col-md-12 col-xl-6">
+                                    <input class="form-control contact-input" type="text" name="company"
+                                           placeholder="บริษัท/องกรค์">
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12 col-xl-6">
-                                <input class="form-control contact-input" type="text" name="tell"
-                                       placeholder="เบอร์โทร">
+                            <div class="row pb-3">
+                                <div class="col-md-12 col-xl-6">
+                                    <input class="form-control contact-input" type="text" name="tell"
+                                           placeholder="เบอร์โทร">
+                                </div>
+                                <div class="col-md-12 col-xl-6">
+                                    <input class="form-control contact-input" type="text" name="email"
+                                           placeholder="อีเมล">
+                                </div>
                             </div>
-                            <div class="col-md-12 col-xl-6">
-                                <input class="form-control contact-input" type="text" name="email" placeholder="อีเมล">
+                            <div class="row pb-3">
+                                <div class="col-12">
+                                    <input class="form-control contact-input" type="text" name="budget"
+                                           placeholder="งบประมาณ">
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <input class="form-control contact-input" type="text" name="budget"
-                                       placeholder="งบประมาณ">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
+                            <div class="row pb-3">
+                                <div class="col-12">
                             <textarea class="form-control contact-input" id="note" name="note" rows="4"
                                       placeholder="รายละเอียดความต้องการ"></textarea>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 text-right">
-                                <button type="submit" class="btn btn-md btn-sent">
-                                    SEND
-                                </button>
+                            <div class="row">
+                                <div class="col-12 text-right">
+                                    <button type="submit" class="btn btn-md btn-sent">
+                                        SEND
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-
+                        </form>
                     </div>
                 </div>
             </div>

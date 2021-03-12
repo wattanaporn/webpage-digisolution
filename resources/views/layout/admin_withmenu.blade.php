@@ -190,6 +190,11 @@
                             <i class="iconsminds-pantone"></i> Service
                         </a>
                     </li>
+                    <li>
+                        <a href="{{route('admin.budget.index')}}">
+                            <i class="iconsminds-air-balloon-1"></i> ใบเสนอราคา
+                        </a>
+                    </li>
                     {{--                    <li>--}}
                     {{--                        <a href="#layouts">--}}
                     {{--                            <i class="iconsminds-digital-drawing"></i> Pages--}}
