@@ -102,4 +102,12 @@ class ServiceController extends Controller
     {
         return response()->download(storage_path('app/service_list/' . $path));
     }
+
+    public function ServiceListDetail($id)
+    {
+        $service_list = Content::select('id', 'meta_title', 'meta_description', 'meta_keyword', 'title', 'content', 'path_img_banner')
+            ->where('id', $id)
+            ->first();
+        return view('web.service_list', compact('service_list'));
+    }
 }

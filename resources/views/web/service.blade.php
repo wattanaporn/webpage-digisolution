@@ -47,17 +47,19 @@
             <div class="row d-flex justify-content-center pt-5">
                 @if($service_list)
                     @foreach($service_list as $item)
-                    <div class="col-auto px-5">
-                        <div class="row">
-                            <div class="col-12 circle">
-                                <img src="{{url('/service/image-icon/'.$item->path_img)}}"
-                                     class="img-circle">
+                        <a href="{!! url('/service-list-detail') !!}/{{$item->id}}">
+                            <div class="col-auto px-5">
+                                <div class="row">
+                                    <div class="col-12 circle">
+                                        <img src="{{url('/service/image-icon/'.$item->path_img)}}"
+                                             class="img-circle">
+                                    </div>
+                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                        <span class="font-weight-bold" style="color: #000000">{{$item->name}}</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-12 pt-4 pb-5 text-center text-width">
-                                <span class="font-weight-bold ">{{$item->name}}</span>
-                            </div>
-                        </div>
-                    </div>
+                        </a>
                     @endforeach
                 @else
                     <div class="col-auto px-5">

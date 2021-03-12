@@ -80,7 +80,7 @@ class ServiceListController extends Controller
         $service->name = $request->get('name');
         if ($request->file('image')) {
             $imageName = time() . '.' . $request->file('image')->getClientOriginalExtension();
-            $request->file('image')->move(storage_path('app/service_list/'), $imageName);
+            $request->file('image')->move(storage_path('app/service/'), $imageName);
             $service->path_img_banner = $imageName;
         }
         if ($request->file('image_icon')) {
@@ -111,7 +111,7 @@ class ServiceListController extends Controller
      */
     public function ImageBanner($path)
     {
-        return response()->download(storage_path('app/service_list/' . $path));
+        return response()->download(storage_path('app/service/' . $path));
     }
 
     /**
