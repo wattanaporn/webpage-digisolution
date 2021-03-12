@@ -9,6 +9,7 @@
             border: 3px solid #007AE8;
             box-sizing: border-box;
             box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
+            padding: 5px;
         }
 
         .text-width {
@@ -17,8 +18,8 @@
 
         .img-circle {
             border-radius: 50%;
-            width: 240px;
-            height: 260px;
+            width: 265px;
+            height: 265px;
         }
     </style>
 @endpush('css')
@@ -44,39 +45,56 @@
                 </div>
             </div>
             <div class="row d-flex justify-content-center pt-5">
-                <div class="col-auto px-5">
-                    <div class="row">
-                        <div class="col-12 circle">
-                            <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
-                                 class="img-circle">
-                        </div>
-                        <div class="col-12 pt-4 pb-5 text-center text-width">
-                            <span class="font-weight-bold ">บริการออกแบบเว็บไซต์ และระบบเฉพาะตามความต้องการ</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-auto px-5">
-                    <div class="row">
-                        <div class="col-12 circle">
-                            <img src="{{ URL::asset('/assets/images/service/service-application.svg') }}"
-                                 class="img-circle">
-                        </div>
-                        <div class="col-12 pt-4 pb-5 text-center text-width">
-                            <span class="font-weight-bold">บริการทำแอปพลิเคชันทุกแพลตฟอร์ม</span>
+                @if($service_list)
+                    @foreach($service_list as $item)
+                    <div class="col-auto px-5">
+                        <div class="row">
+                            <div class="col-12 circle">
+                                <img src="{{url('/service/image-icon/'.$item->path_img)}}"
+                                     class="img-circle">
+                            </div>
+                            <div class="col-12 pt-4 pb-5 text-center text-width">
+                                <span class="font-weight-bold ">{{$item->name}}</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-auto px-5">
-                    <div class="row">
-                        <div class="col-12 circle">
-                            <img src="{{ URL::asset('/assets/images/service/service-mobile.svg') }}"
-                                 class="img-circle">
-                        </div>
-                        <div class="col-12 pt-4 pb-5 text-center text-width">
-                            <span class="font-weight-bold">บริการดูแล Social Marketing และ Digital Media Design</span>
+                    @endforeach
+                @else
+                    <div class="col-auto px-5">
+                        <div class="row">
+                            <div class="col-12 circle">
+                                <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
+                                     class="img-circle">
+                            </div>
+                            <div class="col-12 pt-4 pb-5 text-center text-width">
+                                <span class="font-weight-bold ">บริการออกแบบเว็บไซต์ และระบบเฉพาะตามความต้องการ</span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div class="col-auto px-5">
+                        <div class="row">
+                            <div class="col-12 circle">
+                                <img src="{{ URL::asset('/assets/images/service/service-application.svg') }}"
+                                     class="img-circle">
+                            </div>
+                            <div class="col-12 pt-4 pb-5 text-center text-width">
+                                <span class="font-weight-bold">บริการทำแอปพลิเคชันทุกแพลตฟอร์ม</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto px-5">
+                        <div class="row">
+                            <div class="col-12 circle">
+                                <img src="{{ URL::asset('/assets/images/service/service-mobile.svg') }}"
+                                     class="img-circle">
+                            </div>
+                            <div class="col-12 pt-4 pb-5 text-center text-width">
+                                <span
+                                    class="font-weight-bold">บริการดูแล Social Marketing และ Digital Media Design</span>
+                            </div>
+                        </div>
+                    </div>
+                @endif
             </div>
         </div>
     </div>

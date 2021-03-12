@@ -21,6 +21,7 @@ Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('/about-us', 'AboutUsContoller@index')->name('about-us');
 
     Route::get('/service/image/{path}', 'ServiceController@ImageBanner');
+    Route::get('/service/image-icon/{path}', 'ServiceController@ImageIcon');
     Route::get('/service', 'ServiceController@index')->name('service');
 
     Route::get('/our-clients/image/{path}', 'OurClientsController@ImageBanner');
