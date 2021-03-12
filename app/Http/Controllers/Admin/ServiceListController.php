@@ -5,14 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Content;
 use Illuminate\Http\Request;
+
 //use Yajra\DataTables\DataTables;
 
 class ServiceListController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
@@ -20,9 +19,7 @@ class ServiceListController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create()
     {
@@ -31,10 +28,7 @@ class ServiceListController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * eturn \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
@@ -53,25 +47,21 @@ class ServiceListController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit($id)
     {
-        $service_list = Content::select('id', 'meta_title', 'meta_description', 'meta_keyword', 'title', 'content', 'path_img_banner','name','path_img')
+        $service_list = Content::select('id', 'meta_title', 'meta_description', 'meta_keyword', 'title', 'content', 'path_img_banner', 'name', 'path_img')
             ->where('id', $id)
             ->first();
         return view('admin.service.edit', compact('service_list'));
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $id)
     {
@@ -115,21 +105,53 @@ class ServiceListController extends Controller
         //
     }
 
+    /**
+     * @param $path
+     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     */
     public function ImageBanner($path)
     {
         return response()->download(storage_path('app/service_list/' . $path));
     }
+
+    /**
+     * @param $path
+     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     */
     public function ImageIcon($path)
     {
         return response()->download(storage_path('app/service_list/' . $path));
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function List()
     {
         $service = Content::query()->select('id', 'name', 'path_img')
-        ->where('page_type', 'service-list')
-        ->get();
+            ->where('page_type', 'service-list')
+            ->get();
         return datatables($service)->toJson();
     }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse|void
+     */
+    public function ServiceListDelete(Request $request)
+    {
+        if ($request->get('service_list_id')) {
+
+            $service_list_delete = Content::find($request->get('service_list_id'));
+            $service_list_delete->delete();
+            if ($service_list_delete) {
+                return response()->json(['success' => true], 200);
+            } else {
+                return;
+            }
+        }
+
+    }
+
 
 }

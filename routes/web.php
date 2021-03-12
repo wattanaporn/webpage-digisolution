@@ -46,6 +46,7 @@ Route::group([
         Route::get('service-list/image/{path}', 'ServiceListController@ImageBanner');
         Route::get('service-list/image-icon/{path}', 'ServiceListController@ImageIcon');
         Route::get('service-list-items', 'ServiceListController@List')->name('service-list-items');
+        Route::post('service-list-item-delete', 'ServiceListController@ServiceListDelete')->name('service-list-items.delete');
         Route::resource('service-list', 'ServiceListController');
 
         Route::get('our-client/image/{path}', 'OurClientController@ImageBanner');

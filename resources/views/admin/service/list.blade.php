@@ -41,6 +41,8 @@
     <script type="text/javascript" charset="utf8"
             src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
     <script>
+        var formData = new FormData()
+
         $('#service-list-table').DataTable({
             processing: true,
             serverSide: true,
@@ -99,5 +101,71 @@
                 }
             ]
         })
+
+        function Delete(service_id) {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-primary',
+                    cancelButton: 'btn btn-link'
+                },
+                allowOutsideClick: false,
+                buttonsStyling: false,
+            })
+            swalWithBootstrapButtons.fire({
+                text: 'ยืนยันการลบข้อมูล',
+                showCancelButton: true,
+                confirmButtonText: 'ตกลง',
+                cancelButtonText: 'ยกเลิก',
+                icon: 'error',
+                reverseButtons: true,
+            }).then((result) => {
+                if (result.value) {
+                    formData.append('service_list_id', service_id)
+                    formData.append('_token', '{!! csrf_token() !!}')
+                    $.ajax({
+                        url: '{!! route('admin.service-list-items.delete') !!}',
+                        type: 'POST',
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        success: function (data) {
+                            if (data.success == true) {
+                                const swalWithBootstrapButtons = Swal.mixin({
+                                    customClass: {
+                                        confirmButton: 'btn btn-primary',
+                                        cancelButton: 'btn btn-link'
+                                    },
+                                    buttonsStyling: false,
+                                    allowOutsideClick: false
+                                })
+                                swalWithBootstrapButtons.fire(
+                                    '',
+                                    'ลบข้อมูลสำเร็จ',
+                                    'success',
+                                ).then((result) => {
+                                    if (result.value) {
+                                        location.reload()
+                                    } else if (
+                                        result.dismiss === Swal.DismissReason.cancel
+                                    ) {
+                                        swalWithBootstrapButtons.fire(
+                                            'Cancelled',
+                                            'Your imaginary file is safe :)',
+                                            'error'
+                                        )
+                                    }
+                                })
+                            } else {
+                                Swal.fire(
+                                    '',
+                                    '',
+                                    'error'
+                                )
+                            }
+                        }
+                    })
+                }
+            })
+        }
     </script>
 @endpush
