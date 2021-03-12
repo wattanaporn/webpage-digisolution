@@ -65,23 +65,28 @@
             },
             pagingType: 'full_numbers',
             columnDefs: [
-                // {
-                //     'targets': 0,
-                //     'width': '100px'
-                // },
-                // {
-                //     'targets': 1,
-                //     'width': '160px'
-                // },
-                // {
-                //     'targets': 2,
-                //     'width': '160px'
-                // },
+                {
+                    'targets': 0,
+                    'width': '100px'
+                },
+
+                {
+                    'targets': 2,
+                    'width': '160px'
+                },
             ],
             order: [0, 'desc'],
             columns: [
-                {data: 'path_img_banner', name: 'path_img_banner', orderable: false},
-                {data: 'title', name: 'title', orderable: false},
+                {
+                    data: 'path_img',
+                    name: 'path_img',
+                    searchable: false,
+                    orderable: false,
+                    render: function (_, _, row) {
+                        return '<img style="width: 40px;height: 40px;" src="{!! url('/admin/service-list/image-icon/') !!}/' + row.path_img + '">'
+                    },
+                },
+                {data: 'name', name: 'name', orderable: true},
                 {
                     data: 'id',
                     name: 'id',
@@ -89,7 +94,7 @@
                     orderable: false,
                     render: function (_, _, row) {
                         return '<a class=\'btn btn-primary\' href=\'' + ('{{route('admin.service-list.update',['service_list'=>':id'])}}').replace(':id', row.id) + '/edit' + '\'>แก้ไขข้อมูล</a>' +
-                            ' <button class=\'btn btn-primary\' onclick="Delete(' + row.id + ')">ลบ</button>'
+                            ' <button class=\'btn btn-danger\' onclick="Delete(' + row.id + ')">ลบ</button>'
                     }
                 }
             ]

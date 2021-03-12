@@ -20,5 +20,7 @@ class Content extends Model
         'content',
         'page_type',
         'path_img_banner',
+        'path_img',
+        'name',
     ];
 }

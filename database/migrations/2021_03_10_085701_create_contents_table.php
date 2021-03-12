@@ -20,6 +20,8 @@ class CreateContentsTable extends Migration
             $table->string('meta_keyword',255)->nullable();
             $table->text('title',255)->nullable();
             $table->text('content')->nullable();
+            $table->string('name',255)->nullable();
+            $table->string('path_img',255)->nullable();
             $table->string('path_img_banner',255)->nullable();
             $table->string('page_type',255)->nullable();
             $table->softDeletes();

@@ -60,7 +60,7 @@ class ServiceListController extends Controller
      */
     public function edit($id)
     {
-        $service_list = Content::select('id', 'meta_title', 'meta_description', 'meta_keyword', 'title', 'content', 'path_img_banner')
+        $service_list = Content::select('id', 'meta_title', 'meta_description', 'meta_keyword', 'title', 'content', 'path_img_banner','name','path_img')
             ->where('id', $id)
             ->first();
         return view('admin.service.edit', compact('service_list'));
@@ -75,6 +75,7 @@ class ServiceListController extends Controller
      */
     public function update(Request $request, $id)
     {
+//        dd($request->all());
         $id = $request->get('id');
         if ($id) {
             $service = Content::find($id);
@@ -86,10 +87,16 @@ class ServiceListController extends Controller
         $service->meta_keyword = $request->get('meta_keyword');
         $service->title = $request->get('title');
         $service->content = $request->get('content');
+        $service->name = $request->get('name');
         if ($request->file('image')) {
-            $imageName = time() . '.' . request()->image->getClientOriginalExtension();
-            request()->image->move(storage_path('app/service_list/'), $imageName);
+            $imageName = time() . '.' . $request->file('image')->getClientOriginalExtension();
+            $request->file('image')->move(storage_path('app/service_list/'), $imageName);
             $service->path_img_banner = $imageName;
+        }
+        if ($request->file('image_icon')) {
+            $imageIconName = time() . '_icon.' . $request->file('image_icon')->getClientOriginalExtension();
+            $request->file('image_icon')->move(storage_path('app/service_list/'), $imageIconName);
+            $service->path_img = $imageIconName;
         }
         $service->page_type = 'service-list';
         $service->save();
@@ -112,10 +119,14 @@ class ServiceListController extends Controller
     {
         return response()->download(storage_path('app/service_list/' . $path));
     }
+    public function ImageIcon($path)
+    {
+        return response()->download(storage_path('app/service_list/' . $path));
+    }
 
     public function List()
     {
-        $service = Content::query()->select('id', 'title', 'content', 'path_img_banner')
+        $service = Content::query()->select('id', 'name', 'path_img')
         ->where('page_type', 'service-list')
         ->get();
         return datatables($service)->toJson();
