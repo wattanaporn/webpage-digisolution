@@ -45,18 +45,6 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="" class="col-sm-2 col-form-label text-right">title</label>
-                <div class="col-sm-10">
-                    <textarea class="form-control" id="title" name="title">{{$our_client->title}}</textarea>
-                </div>
-            </div>
-{{--            <div class="form-group row">--}}
-{{--                <label for="" class="col-sm-2 col-form-label text-right">content</label>--}}
-{{--                <div class="col-sm-10">--}}
-{{--                    <textarea class="form-control" id="content" name="content">{{$our_client->content}}</textarea>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-            <div class="form-group row">
                 <label for="" class="col-sm-2 col-form-label text-right">picture banner</label>
                 <div class="col-sm-10 text-center">
                     <div id="block-upload-image">
@@ -84,6 +72,18 @@
                     </div>
                 </div>
             </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label text-right">title</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" id="title" name="title">{{$our_client->title}}</textarea>
+                </div>
+            </div>
+{{--            <div class="form-group row">--}}
+{{--                <label for="" class="col-sm-2 col-form-label text-right">content</label>--}}
+{{--                <div class="col-sm-10">--}}
+{{--                    <textarea class="form-control" id="content" name="content">{{$our_client->content}}</textarea>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
             <div style="text-align: right;">
                 <button type="submit" class="btn btn-primary">ตกลง</button>

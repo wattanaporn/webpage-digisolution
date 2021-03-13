@@ -278,8 +278,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="Dashboard.Content.html">
-                            <i class="simple-icon-doc"></i> <span class="d-inline-block">Content</span>
+                        <a href="{{route('admin.contact.index')}}">
+                            <i class="simple-icon-doc"></i> <span class="d-inline-block">contact</span>
                         </a>
                     </li>
                 </ul>

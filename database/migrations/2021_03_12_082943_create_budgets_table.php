@@ -17,9 +17,9 @@ class CreateBudgetsTable extends Migration
             $table->bigIncrements('id');
             $table->string('full_name',255)->nullable();
             $table->string('company',255)->nullable();
-            $table->string('tell',10)->nullable();
+            $table->string('tell',50)->nullable();
             $table->string('budget',255)->nullable();
-            $table->text('note',255)->nullable();
+            $table->text('note')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

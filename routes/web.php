@@ -57,6 +57,10 @@ Route::group([
 
         Route::get('our-client/image/{path}', 'OurClientController@ImageBanner');
         Route::resource('our-client', 'OurClientController');
+
+        Route::get('contact/image/{path}', 'ContactController@ImageBanner');
+        Route::get('contact/image-logo/{path}', 'ContactController@ImageLogo');
+        Route::resource('contact', 'ContactController');
     });
 });
 
