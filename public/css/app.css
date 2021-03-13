@@ -28,6 +28,8 @@ html {
 .box-banner {
     width: 100%;
     height: 240px;
+    /*min-height: 240px;*/
+    /*max-height: 245px;*/
 }
 
 .head-title{

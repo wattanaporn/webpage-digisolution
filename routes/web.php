@@ -29,7 +29,10 @@ Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('/our-clients/image/{path}', 'OurClientsController@ImageBanner');
     Route::get('/our-clients', 'OurClientsController@index')->name('our-clients');
 
+    Route::post('/sent-contact', 'ContactController@SentContact')->name('sent-contact');
+    Route::get('/contact/image/{path}', 'ContactController@ImageBanner');
     Route::get('/contact', 'ContactController@index')->name('contact');
+
 
 });
 

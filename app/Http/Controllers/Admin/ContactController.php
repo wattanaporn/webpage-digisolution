@@ -149,7 +149,7 @@ class ContactController extends Controller
     public function ContactList()
     {
         $contact = Contact::query()->select('full_name', 'tell', 'email', 'topic', 'note')
-            ->whereNotIn('type',['admin-contact'])
+            ->where('type','user-contact')
             ->get();
         return datatables($contact)->toJson();
     }
