@@ -140,4 +140,18 @@ class ContactController extends Controller
     {
         return response()->download(storage_path('app/contact/' . $path));
     }
+
+    public function ContactListView()
+    {
+        return view('admin.contact.list');
+    }
+
+    public function ContactList()
+    {
+        $contact = Contact::query()->select('full_name', 'tell', 'email', 'topic', 'note')
+            ->whereNotIn('type',['admin-contact'])
+            ->get();
+        return datatables($contact)->toJson();
+    }
+
 }

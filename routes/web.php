@@ -60,6 +60,8 @@ Route::group([
 
         Route::get('contact/image/{path}', 'ContactController@ImageBanner');
         Route::get('contact/image-logo/{path}', 'ContactController@ImageLogo');
+        Route::get('contact-list', 'ContactController@ContactList')->name('contact-list');
+        Route::get('contact-list-view', 'ContactController@ContactListView')->name('contact-list-view');
         Route::resource('contact', 'ContactController');
     });
 });

@@ -195,6 +195,11 @@
                             <i class="iconsminds-air-balloon-1"></i> ใบเสนอราคา
                         </a>
                     </li>
+                    <li>
+                        <a href="{{route('admin.contact-list-view')}}">
+                            <i class="iconsminds-three-arrow-fork"></i> รายชื่อผู้ติดต่อ
+                        </a>
+                    </li>
                     {{--                    <li>--}}
                     {{--                        <a href="#layouts">--}}
                     {{--                            <i class="iconsminds-digital-drawing"></i> Pages--}}
