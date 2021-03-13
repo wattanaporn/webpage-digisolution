@@ -160,6 +160,13 @@
                     </div>
                 </div>
             </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label text-right">copyright</label>
+                <div class="col-sm-10">
+                    <input type="text" name="copyright" class="form-control" placeholder="copyright"
+                           value="{{$contact->copyright ?:'' }}">
+                </div>
+            </div>
             <div style="text-align: right;">
                 <button type="submit" class="btn btn-primary">ตกลง</button>
             </div>

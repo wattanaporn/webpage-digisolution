@@ -24,6 +24,7 @@ class Contact extends Model
         'long',
         'facebook_page',
         'path_logo',
+        'copyright',
         'type',
     ];
 }

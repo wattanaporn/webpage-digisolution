@@ -86,6 +86,8 @@ class ContactController extends Controller
         $contact_id = $request->get('contact_id');
         if ($id) {
             $contact_main = Content::find($id);
+        }
+        if ($contact_id) {
             $contact = Contact::find($contact_id);
         } else {
             $contact_main = new Content();
@@ -109,6 +111,7 @@ class ContactController extends Controller
         $contact->lat = $request->get('lat');
         $contact->long = $request->get('long');
         $contact->facebook_page = $request->get('facebook_page');
+        $contact->copyright = $request->get('copyright');
         if ($request->file('image_icon')) {
             $imageIconName = time() . '_logo.' . $request->file('image_icon')->getClientOriginalExtension();
             $request->file('image_icon')->move(storage_path('app/contact/'), $imageIconName);
@@ -149,7 +152,7 @@ class ContactController extends Controller
     public function ContactList()
     {
         $contact = Contact::query()->select('full_name', 'tell', 'email', 'topic', 'note')
-            ->where('type','user-contact')
+            ->where('type', 'user-contact')
             ->get();
         return datatables($contact)->toJson();
     }

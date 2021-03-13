@@ -113,30 +113,30 @@
                           autocomplete="off"
                           enctype="multipart/form-data">
                         {{ csrf_field() }}
-                        <div class="row">
+                        <div class="row pb-4">
                             <div class="col-12">
                                 <input class="form-control contact-input" type="text" name="full_name"
                                        placeholder="ชื่อ - นามสกุล">
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row pb-4">
                             <div class="col-12">
                                 <input class="form-control contact-input" type="text" name="tell"
                                        placeholder="เบอร์โทร">
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row pb-4">
                             <div class="col-12">
                                 <input class="form-control contact-input" type="text" name="email" placeholder="อีเมล">
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row pb-4">
                             <div class="col-12">
                                 <input class="form-control contact-input" type="text" name="topic"
                                        placeholder="เรื่องที่ติดต่อ">
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row pb-4">
                             <div class="col-12">
                             <textarea class="form-control contact-input" id="note" name="note" rows="4"
                                       placeholder="ข้อความ"></textarea>
@@ -162,12 +162,16 @@
         document.getElementsByTagName('meta')["description"].content = '{{$contact_main->meta_description}}';
 
         function initMap() {
-            var lat = parseFloat('{{$contact->lat}}');
-            var long = parseFloat('{{$contact->long}}');
-
+            var lat;
+            var long;
+            if ('{{$contact->lat}}' !== '' && '{{$contact->lat}}' !== '') {
+                lat = parseFloat('{{$contact->lat}}');
+                long = parseFloat('{{$contact->long}}');
+            } else {
+                lat = 18.8308;
+                long = 99.0167;
+            }
             const myLatLng = {
-                // lat: 18.8308,
-                // lng: 99.0167
                 lat: lat,
                 lng: long
             };
