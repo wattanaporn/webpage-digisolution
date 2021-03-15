@@ -181,8 +181,8 @@
         })
 
         function task_editor() {
-            CKEDITOR.replace('title');
-            CKEDITOR.replace('facebook');
+            CKEDITOR.replace('title')
+            CKEDITOR.replace('facebook').config.startupMode = 'source';
         }
 
 
