@@ -112,16 +112,16 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="" class="col-sm-2 col-form-label text-right">lat</label>
+                <label for="" class="col-sm-2 col-form-label text-right">ละติจูด</label>
                 <div class="col-sm-10">
-                    <input type="text" name="lat" class="form-control" placeholder="lat"
+                    <input type="text" name="lat" class="form-control" placeholder="ละติจูด"
                            value="{{$contact->lat ?:'' }}">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="" class="col-sm-2 col-form-label text-right">long</label>
+                <label for="" class="col-sm-2 col-form-label text-right">ลองติจูด</label>
                 <div class="col-sm-10">
-                    <input type="text" name="long" class="form-control" placeholder="long"
+                    <input type="text" name="long" class="form-control" placeholder="ลองติจูด"
                            value="{{$contact->long ?:'' }}">
                 </div>
             </div>
