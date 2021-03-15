@@ -96,17 +96,16 @@
 @endpush('css')
 @section('content')
     <div>
-        <div class="pb-5 box-banner">
-            <img src="{{URL::asset('/assets/images/banner.svg')}}"
-                 style="display: {{isset($our_client->path_img_banner)?'none':'block'}}"
-                 class="img-banner">
+        <img src="{{URL::asset('/assets/images/banner.svg')}}"
+             style="display: {{isset($our_client->path_img_banner)?'none':'block'}}"
+             class="img-banner">
+        <div class="pb-5 box-banner" style="display: {{isset($our_client->path_img_banner)?'inline-block':'none'}}">
             <img src="{{url('/our-clients/image/'.$our_client->path_img_banner)}}"
-                 style="display: {{isset($our_client->path_img_banner)?'inline-block':'none'}}"
                  class="img-banner">
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-12 text-center head-title">
+                <div class="col-12 text-center head-title pt-5">
                     @if($our_client->title)
                         {!! $our_client->title !!}
                     @else

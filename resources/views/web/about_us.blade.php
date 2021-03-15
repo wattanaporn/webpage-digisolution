@@ -35,12 +35,11 @@
 @endpush('css')
 @section('content')
     <div>
-        <div class="pb-5 box-banner">
-            <img src="{{URL::asset('/assets/images/banner.svg')}}"
-                 style="display: {{isset($about->path_img_banner)?'none':'block'}}"
-                 class="img-banner">
+        <img src="{{URL::asset('/assets/images/banner.svg')}}"
+             style="display: {{isset($about->path_img_banner)?'none':'block'}}"
+             class="img-banner-default">
+        <div class="pb-5 box-banner" style="display: {{isset($about->path_img_banner)?'inline-block':'none'}}">
             <img src="{{url('/about/image/'.$about->path_img_banner)}}"
-                 style="display: {{isset($about->path_img_banner)?'inline-block':'none'}}"
                  class="img-banner">
         </div>
         <div class="some-class">
