@@ -57,23 +57,23 @@
                               autocomplete="off"
                               enctype="multipart/form-data">
                             {{ csrf_field() }}
-                            <div class="row pb-3">
-                                <div class="col-md-12 col-xl-6">
+                            <div class="row">
+                                <div class="col-md-12 col-xl-6 pb-3">
                                     <input class="form-control contact-input" type="text" name="full_name"
                                            placeholder="ชื่อ - นามสกุล">
                                 </div>
 
-                                <div class="col-md-12 col-xl-6">
+                                <div class="col-md-12 col-xl-6 pb-3">
                                     <input class="form-control contact-input" type="text" name="company"
                                            placeholder="บริษัท/องกรค์">
                                 </div>
                             </div>
-                            <div class="row pb-3">
-                                <div class="col-md-12 col-xl-6">
+                            <div class="row">
+                                <div class="col-md-12 col-xl-6 pb-3">
                                     <input class="form-control contact-input" type="text" name="tell"
                                            placeholder="เบอร์โทร">
                                 </div>
-                                <div class="col-md-12 col-xl-6">
+                                <div class="col-md-12 col-xl-6 pb-3">
                                     <input class="form-control contact-input" type="text" name="email"
                                            placeholder="อีเมล">
                                 </div>

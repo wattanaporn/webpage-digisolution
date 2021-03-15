@@ -17,7 +17,7 @@ class ContactController extends Controller
         $contact_main = Content::select('id', 'meta_title', 'meta_description', 'meta_keyword', 'title', 'content', 'path_img_banner')
             ->where('page_type', 'contact-main')
             ->first();
-        $contact = Contact::select('id', 'address', 'email', 'tell', 'lat', 'long', 'path_logo', 'facebook_page')
+        $contact = Contact::select('id', 'address', 'email', 'tell', 'lat', 'long', 'path_logo', 'facebook_page', 'copyright')
             ->where('type', 'admin-contact')
             ->first();
 

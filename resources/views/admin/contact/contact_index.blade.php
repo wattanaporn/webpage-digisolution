@@ -128,7 +128,7 @@
             <div class="form-group row">
                 <label for="" class="col-sm-2 col-form-label text-right">facebook page</label>
                 <div class="col-sm-10">
-                    <textarea class="form-control" id="facebook_page"
+                    <textarea class="form-control" id="facebook"
                               name="facebook_page">{{$contact->facebook_page}}</textarea>
                 </div>
             </div>
@@ -182,7 +182,7 @@
 
         function task_editor() {
             CKEDITOR.replace('title');
-            CKEDITOR.replace('facebook_page');
+            CKEDITOR.replace('facebook');
         }
 
 

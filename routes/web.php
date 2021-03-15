@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('/', 'HomeController@index')->name('web');
+    Route::get('/contact-footer', 'HomeController@ContactFooter')->name('contact-footer');
+    Route::get('contact/image-logo/{path}', 'HomeController@ImageLogo');
 
     Route::get('/about/image/{path}', 'AboutUsContoller@ImageBanner');
     Route::get('/about-us', 'AboutUsContoller@index')->name('about-us');
