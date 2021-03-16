@@ -10,7 +10,7 @@
 @endpush('css')
 @section('content')
     <div>
-        <h1>Create Service List</h1>
+        <h1>{{$service_list->id?"Edit Service List":"Create Service List"}}</h1>
         {{--        <nav class="breadcrumb-container d-none d-sm-block d-lg-inline-block" aria-label="breadcrumb">--}}
         {{--            <ol class="breadcrumb pt-0">--}}
         {{--                <li class="breadcrumb-item">--}}
@@ -130,6 +130,12 @@
                     </div>
                 </div>
             </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label text-right">detail</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" id="detail" name="detail">{{$service_list->detail}}</textarea>
+                </div>
+            </div>
 
             <div style="text-align: right;">
                 <button type="submit" class="btn btn-primary">ตกลง</button>
@@ -147,6 +153,7 @@
         function task_editor() {
             CKEDITOR.replace('content');
             CKEDITOR.replace('title');
+            CKEDITOR.replace('detail');
             // ClassicEditor.create(document.querySelector('#detail'), {})
         }
 

@@ -24,7 +24,8 @@
         }
 
         .text-width {
-            width: 30px
+            width: 30px;
+            word-break: break-all;
         }
 
         .img-our {
@@ -112,6 +113,18 @@
             border: none;
             border-radius: 50px
         }
+
+        .service-item{
+            width: 250px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+        }
+
+        .service-img{
+            max-width: 250px;
+            max-height: 150px;
+        }
     </style>
 @endpush('css')
 @section('content')
@@ -125,28 +138,46 @@
         <section class="what-wedo">
             <div class="container">
                 <div class="row wedo-pad-top">
-                    <div class="col-lg-7 col-md-12">
-                        <div class="row">
-                            <div class="col-12 text-center">
-                                <span class="head-contain-font font-weight-light mr-3">WHAT</span>
-                                <span class="head-contain-font font-weight-bold">WE DO</span>
+                    @if($contact->what_we_do)
+                        <div class="col-lg-7 col-md-12">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <span class="head-contain-font font-weight-light mr-3">WHAT</span>
+                                    <span class="head-contain-font font-weight-bold">WE DO</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    {!! $contact->what_we_do !!}
+                                </div>
+                            </div>
+
+                        </div>
+                    @else
+                        <div class="col-lg-7 col-md-12">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <span class="head-contain-font font-weight-light mr-3">WHAT</span>
+                                    <span class="head-contain-font font-weight-bold">WE DO</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 pt-3">
+                                    <p class="txt-grey">
+                                        ให้บริการทางด้าน Technology และ Digital Innovation
+                                        แบบครบวงจรให้แก่ลูกค้าอาทิเช่น
+                                        พัฒนาระบบ System Online, Website, Custom ERP System, และ Digital
+                                        Transformation Solution รวมถึง Digital Media และ Events ทั้ง Online และ Offline
+                                        ทุกประเภท เพื่อให้สามารถ ตอบโจทย์ ตามความต้องการของลูกค้าทุกกลุ่มทุกประเภท
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-12 pt-3">
-                                <p class="txt-grey">
-                                    ให้บริการทางด้าน Technology และ Digital Innovation แบบครบวงจรให้แก่ลูกค้าอาทิเช่น
-                                    พัฒนาระบบ System Online, Website, Custom ERP System, และ Digital
-                                    Transformation Solution รวมถึง Digital Media และ Events ทั้ง Online และ Offline
-                                    ทุกประเภท เพื่อให้สามารถ ตอบโจทย์ ตามความต้องการของลูกค้าทุกกลุ่มทุกประเภท
-                                </p>
-                            </div>
+                        <div class="col-lg-5 div-logo-what-we-do text-center">
+                            <img src="{{ URL::asset('/assets/images/home/wedo-logo.svg') }}"
+                                 class="ml-5 pt-3 img-logo-what-we-do">
                         </div>
-                    </div>
-                    <div class="col-lg-5 div-logo-what-we-do text-center">
-                        <img src="{{ URL::asset('/assets/images/home/wedo-logo.svg') }}"
-                             class="ml-5 pt-3 img-logo-what-we-do">
-                    </div>
+                    @endif
                 </div>
             </div>
         </section>
@@ -159,57 +190,62 @@
                         <span class="head-contain-font font-weight-bold">SERVICE</span>
                     </div>
                     <div class="col-md-12">
-                        CK
-                        {{--                        <div class="our-service-core">--}}
-                        {{--                            <div class="our-service-info-left">--}}
-                        {{--                                <div class="our-service-images-left">--}}
-                        {{--                                    <img src="{{ URL::asset('/images/our-service-img-left.svg') }}" alt="">--}}
-                        {{--                                </div>--}}
-                        {{--                                <div class="our-service-title-left">--}}
-                        {{--                                    <span--}}
-                        {{--                                        class="our-serv-tl">บริการออกแบบเว็บไซต์ และระบบเฉพาะ<br/>ตามความต้องการ</span>--}}
-                        {{--                                </div>--}}
-                        {{--                                <div class="our-service-content-left">--}}
-                        {{--                                    <p>--}}
-                        {{--                                        ออกแบบและพัฒนาเว็บไซต์ ระบบออนไลน์ โดย ออก--}}
-                        {{--                                        แบบตามรายละเอียดงานที่ลูกค้าต้องการ เพื่อให้ตรง--}}
-                        {{--                                        ตามความต้องการมากที่สุด รวมถึงการดูแลหลังการ--}}
-                        {{--                                        ขายที่ครบครัน--}}
-                        {{--                                    </p>--}}
-                        {{--                                </div>--}}
-                        {{--                            </div>--}}
-                        {{--                            <div class="our-service-info-center">--}}
-                        {{--                                <div class="our-service-title-center">--}}
-                        {{--                                    <span class="our-serv-tl">บริการทำแอปพลิเคชันทุกแพลตฟอร์ม</span>--}}
-                        {{--                                </div>--}}
-                        {{--                                <div class="our-service-content-center">--}}
-                        {{--                                    <p>--}}
-                        {{--                                        ตอบโจทย์ทุกความต้องการจากลูกค้าโดยโปรเกมมิ่ง--}}
-                        {{--                                        ผู้เชี่ยวชาญด้านการพัฒนาสื่อดิจิทัลที่ได้รับความไว้--}}
-                        {{--                                        วางใจจากบริษัทชั้นนำ--}}
-                        {{--                                    </p>--}}
-                        {{--                                </div>--}}
-                        {{--                                <div class="our-service-images-center">--}}
-                        {{--                                    <img src="{{ URL::asset('/images/our-service-img-center.svg') }}" alt="">--}}
-                        {{--                                </div>--}}
-                        {{--                            </div>--}}
-                        {{--                            <div class="our-service-info-right">--}}
-                        {{--                                <div class="our-service-images-right">--}}
-                        {{--                                    <img src="{{ URL::asset('/images/our-service-img-right.svg') }}" alt="">--}}
-                        {{--                                </div>--}}
-                        {{--                                <div class="our-service-title-right">--}}
-                        {{--                                    <span--}}
-                        {{--                                        class="our-serv-tr">บริการดูแล Social Marketing และ Digital Media Design</span>--}}
-                        {{--                                </div>--}}
-                        {{--                                <div class="our-service-content-right">--}}
-                        {{--                                    <p>--}}
-                        {{--                                        ให้บริการทำ Social Marketing อาทิเช่นFacebook,--}}
-                        {{--                                        Instagram รวมไปถึงทำ Digital Media Design--}}
-                        {{--                                        ทั้ง Online และ Offline ทั้งหมด--}}
-                        {{--                                    </p>--}}
-                        {{--                                </div>--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
+                        <div class="row d-flex justify-content-center pt-5">
+                            @if($service_list)
+                                @foreach($service_list as $item)
+                                    <div class="col-auto px-5">
+                                        <div class="row">
+                                            <div class="col-12 d-flex justify-content-center service-item">
+                                                <img src="{{url('/service/image-icon/'.$item->path_img)}}" class="service-img">
+                                            </div>
+                                            <div class="col-12 pt-3 text-center text-width">
+                                                <span class="font-weight-bold"
+                                                      style="color: #000000">{{$item->name}}</span>
+                                            </div>
+                                            <div class="col-12 pt-2 pb-5 text-width">
+                                                {!! $item->detail !!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @else
+                                <div class="col-auto px-5">
+                                    <div class="row">
+                                        <div class="col-12 circle">
+                                            <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
+                                                 class="img-circle">
+                                        </div>
+                                        <div class="col-12 pt-4 pb-5 text-center text-width">
+                                            <span class="font-weight-bold ">บริการออกแบบเว็บไซต์ และระบบเฉพาะตามความต้องการ</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-auto px-5">
+                                    <div class="row">
+                                        <div class="col-12 circle">
+                                            <img
+                                                src="{{ URL::asset('/assets/images/service/service-application.svg') }}"
+                                                class="img-circle">
+                                        </div>
+                                        <div class="col-12 pt-4 pb-5 text-center text-width">
+                                            <span class="font-weight-bold">บริการทำแอปพลิเคชันทุกแพลตฟอร์ม</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-auto px-5">
+                                    <div class="row">
+                                        <div class="col-12 circle">
+                                            <img src="{{ URL::asset('/assets/images/service/service-mobile.svg') }}"
+                                                 class="img-circle">
+                                        </div>
+                                        <div class="col-12 pt-4 pb-5 text-center text-width">
+                                <span
+                                    class="font-weight-bold">บริการดูแล Social Marketing และ Digital Media Design</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
                     </div>
                 </div>
 

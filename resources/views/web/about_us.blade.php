@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="row pad-top-about">
-                    <div class="col-lg-7 col-md-12">
+                    <div class="col-lg-12 col-md-12">
                         <div class="row">
                             <div class="col-12 pt-3">
                                 @if($about->content)
@@ -76,10 +76,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-5 div-logo-what-we-do">
-                        <img src="{{ URL::asset('/assets/images/about_us/com-about.png') }}"
-                             class="pt-4">
-                    </div>
+{{--                    <div class="col-lg-5 div-logo-what-we-do">--}}
+{{--                        <img src="{{ URL::asset('/assets/images/about_us/com-about.png') }}"--}}
+{{--                             class="pt-4">--}}
+{{--                    </div>--}}
                 </div>
             </div>
         </div>

@@ -27,6 +27,7 @@ class CreateContactsTable extends Migration
             $table->text('facebook_page')->nullable();
             $table->string('copyright', 255)->nullable();
             $table->string('type', 255)->nullable();
+            $table->text('what_we_do')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

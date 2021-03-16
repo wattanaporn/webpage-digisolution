@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\Content;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,7 +15,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('web.home');
+        $contact = Contact::select('what_we_do')->where('type', 'admin-contact')->first();
+        $service_list = Content::select('id', 'path_img', 'name','detail')
+            ->where('page_type', 'service-list')
+            ->get();
+        return view('web.home', compact('contact', 'service_list'));
     }
 
     /**
@@ -85,7 +90,7 @@ class HomeController extends Controller
 
     public function ContactFooter()
     {
-        $data = Contact::select('id', 'path_logo', 'address', 'tell', 'email', 'facebook_page','copyright')
+        $data = Contact::select('id', 'path_logo', 'address', 'tell', 'email', 'facebook_page', 'copyright')
             ->where('type', 'admin-contact')
             ->first();
         return response()->json(['data' => $data], 200);

@@ -53,7 +53,7 @@ class ServiceListController extends Controller
      */
     public function edit($id)
     {
-        $service_list = Content::select('id', 'meta_title', 'meta_description', 'meta_keyword', 'title', 'content', 'path_img_banner', 'name', 'path_img')
+        $service_list = Content::select('id', 'meta_title', 'meta_description', 'meta_keyword', 'title', 'content', 'path_img_banner', 'name', 'path_img', 'detail')
             ->where('id', $id)
             ->first();
         return view('admin.service.edit', compact('service_list'));
@@ -78,6 +78,7 @@ class ServiceListController extends Controller
         $service->title = $request->get('title');
         $service->content = $request->get('content');
         $service->name = $request->get('name');
+        $service->detail = $request->get('detail');
         if ($request->file('image')) {
             $imageName = time() . '.' . $request->file('image')->getClientOriginalExtension();
             $request->file('image')->move(storage_path('app/service/'), $imageName);

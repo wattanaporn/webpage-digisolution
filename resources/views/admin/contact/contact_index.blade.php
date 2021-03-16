@@ -91,6 +91,12 @@
                 </div>
             </div>
             <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label text-right">What We Do</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" id="what_we_do" name="what_we_do">{{$contact->what_we_do}}</textarea>
+                </div>
+            </div>
+            <div class="form-group row">
                 <label for="" class="col-sm-2 col-form-label text-right">address</label>
                 <div class="col-sm-10">
                     <textarea class="form-control" id="address" name="address"
@@ -126,13 +132,13 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="" class="col-sm-2 col-form-label text-right">facebook page</label>
+                <label for="" class="col-sm-2 col-form-label text-right">iframe facebook page</label>
                 <div class="col-sm-10">
                     <textarea class="form-control" id="facebook"
-                              name="facebook_page">{{$contact->facebook_page}}</textarea>
+                              name="facebook_page" rows="6">{{$contact->facebook_page}}</textarea>
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group row" style="display: none">
                 <label for="" class="col-sm-2 col-form-label text-right">picture logo</label>
                 <div class="col-sm-10 text-center">
                     <div id="block-upload-image">
@@ -182,7 +188,8 @@
 
         function task_editor() {
             CKEDITOR.replace('title')
-            CKEDITOR.replace('facebook').config.startupMode = 'source';
+            CKEDITOR.replace('what_we_do')
+            // CKEDITOR.replace('facebook').config.startupMode = 'source';
         }
 
 

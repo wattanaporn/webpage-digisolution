@@ -26,5 +26,6 @@ class Contact extends Model
         'path_logo',
         'copyright',
         'type',
+        'what_we_do',
     ];
 }

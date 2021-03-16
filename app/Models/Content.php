@@ -22,5 +22,6 @@ class Content extends Model
         'path_img_banner',
         'path_img',
         'name',
+        'detail',
     ];
 }

@@ -17,7 +17,7 @@ class ContactController extends Controller
         $contact_main = Content::select('id', 'meta_title', 'meta_description', 'meta_keyword', 'title', 'content', 'path_img_banner')
             ->where('page_type', 'contact-main')
             ->first();
-        $contact = Contact::select('id', 'address', 'email', 'tell', 'lat', 'long', 'path_logo', 'facebook_page', 'copyright')
+        $contact = Contact::select('id', 'address', 'email', 'tell', 'lat', 'long', 'path_logo', 'facebook_page', 'copyright', 'what_we_do')
             ->where('type', 'admin-contact')
             ->first();
 
@@ -112,6 +112,7 @@ class ContactController extends Controller
         $contact->long = $request->get('long');
         $contact->facebook_page = $request->get('facebook_page');
         $contact->copyright = $request->get('copyright');
+        $contact->what_we_do = $request->get('what_we_do');
         if ($request->file('image_icon')) {
             $imageIconName = time() . '_logo.' . $request->file('image_icon')->getClientOriginalExtension();
             $request->file('image_icon')->move(storage_path('app/contact/'), $imageIconName);
