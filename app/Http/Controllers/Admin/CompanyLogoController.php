@@ -16,7 +16,7 @@ class CompanyLogoController extends Controller
      */
     public function index()
     {
-        return view('admin.client.list-logo');
+        return view('admin.client.list_logo');
     }
 
     /**
@@ -27,7 +27,7 @@ class CompanyLogoController extends Controller
     public function create()
     {
         $logo = new CompanyLogo();
-        return view('admin.client.edit', compact('logo'));
+        return view('admin.client.logo_edit', compact('logo'));
     }
 
     /**
@@ -63,7 +63,7 @@ class CompanyLogoController extends Controller
         $logo = CompanyLogo::select('id', 'path_img', 'company_name')
             ->where('id', $id)
             ->first();
-        return view('admin.client.edit', compact('logo'));
+        return view('admin.client.logo_edit', compact('logo'));
 
     }
 
