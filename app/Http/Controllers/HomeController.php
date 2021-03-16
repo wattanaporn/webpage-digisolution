@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CompanyLogo;
 use App\Models\Contact;
 use App\Models\Content;
 use Illuminate\Http\Request;
@@ -19,7 +20,8 @@ class HomeController extends Controller
         $service_list = Content::select('id', 'path_img', 'name','detail')
             ->where('page_type', 'service-list')
             ->get();
-        return view('web.home', compact('contact', 'service_list'));
+        $company_logo = CompanyLogo::select('path_img')->get();
+        return view('web.home', compact('contact', 'service_list','company_logo'));
     }
 
     /**

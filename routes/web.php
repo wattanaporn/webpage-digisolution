@@ -29,6 +29,7 @@ Route::namespace('App\Http\Controllers')->group(function () {
     Route::post('/sent-budget', 'ServiceController@SentBudget')->name('sent-budget');
 
     Route::get('/our-clients/image/{path}', 'OurClientsController@ImageBanner');
+    Route::get('/company-logo-list/image/{path}', 'OurClientsController@ImageCompanyLogo');
     Route::get('/our-clients', 'OurClientsController@index')->name('our-clients');
 
     Route::post('/sent-contact', 'ContactController@SentContact')->name('sent-contact');
@@ -56,6 +57,11 @@ Route::group([
         Route::get('service-list-items', 'ServiceListController@List')->name('service-list-items');
         Route::post('service-list-item-delete', 'ServiceListController@ServiceListDelete')->name('service-list-items.delete');
         Route::resource('service-list', 'ServiceListController');
+
+        Route::get('company-logo-list/image/{path}', 'CompanyLogoController@Image');
+        Route::get('company-logo-list', 'CompanyLogoController@List')->name('company-logo-list');
+        Route::post('company-logo-list-delete', 'CompanyLogoController@LogoListDelete')->name('company-logo-list.delete');
+        Route::resource('company-logo', 'CompanyLogoController');
 
         Route::get('budget-list', 'BudgetController@BudgetList')->name('budget-list');
         Route::resource('budget', 'BudgetController');

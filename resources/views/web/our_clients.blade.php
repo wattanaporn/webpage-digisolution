@@ -114,36 +114,47 @@
                     @endif
                 </div>
             </div>
-            <div class="row autoplay d-flex justify-content-center pt-5 mt-3">
-                <div class="col-auto px-5 d-flex justify-content-center">
-                    <img src="{{ URL::asset('/assets/images/client/major.svg') }}"
-                         class="img-circle">
+            @if($company_logo)
+                <div class="row autoplay d-flex justify-content-center pt-5 mt-3">
+                    @foreach($company_logo as $item)
+                        <div class="col-auto px-5 d-flex justify-content-center">
+                            <img src="{{url('/company-logo-list/image/'.$item->path_img)}}"
+                                 class="img-circle">
+                        </div>
+                    @endforeach
                 </div>
-                <div class="col-auto px-5  d-flex justify-content-center">
-                    <img src="{{ URL::asset('/assets/images/client/plan-b.svg') }}"
-                         class="img-circle">
+            @else
+                <div class="row autoplay d-flex justify-content-center pt-5 mt-3">
+                    <div class="col-auto px-5 d-flex justify-content-center">
+                        <img src="{{ URL::asset('/assets/images/client/major.svg') }}"
+                             class="img-circle">
+                    </div>
+                    <div class="col-auto px-5  d-flex justify-content-center">
+                        <img src="{{ URL::asset('/assets/images/client/plan-b.svg') }}"
+                             class="img-circle">
+                    </div>
+                    <div class="col-auto px-5  d-flex justify-content-center">
+                        <img src="{{ URL::asset('/assets/images/client/spa.svg') }}"
+                             class="img-circle">
+                    </div>
+                    <div class="col-auto px-5 d-flex justify-content-center">
+                        <img src="{{ URL::asset('/assets/images/client/unii.svg') }}"
+                             class="img-circle">
+                    </div>
+                    <div class="col-auto px-5 d-flex justify-content-center">
+                        <img src="{{ URL::asset('/assets/images/client/sharp.svg') }}"
+                             class="img-circle">
+                    </div>
+                    <div class="col-auto px-5 d-flex justify-content-center">
+                        <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
+                             class="img-circle">
+                    </div>
+                    <div class="col-auto px-5 d-flex justify-content-center">
+                        <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
+                             class="img-circle">
+                    </div>
                 </div>
-                <div class="col-auto px-5  d-flex justify-content-center">
-                    <img src="{{ URL::asset('/assets/images/client/spa.svg') }}"
-                         class="img-circle">
-                </div>
-                <div class="col-auto px-5 d-flex justify-content-center">
-                    <img src="{{ URL::asset('/assets/images/client/unii.svg') }}"
-                         class="img-circle">
-                </div>
-                <div class="col-auto px-5 d-flex justify-content-center">
-                    <img src="{{ URL::asset('/assets/images/client/sharp.svg') }}"
-                         class="img-circle">
-                </div>
-                <div class="col-auto px-5 d-flex justify-content-center">
-                    <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
-                         class="img-circle">
-                </div>
-                <div class="col-auto px-5 d-flex justify-content-center">
-                    <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
-                         class="img-circle">
-                </div>
-            </div>
+            @endif
 
             <div class="container mt-5 pt-3">
                 <!-- Nav tabs -->
@@ -377,8 +388,16 @@
         }
 
         function auto() {
+            var items = 0;
+            var item = '{{count($company_logo)}}'
+            if (item < 5) {
+                items = item
+            } else {
+                items = 5;
+            }
+
             $('.autoplay').slick({
-                slidesToShow: 5,
+                slidesToShow: items,
                 slidesToScroll: 1,
                 draggable: true,
                 autoplay: false,

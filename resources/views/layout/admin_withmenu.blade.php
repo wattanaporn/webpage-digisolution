@@ -191,6 +191,11 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{route('admin.company-logo.index')}}">
+                            <i class="iconsminds-plaxo"></i> logo
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{route('admin.budget.index')}}">
                             <i class="iconsminds-air-balloon-1"></i> ใบเสนอราคา
                         </a>

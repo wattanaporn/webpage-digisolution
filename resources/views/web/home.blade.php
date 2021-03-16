@@ -505,6 +505,16 @@
         </div>
         <section class="logo-Client">
             <div class="container pt-5">
+                @if($company_logo)
+                    <div class="row autoplay d-flex justify-content-center pt-5 mt-3">
+                        @foreach($company_logo as $item)
+                            <div class="col-auto px-5 d-flex justify-content-center">
+                                <img src="{{url('/company-logo-list/image/'.$item->path_img)}}"
+                                     class="img-circle">
+                            </div>
+                        @endforeach
+                    </div>
+                @else
                 <div class="row autoplay d-flex justify-content-center pt-5 mt-5">
                     <div class="col-auto px-5 d-flex justify-content-center">
                         <img src="{{ URL::asset('/assets/images/client/major.svg') }}"
@@ -535,6 +545,7 @@
                              class="img-circle">
                     </div>
                 </div>
+                @endif
             </div>
         </section>
 
@@ -567,8 +578,15 @@
         });
 
         function auto() {
+            var items = 0;
+            var item = '{{count($company_logo)}}'
+            if (item < 5) {
+                items = item
+            } else {
+                items = 5;
+            }
             $('.autoplay').slick({
-                slidesToShow: 4,
+                slidesToShow: items,
                 slidesToScroll: 1,
                 draggable: true,
                 autoplay: false,
