@@ -183,76 +183,86 @@
         </section>
 
         <div class="our-service">
-            <div class="container">
-                <div class="row pt-3">
+            <div class="our-service-top">
+                <div class="row pt-4">
                     <div class="col-12 text-center">
                         <span class="head-contain-font font-weight-light mr-3">OUR</span>
                         <span class="head-contain-font font-weight-bold">SERVICE</span>
                     </div>
-                    <div class="col-md-12">
-                        <div class="row d-flex justify-content-center pt-5">
-                            @if($service_list)
-                                @foreach($service_list as $item)
-                                    <div class="col-auto px-5">
-                                        <div class="row">
-                                            <div class="col-12 d-flex justify-content-center service-item">
-                                                <img src="{{url('/service/image-icon/'.$item->path_img)}}" class="service-img">
-                                            </div>
-                                            <div class="col-12 pt-3 text-center text-width">
+                </div>
+            </div>
+            <div class="our-service-contain">
+                <div class="container">
+                    <div class="row pt-3">
+                        {{--                    <div class="col-12 text-center">--}}
+                        {{--                        <span class="head-contain-font font-weight-light mr-3">OUR</span>--}}
+                        {{--                        <span class="head-contain-font font-weight-bold">SERVICE</span>--}}
+                        {{--                    </div>--}}
+                        <div class="col-md-12">
+                            <div class="row d-flex justify-content-center pt-5">
+                                @if($service_list)
+                                    @foreach($service_list as $item)
+                                        <div class="col-auto px-5">
+                                            <div class="row">
+                                                <div class="col-12 d-flex justify-content-center service-item">
+                                                    <img src="{{url('/service/image-icon/'.$item->path_img)}}" class="service-img">
+                                                </div>
+                                                <div class="col-12 pt-3 text-center text-width">
                                                 <span class="font-weight-bold"
                                                       style="color: #000000">{{$item->name}}</span>
+                                                </div>
+                                                <div class="col-12 pt-2 pb-5 text-width">
+                                                    {!! $item->detail !!}
+                                                </div>
                                             </div>
-                                            <div class="col-12 pt-2 pb-5 text-width">
-                                                {!! $item->detail !!}
+                                        </div>
+                                    @endforeach
+                                @else
+                                    <div class="col-auto px-5">
+                                        <div class="row">
+                                            <div class="col-12 circle">
+                                                <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
+                                                     class="img-circle">
+                                            </div>
+                                            <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                <span class="font-weight-bold ">บริการออกแบบเว็บไซต์ และระบบเฉพาะตามความต้องการ</span>
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach
-                            @else
-                                <div class="col-auto px-5">
-                                    <div class="row">
-                                        <div class="col-12 circle">
-                                            <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
-                                                 class="img-circle">
-                                        </div>
-                                        <div class="col-12 pt-4 pb-5 text-center text-width">
-                                            <span class="font-weight-bold ">บริการออกแบบเว็บไซต์ และระบบเฉพาะตามความต้องการ</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-auto px-5">
-                                    <div class="row">
-                                        <div class="col-12 circle">
-                                            <img
-                                                src="{{ URL::asset('/assets/images/service/service-application.svg') }}"
-                                                class="img-circle">
-                                        </div>
-                                        <div class="col-12 pt-4 pb-5 text-center text-width">
-                                            <span class="font-weight-bold">บริการทำแอปพลิเคชันทุกแพลตฟอร์ม</span>
+                                    <div class="col-auto px-5">
+                                        <div class="row">
+                                            <div class="col-12 circle">
+                                                <img
+                                                    src="{{ URL::asset('/assets/images/service/service-application.svg') }}"
+                                                    class="img-circle">
+                                            </div>
+                                            <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                <span class="font-weight-bold">บริการทำแอปพลิเคชันทุกแพลตฟอร์ม</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-auto px-5">
-                                    <div class="row">
-                                        <div class="col-12 circle">
-                                            <img src="{{ URL::asset('/assets/images/service/service-mobile.svg') }}"
-                                                 class="img-circle">
-                                        </div>
-                                        <div class="col-12 pt-4 pb-5 text-center text-width">
+                                    <div class="col-auto px-5">
+                                        <div class="row">
+                                            <div class="col-12 circle">
+                                                <img src="{{ URL::asset('/assets/images/service/service-mobile.svg') }}"
+                                                     class="img-circle">
+                                            </div>
+                                            <div class="col-12 pt-4 pb-5 text-center text-width">
                                 <span
                                     class="font-weight-bold">บริการดูแล Social Marketing และ Digital Media Design</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endif
+                                @endif
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-
+            <div class="our-service-bottom">
             </div>
         </div>
-
 
         <div class="our-client">
             <div class="container">

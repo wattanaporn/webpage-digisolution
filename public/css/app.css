@@ -216,12 +216,40 @@ section.what-wedo {
 /* จบ section what-wedo */
 
 /* section our-service */
-.our-service {
+/*.our-service {*/
+/*    width: 100%;*/
+/*    min-height: 750px;*/
+/*    background: url("../images/our-service-bg.jpg") no-repeat;*/
+/*    background-position-x: calc(50% - -9px);*/
+/*    background-position-y: calc(50% - 26px);*/
+/*    !* z-index: 95; *!*/
+/*    position: relative;*/
+/*}*/
+
+.our-service-top {
     width: 100%;
-    min-height: 750px;
-    background: url("../images/our-service-bg.jpg") no-repeat;
+    min-height: 170px;
+    background: url("../images/bg-service-top.svg") no-repeat;
     background-position-x: calc(50% - -9px);
-    background-position-y: calc(50% - 26px);
+    /*background-position-y: calc(50% - 26px);*/
+    /* z-index: 95; */
+    /*position: relative;*/
+}
+.our-service-contain {
+    width: 100%;
+    background: #FDFBFC;
+    /*background-position-x: calc(50% - -9px);*/
+    /*background-position-y: calc(50% - 26px);*/
+    /* z-index: 95; */
+    position: relative;
+}
+
+.our-service-bottom {
+    width: 100%;
+    min-height: 170px;
+    background: url("../images/bg-service-bottom.svg") no-repeat;
+    background-position-x: calc(50% - -9px);
+    /*background-position-y: calc(50% - 26px);*/
     /* z-index: 95; */
     position: relative;
 }
@@ -401,10 +429,12 @@ section.what-wedo {
 
 /* section our-client*/
 .our-client {
-    margin-top: -42px;
+    /*margin-top: -42px;*/
+    /*margin-top: 50px;*/
     width: 100%;
-    height: 100%;
-    background: url("../images/our-client-bg.png") no-repeat;
+    /*height: 100%;*/
+    background: linear-gradient(180deg, #00A5E7 0%, rgba(0, 165, 231, 0) 100%), #007AE9;
+    /*background: url("../images/our-client-bg.png") no-repeat;*/
     /*background-position-x: calc(50% - -9px);*/
     /*background-position-y: calc(50% - 0px);*/
     /* z-index: 96; */
