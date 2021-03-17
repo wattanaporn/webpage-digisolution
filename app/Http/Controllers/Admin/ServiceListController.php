@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Budget;
 use App\Models\Content;
+use App\Models\OurClient;
 use Illuminate\Http\Request;
 
 //use Yajra\DataTables\DataTables;
@@ -141,11 +142,17 @@ class ServiceListController extends Controller
      */
     public function ServiceListDelete(Request $request)
     {
-        if ($request->get('service_list_id')) {
-            $service_list_delete = Content::find($request->get('service_list_id'));
-            $service_list_delete->delete();
-            if ($service_list_delete) {
-                return response()->json(['success' => true], 200);
+        $id = $request->get('service_list_id');
+        if ($id) {
+            $check = OurClient::select('service_list_id')->where('service_list_id', $id)->get();
+            if (!$check) {
+                $service_list_delete = Content::find($id);
+                $service_list_delete->delete();
+                if ($service_list_delete) {
+                    return response()->json(['success' => true], 200);
+                } else {
+                    return;
+                }
             } else {
                 return;
             }
