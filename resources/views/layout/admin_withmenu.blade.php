@@ -196,13 +196,18 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{route('admin.client.index')}}">
+                            <i class="iconsminds-upgrade"></i> client
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{route('admin.budget.index')}}">
-                            <i class="iconsminds-air-balloon-1"></i> ใบเสนอราคา
+                            <i class="iconsminds-management"></i> ใบเสนอราคา
                         </a>
                     </li>
                     <li>
                         <a href="{{route('admin.contact-list-view')}}">
-                            <i class="iconsminds-three-arrow-fork"></i> รายชื่อผู้ติดต่อ
+                            <i class="iconsminds-user"></i> รายชื่อผู้ติดต่อ
                         </a>
                     </li>
                     {{--                    <li>--}}

@@ -58,22 +58,29 @@ Route::group([
         Route::post('service-list-item-delete', 'ServiceListController@ServiceListDelete')->name('service-list-items.delete');
         Route::resource('service-list', 'ServiceListController');
 
-        Route::get('company-logo-list/image/{path}', 'CompanyLogoController@Image');
-        Route::get('company-logo-list', 'CompanyLogoController@List')->name('company-logo-list');
-        Route::post('company-logo-list-delete', 'CompanyLogoController@LogoListDelete')->name('company-logo-list.delete');
-        Route::resource('company-logo', 'CompanyLogoController');
-
         Route::get('budget-list', 'BudgetController@BudgetList')->name('budget-list');
         Route::resource('budget', 'BudgetController');
 
         Route::get('our-client/image/{path}', 'OurClientController@ImageBanner');
         Route::resource('our-client', 'OurClientController');
 
+        Route::get('company-logo-list/image/{path}', 'CompanyLogoController@Image');
+        Route::get('company-logo-list', 'CompanyLogoController@List')->name('company-logo-list');
+        Route::post('company-logo-list-delete', 'CompanyLogoController@LogoListDelete')->name('company-logo-list.delete');
+        Route::resource('company-logo', 'CompanyLogoController');
+
+        Route::get('client-list', 'ClientController@List')->name('client-list');
+        Route::post('client-list-delete', 'ClientController@ClientListDelete')->name('client-list.delete');
+        Route::get('client-list/image/{path}', 'ClientController@Image')->name('client-list-img');
+        Route::resource('client', 'ClientController');
+
         Route::get('contact/image/{path}', 'ContactController@ImageBanner');
         Route::get('contact/image-logo/{path}', 'ContactController@ImageLogo');
         Route::get('contact-list', 'ContactController@ContactList')->name('contact-list');
         Route::get('contact-list-view', 'ContactController@ContactListView')->name('contact-list-view');
         Route::resource('contact', 'ContactController');
+
+
     });
 });
 
