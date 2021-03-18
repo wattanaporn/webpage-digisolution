@@ -173,12 +173,12 @@
         <div class="main-menu">
             <div class="scroll">
                 <ul class="list-unstyled">
-                    <li>
-                        <a href="#dashboard">
-                            <i class="iconsminds-shop-4"></i>
-                            <span>Dashboards</span>
-                        </a>
-                    </li>
+{{--                    <li>--}}
+{{--                        <a href="#dashboard">--}}
+{{--                            <i class="iconsminds-shop-4"></i>--}}
+{{--                            <span>Dashboards</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
                     <li>
                         <a href="#main_menu">
                             <i class="iconsminds-digital-drawing"></i>
@@ -208,6 +208,10 @@
                     <li>
                         <a href="{{route('admin.contact-list-view')}}">
                             <i class="iconsminds-user"></i> รายชื่อผู้ติดต่อ
+                        </a>
+                    </li><li>
+                        <a href="{{route('admin.slide.index')}}">
+                            <i class="iconsminds-bucket"></i> slide
                         </a>
                     </li>
                     {{--                    <li>--}}
@@ -240,11 +244,11 @@
                     {{--                            <i class="iconsminds-pantone"></i> service--}}
                     {{--                        </a>--}}
                     {{--                    </li>--}}
-                    <li>
-                        <a href="Blank.Page.html">
-                            <i class="iconsminds-bucket"></i> Blank Page
-                        </a>
-                    </li>
+{{--                    <li>--}}
+{{--                        <a href="Blank.Page.html">--}}
+{{--                            <i class="iconsminds-bucket"></i> Blank Page--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
                 </ul>
             </div>
         </div>

@@ -18,6 +18,7 @@ Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('/', 'HomeController@index')->name('web');
     Route::get('/contact-footer', 'HomeController@ContactFooter')->name('contact-footer');
     Route::get('contact/image-logo/{path}', 'HomeController@ImageLogo');
+    Route::get('slide/image/{path}', 'HomeController@ImageSlide');
     Route::get('/home-our-clients-list', 'HomeController@OurClientList')->name('home-our-clients-list');
 
     Route::get('/about/image/{path}', 'AboutUsContoller@ImageBanner');
@@ -82,6 +83,11 @@ Route::group([
         Route::get('contact-list', 'ContactController@ContactList')->name('contact-list');
         Route::get('contact-list-view', 'ContactController@ContactListView')->name('contact-list-view');
         Route::resource('contact', 'ContactController');
+
+        Route::get('slide-list/image/{path}', 'SlideController@Image');
+        Route::get('slide-list', 'SlideController@List')->name('slide-list');
+        Route::post('slide-list-delete', 'SlideController@LogoListDelete')->name('slide-list.delete');
+        Route::resource('slide', 'SlideController');
 
 
     });

@@ -17,6 +17,7 @@ class CreateCompanyLogosTable extends Migration
             $table->bigIncrements('id');
             $table->string('path_img', 255)->nullable();
             $table->string('company_name', 255)->nullable();
+            $table->string('type', 255)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

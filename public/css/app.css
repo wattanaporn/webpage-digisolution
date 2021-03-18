@@ -99,11 +99,7 @@ nav ul li a {
 /* จบ section header เมนู */
 
 /* section header banner */
-section.banner .banner-images {
-    text-align: center;
-    width: 100%;
-    height: 550px;
-}
+
 
 .banner-images img {
     width: 100%;

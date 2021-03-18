@@ -21,9 +21,10 @@ class HomeController extends Controller
         $service_list = Content::select('id', 'path_img', 'name','detail')
             ->where('page_type', 'service-list')
             ->get();
-        $company_logo = CompanyLogo::select('path_img')->get();
+        $company_logo = CompanyLogo::select('path_img')->where('type','logo')->get();
+        $slide = CompanyLogo::select('path_img')->where('type','slide')->get();
         $server_list = Content::select('id', 'name')->where('page_type', 'service-list')->get();
-        return view('web.home', compact('contact', 'service_list','company_logo','server_list'));
+        return view('web.home', compact('contact', 'service_list','company_logo','server_list','slide'));
     }
 
     /**
@@ -113,5 +114,9 @@ class HomeController extends Controller
             ->limit(6)
             ->get();
         return response()->json(['data' => $client, 'success' => true], 200);
+    }
+    public function ImageSlide($path)
+    {
+        return response()->download(storage_path('app/slide/' . $path));
     }
 }

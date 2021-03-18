@@ -2,7 +2,7 @@
 @push('css')
     <style>
         .wedo-pad-top {
-            padding-top: 200px;
+            padding-top: 100px;
         }
 
         @media only screen and (max-width: 992px) {
@@ -100,14 +100,94 @@
             display: flex;
             align-items: center;
         }
+
+        .banner-images {
+            width: 100%;
+            height: 480px;
+            display: flex;
+            align-items: center;
+            background: black;
+        }
+
+        .img-slit {
+            width: 100%;
+            max-height: 480px;
+        }
     </style>
 @endpush('css')
 @section('content')
     <div id="block-content">
         <section class="banner">
-            <div class="banner-images">
-                <img src="{{ URL::asset('/images/banner.jpg') }}" alt="">
-            </div>
+            @if($slide)
+                <div class="banner-images">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            @foreach($slide as $key=>$item)
+                                @if($key == 0)
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="{{$key}}" class="active"></li>
+                                @else
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="{{$key}}"></li>
+                                @endif
+                            @endforeach
+                        </ol>
+                        <div class="carousel-inner">
+                            @foreach($slide as $key=>$item)
+                                @if($key == 0)
+                                    <div class="carousel-item active">
+                                        <img src="{{url('/slide/image/'.$item->path_img)}}" class="img-slit">
+                                    </div>
+                                @else
+                                    <div class="carousel-item">
+                                        <img src="{{url('/slide/image/'.$item->path_img)}}" class="img-slit">
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                           data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                           data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            @else
+                <div class="banner-images">
+                    <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators2" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators2" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators2" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="{{ URL::asset('/images/banner.jpg') }}" alt="" class="img-slit">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{URL::asset('/assets/images/banner.svg')}}"
+                                     class="img-slit">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ URL::asset('/images/banner.jpg') }}" alt="" class="img-slit">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators2" role="button"
+                           data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators2" role="button"
+                           data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            @endif
         </section>
 
         <section class="what-wedo">
@@ -275,7 +355,7 @@
                                                 <div class="tab-pane fade show active" id="_{{$list->id}}"
                                                      role="tabpanel"
                                                      aria-labelledby="home-tab">
-                                                        <div id="box_{{$list->id}}"></div>
+                                                    <div id="box_{{$list->id}}"></div>
                                                 </div>
                                             @else
                                                 <div class="tab-pane fade" id="_{{$list->id}}" role="tabpanel"

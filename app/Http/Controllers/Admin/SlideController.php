@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\CompanyLogo;
-use App\Models\Content;
 use Illuminate\Http\Request;
 
-class CompanyLogoController extends Controller
+class SlideController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +15,7 @@ class CompanyLogoController extends Controller
      */
     public function index()
     {
-        return view('admin.client.list_logo');
+        return view('admin.contact.list_slide');
     }
 
     /**
@@ -27,13 +26,13 @@ class CompanyLogoController extends Controller
     public function create()
     {
         $logo = new CompanyLogo();
-        return view('admin.client.edit_logo', compact('logo'));
+        return view('admin.contact.edit_slide', compact('logo'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -44,7 +43,7 @@ class CompanyLogoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -55,7 +54,7 @@ class CompanyLogoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -63,15 +62,14 @@ class CompanyLogoController extends Controller
         $logo = CompanyLogo::select('id', 'path_img', 'company_name')
             ->where('id', $id)
             ->first();
-        return view('admin.client.edit_logo', compact('logo'));
-
+        return view('admin.contact.edit_slide', compact('logo'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -83,10 +81,10 @@ class CompanyLogoController extends Controller
             $logo = new CompanyLogo();
         }
         $logo->company_name = $request->get('name');
-        $logo->type = 'logo';
+        $logo->type = 'slide';
         if ($request->file('image_icon')) {
             $imageIconName = time() . '_icon.' . $request->file('image_icon')->getClientOriginalExtension();
-            $request->file('image_icon')->move(storage_path('app/company_logo/'), $imageIconName);
+            $request->file('image_icon')->move(storage_path('app/slide/'), $imageIconName);
             $logo->path_img = $imageIconName;
         }
         $logo->save();
@@ -96,7 +94,7 @@ class CompanyLogoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -107,14 +105,14 @@ class CompanyLogoController extends Controller
     public function List()
     {
         $logo = CompanyLogo::query()->select('id', 'company_name', 'path_img')
-            ->where('type','logo')
+            ->where('type','slide')
             ->get();
         return datatables($logo)->toJson();
     }
 
     public function Image($path)
     {
-        return response()->download(storage_path('app/company_logo/' . $path));
+        return response()->download(storage_path('app/slide/' . $path));
     }
 
     public function LogoListDelete(Request $request)
