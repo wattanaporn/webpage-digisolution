@@ -86,7 +86,8 @@
             background: #007AE8;
             border-color: #007AE8;
             color: white;
-            width: 30px;
+            text-align: center;
+            width: 35px;
         }
 
         .pagination.pagination-rounded-flat .page-item .page-link {
