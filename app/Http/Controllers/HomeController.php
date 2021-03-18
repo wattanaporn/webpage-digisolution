@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CompanyLogo;
 use App\Models\Contact;
 use App\Models\Content;
+use App\Models\OurClient;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -21,7 +22,8 @@ class HomeController extends Controller
             ->where('page_type', 'service-list')
             ->get();
         $company_logo = CompanyLogo::select('path_img')->get();
-        return view('web.home', compact('contact', 'service_list','company_logo'));
+        $server_list = Content::select('id', 'name')->where('page_type', 'service-list')->get();
+        return view('web.home', compact('contact', 'service_list','company_logo','server_list'));
     }
 
     /**
@@ -101,5 +103,15 @@ class HomeController extends Controller
     public function ImageLogo($path)
     {
         return response()->download(storage_path('app/contact/' . $path));
+    }
+
+    public function OurClientList(Request $request)
+    {
+        $tab = $request->get('tap');
+        $client = OurClient::select('id', 'service_list_id', 'link', 'name', 'path_img_small', 'path_img_large')
+            ->where('service_list_id', $tab)
+            ->limit(6)
+            ->get();
+        return response()->json(['data' => $client, 'success' => true], 200);
     }
 }

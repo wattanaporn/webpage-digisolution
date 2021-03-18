@@ -18,6 +18,7 @@ Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('/', 'HomeController@index')->name('web');
     Route::get('/contact-footer', 'HomeController@ContactFooter')->name('contact-footer');
     Route::get('contact/image-logo/{path}', 'HomeController@ImageLogo');
+    Route::get('/home-our-clients-list', 'HomeController@OurClientList')->name('home-our-clients-list');
 
     Route::get('/about/image/{path}', 'AboutUsContoller@ImageBanner');
     Route::get('/about-us', 'AboutUsContoller@index')->name('about-us');
@@ -31,6 +32,8 @@ Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('/our-clients/image/{path}', 'OurClientsController@ImageBanner');
     Route::get('/company-logo-list/image/{path}', 'OurClientsController@ImageCompanyLogo');
     Route::get('/our-clients', 'OurClientsController@index')->name('our-clients');
+    Route::get('/our-clients-list', 'OurClientsController@OurClientList')->name('our-clients-list');
+    Route::get('/clients-list/image/{path}', 'OurClientsController@ImageOurClientList')->name('clients-list-img');
 
     Route::post('/sent-contact', 'ContactController@SentContact')->name('sent-contact');
     Route::get('/contact/image/{path}', 'ContactController@ImageBanner');

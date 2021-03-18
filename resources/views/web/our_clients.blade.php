@@ -13,8 +13,15 @@
         }
 
         .img-our {
+            max-width: 320px;
+            max-height: 203px;
+        }
+
+        .service-item {
             width: 320px;
             height: 203px;
+            display: flex;
+            align-items: center;
         }
 
         .slick-prev:before {
@@ -29,28 +36,23 @@
             font-size: 40px !important;
         }
 
-        .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link {
-            border-top: #ffffff;
-            border-left: #ffffff;
-            border-right: #ffffff;
-            padding-top: 10px;
-            /*background: white;*/
-            color: black;
-            /*font-weight: bold;*/
-        }
-
-        .border-active-tab {
-            border-bottom: 8px solid #007AE8;
-            border-radius: 5px;
-            width: 50px;
-            position: absolute;
-            margin-top: -4px;
-        }
-
-        .txt-bold {
+        .nav-tabs .nav-link {
             color: #777777;
-            font-weight: bold;
         }
+
+        .nav-tabs .nav-link.active {
+            font-weight: bold;
+            color: black;
+        }
+
+        /*.border-active-tab {*/
+        /*    border-bottom: 8px solid #007AE8;*/
+        /*    border-radius: 5px;*/
+        /*    width: 50px;*/
+        /*    position: absolute;*/
+        /*    margin-top: -4px;*/
+        /*}*/
+
 
         /**, ::after, ::before {*/
         /*    box-sizing: border-box;*/
@@ -155,47 +157,123 @@
                     </div>
                 </div>
             @endif
-
-            <div class="container mt-5 pt-3">
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs nav-justified">
-                    <li class="nav-item" onclick="tab1()">
-
-                        <a class="nav-link nav-1" data-toggle="tab" href="#Website_Design">
-                            <span class="txt-bold-nav-1 txt-grey">Website Design</span></a>
-
-                        <div class="row">
-                            <div class="col-12 d-flex justify-content-center">
-                                <div class="border-active-tab tab1">
+            @if($server_list)
+                <div class="container mt-5 pt-3 pb-5">
+                    <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                        @foreach($server_list as $key=>$list)
+                            @if($key === 0)
+                                <li class="nav-item" onclick="changTab({{$list->id}})">
+                                    <a class="nav-link active" id="{{$list->id}}" data-toggle="tab"
+                                       href="#_{{$list->id}}" role="tab"
+                                       aria-controls="home" aria-selected="true">{{$list->name}}</a>
+                                </li>
+                            @else
+                                <li class="nav-item" onclick="changTab({{$list->id}})">
+                                    <a class="nav-link" id="{{$list->id}}" data-toggle="tab" href="#_{{$list->id}}"
+                                       role="tab"
+                                       aria-controls="home" aria-selected="true">{{$list->name}}</a>
+                                </li>
+                            @endif
+                        @endforeach
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        @foreach($server_list as $key=>$list)
+                            @if($key === 0)
+                                <div class="tab-pane fade show active" id="_{{$list->id}}" role="tabpanel"
+                                     aria-labelledby="home-tab">
+                                        <div id="box_{{$list->id}}"></div>
+                                    <div class="row">
+                                        <div class="col-12 d-flex justify-content-end">
+                                            <ul class="pagination d-flex justify-content-center flex-wrap pagination-rounded-flat pagination-success">
+                                                <li class="page-item"><a class="page-link" href="#"
+                                                                         data-abc="true"><span
+                                                            aria-hidden="true">&laquo;</span>
+                                                        <span class="sr-only">Previous</span></a></li>
+                                                <li class="page-item"><a class="page-link" href="#"
+                                                                         data-abc="true"><</a>
+                                                </li>
+                                                <li class="page-item active"><a class="page-link" href="#"
+                                                                                data-abc="true">1</a>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#"
+                                                                         data-abc="true">2</a>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#"
+                                                                         data-abc="true">3</a>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#"
+                                                                         data-abc="true">4</a>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#"
+                                                                         data-abc="true">></a>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#"
+                                                                         data-abc="true"><span
+                                                            aria-hidden="true">&raquo;</span>
+                                                        <span class="sr-only">Next</span></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                            @else
+                                <div class="tab-pane fade" id="_{{$list->id}}" role="tabpanel"
+                                     aria-labelledby="profile-tab">
+                                    <div id="box_{{$list->id}}">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 d-flex justify-content-end">
+                                            <ul class="pagination d-flex justify-content-center flex-wrap pagination-rounded-flat pagination-success">
+                                                <li class="page-item"><a class="page-link" href="#"
+                                                                         data-abc="true"><span
+                                                            aria-hidden="true">&laquo;</span>
+                                                        <span class="sr-only">Previous</span></a></li>
+                                                <li class="page-item"><a class="page-link" href="#"
+                                                                         data-abc="true"><</a>
+                                                </li>
+                                                <li class="page-item active"><a class="page-link" href="#"
+                                                                                data-abc="true">1</a>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#"
+                                                                         data-abc="true">2</a>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#"
+                                                                         data-abc="true">3</a>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#"
+                                                                         data-abc="true">4</a>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#"
+                                                                         data-abc="true">></a>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#"
+                                                                         data-abc="true"><span
+                                                            aria-hidden="true">&raquo;</span>
+                                                        <span class="sr-only">Next</span></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
+            @else
+                <ul class="nav nav-tabs nav-justified" id="myTab2" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                           aria-controls="home" aria-selected="true">Website Design</a>
                     </li>
-                    <li class="nav-item" onclick="tab2()">
-                        <a class="nav-link" data-toggle="tab" href="#Application_Design">
-                            <span class="txt-bold-nav-2 txt-grey">Application Design</span></a>
-                        <div class="row">
-                            <div class="col-12 d-flex justify-content-center">
-                                <div class="border-active-tab tab2">
-                                </div>
-                            </div>
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                           aria-controls="profile" aria-selected="false">Application Design</a>
                     </li>
-                    <li class="nav-item" onclick="tab3()">
-                        <a class="nav-link" data-toggle="tab" href="#Online_Marketing">
-                            <span class="txt-bold-nav-3 txt-grey">Online Marketing</span></a>
-                        <div class="row">
-                            <div class="col-12 d-flex justify-content-center">
-                                <div class="border-active-tab tab3">
-                                </div>
-                            </div>
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                           aria-controls="contact" aria-selected="false">Online Marketing</a>
                     </li>
                 </ul>
-
-                <!-- Tab panes -->
-                <div class="tab-content">
-                    <div id="Website_Design" class="tab-pane active">
+                <div class="tab-content" id="myTab2Content">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <div class="row pt-5 justify-content-sm-center justify-content-xl-start">
                             <div class="col-auto px-0">
                                 <div class="row">
@@ -243,7 +321,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="Application_Design" class="container tab-pane fade">
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="row pt-5 justify-content-sm-center justify-content-xl-start">
                             <div class="col-auto px-0">
                                 <div class="row">
@@ -291,7 +369,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="Online_Marketing" class="container tab-pane fade">
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                         <div class="row pt-5 justify-content-sm-center justify-content-xl-start">
                             <div class="col-auto px-0">
                                 <div class="row">
@@ -339,34 +417,8 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="col-12 d-flex justify-content-end">
-                            <ul class="pagination d-flex justify-content-center flex-wrap pagination-rounded-flat pagination-success">
-                                <li class="page-item"><a class="page-link" href="#" data-abc="true"><span
-                                            aria-hidden="true">&laquo;</span>
-                                        <span class="sr-only">Previous</span></a></li>
-                                <li class="page-item"><a class="page-link" href="#" data-abc="true"><</a>
-                                </li>
-                                <li class="page-item active"><a class="page-link" href="#"
-                                                                data-abc="true">1</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#" data-abc="true">2</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#" data-abc="true">3</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#" data-abc="true">4</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#" data-abc="true">></a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#" data-abc="true"><span
-                                            aria-hidden="true">&raquo;</span>
-                                        <span class="sr-only">Next</span></a></li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
-            </div>
+            @endif
         </div>
     </div>
 @endsection
@@ -376,15 +428,53 @@
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>
         $(document).ready(function () {
-            auto();
-            tab1();
             meta();
+            loadDataClients({!! json_encode($server_list[0]->id) !!});
+            auto();
         });
+
+        function changTab(data) {
+            loadDataClients(data)
+        }
 
         function meta() {
             document.title = '{{$our_client->meta_title}}'
             document.getElementsByTagName('meta')["keywords"].content = '{{$our_client->meta_keyword}}';
             document.getElementsByTagName('meta')["description"].content = '{{$our_client->meta_description}}';
+        }
+
+        function loadDataClients(data_id) {
+            $.ajax({
+                url: '{!! route('our-clients-list') !!}' + '?tap=' + data_id,
+                type: 'GET',
+                processData: false,
+                contentType: false,
+                success: function (res) {
+                    if (res.data) {
+                        var div = $('<div ' + 'class="row pt-3 justify-content-sm-center justify-content-xl-start"' + '></div>')
+                        div.html(GetDynamicBox(res.data))
+                        $('#box_' + data_id).empty()
+                        $('#box_' + data_id).append(div)
+                    }
+                }
+            })
+        }
+
+        function GetDynamicBox(value) {
+            var data = '';
+            $.each(value, function (index, value) {
+                data += '<div class="col-auto px-0">' +
+                    '<div class="row">' +
+                    '<div class="col-12 d-flex justify-content-center service-item">' +
+                    '<img src="/clients-list/image/' + value.path_img_small + '" class="img-our">' +
+                    '</div>' +
+                    '<div class="col-12 pt-4 pb-5 text-center text-width">' +
+                    '<span class="font-weight-bold">' + value.name + '</span>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>'
+            });
+            return data
         }
 
         function auto() {
@@ -426,35 +516,5 @@
                     }]
             });
         }
-
-        function tab1() {
-            $('.tab1').show();
-            $('.tab2').hide();
-            $('.tab3').hide();
-            $('.txt-bold-nav-1').addClass('txt-bold');
-            $('.txt-bold-nav-2').removeClass('txt-bold');
-            $('.txt-bold-nav-3').removeClass('txt-bold');
-        }
-
-        function tab2() {
-            $('.tab1').hide();
-            $('.tab2').show();
-            $('.tab3').hide();
-            $('.txt-bold-nav-1').removeClass('txt-bold');
-            $('.txt-bold-nav-2').addClass('txt-bold');
-            $('.txt-bold-nav-3').removeClass('txt-bold');
-
-        }
-
-        function tab3() {
-            $('.tab1').hide();
-            $('.tab2').hide();
-            $('.tab3').show();
-            $('.txt-bold-nav-1').removeClass('txt-bold');
-            $('.txt-bold-nav-2').removeClass('txt-bold');
-            $('.txt-bold-nav-3').addClass('txt-bold');
-        }
-
-
     </script>
 @endpush

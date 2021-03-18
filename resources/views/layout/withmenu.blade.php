@@ -139,7 +139,6 @@
                 processData: false,
                 contentType: false,
                 success: function (res) {
-                    console.log(res.data)
                     if (res.data) {
                         if (res.data.copyright) {
                             $('#copyright').text(res.data.copyright);
