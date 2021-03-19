@@ -9,7 +9,13 @@
     <link rel="stylesheet" href="{{asset('admin/css/dore.light.bluenavy.min.css')}}"/>
     <script src="{{url('admin/js/sweetalert2.js')}}"></script>
     <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-{{--    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>--}}
+    {{--    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>--}}
+
+
+    <script src="{{url('assets/js/jquery-3.4.1.min.js')}}"></script>
+    <script src="{{url('assets/js/jquery.ba-throttle-debounce.js')}}"></script>
+    <script src="{{url('assets/framework/bootstrap4/bootstrap.bundle.min.js')}}"></script>
+    <link rel="stylesheet" href="{{url('assets/framework/bootstrap4/bootstrap.min.css')}}">
     <style>
         #main-content-title {
             height: 120px;
@@ -152,19 +158,24 @@
             <div class="user d-inline-block">
                 <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
-                    <span class="name">Sarah Kortney</span>
-                    <span>
-                        <img alt="Profile Picture" src="img/profiles/l-1.jpg"/>
-                    </span>
-                </button>
+                    <div class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <span class="name">{{ Auth::user()->name }}</span>
+                        </a>
 
-                <div class="dropdown-menu dropdown-menu-right mt-3">
-                    <a class="dropdown-item" href="#">Account</a>
-                    <a class="dropdown-item" href="#">Features</a>
-                    <a class="dropdown-item" href="#">History</a>
-                    <a class="dropdown-item" href="#">Support</a>
-                    <a class="dropdown-item" href="#">Sign out</a>
-                </div>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                          document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </div>
+                </button>
             </div>
         </div>
     </nav>
@@ -173,12 +184,12 @@
         <div class="main-menu">
             <div class="scroll">
                 <ul class="list-unstyled">
-{{--                    <li>--}}
-{{--                        <a href="#dashboard">--}}
-{{--                            <i class="iconsminds-shop-4"></i>--}}
-{{--                            <span>Dashboards</span>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
+                    {{--                    <li>--}}
+                    {{--                        <a href="#dashboard">--}}
+                    {{--                            <i class="iconsminds-shop-4"></i>--}}
+                    {{--                            <span>Dashboards</span>--}}
+                    {{--                        </a>--}}
+                    {{--                    </li>--}}
                     <li>
                         <a href="#main_menu">
                             <i class="iconsminds-digital-drawing"></i>
@@ -209,7 +220,8 @@
                         <a href="{{route('admin.contact-list-view')}}">
                             <i class="iconsminds-user"></i> รายชื่อผู้ติดต่อ
                         </a>
-                    </li><li>
+                    </li>
+                    <li>
                         <a href="{{route('admin.slide.index')}}">
                             <i class="iconsminds-bucket"></i> slide
                         </a>
@@ -244,11 +256,11 @@
                     {{--                            <i class="iconsminds-pantone"></i> service--}}
                     {{--                        </a>--}}
                     {{--                    </li>--}}
-{{--                    <li>--}}
-{{--                        <a href="Blank.Page.html">--}}
-{{--                            <i class="iconsminds-bucket"></i> Blank Page--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
+                    {{--                    <li>--}}
+                    {{--                        <a href="Blank.Page.html">--}}
+                    {{--                            <i class="iconsminds-bucket"></i> Blank Page--}}
+                    {{--                        </a>--}}
+                    {{--                    </li>--}}
                 </ul>
             </div>
         </div>
@@ -774,7 +786,7 @@
     </footer>
 
 
-    <script src="{{asset('admin/js/vendor/jquery-3.3.1.min.js')}}"></script>
+    {{--    <script src="{{asset('admin/js/vendor/jquery-3.3.1.min.js')}}"></script>--}}
     <script src="{{asset('admin/js/vendor/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('admin/js/vendor/perfect-scrollbar.min.js')}}"></script>
     <script src="{{asset('admin/js/vendor/mousetrap.min.js')}}"></script>
