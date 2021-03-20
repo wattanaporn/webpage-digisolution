@@ -24,6 +24,13 @@
             align-items: center;
         }
 
+        .service-item-full {
+            /*width: 320px;*/
+            /*height: 203px;*/
+            display: flex;
+            align-items: center;
+        }
+
         .slick-prev:before {
             content: "<" !important;
             color: #C4C4C4 !important;
@@ -93,6 +100,89 @@
         .pagination.pagination-rounded-flat .page-item .page-link {
             border: none;
             border-radius: 50px
+        }
+
+
+
+        /* Style the Image Used to Trigger the Modal */
+        .myImg {
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .myImg:hover {opacity: 0.7;}
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 100; /* Sit on top */
+            padding-top: 50px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            /*overflow: auto; !* Enable scroll if needed *!*/
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+            overflow: hidden;
+        }
+
+        /* Modal Content (Image) */
+        .modal-content {
+            margin: auto;
+            display: block;
+            /*width: 80%;*/
+            max-width: 700px;
+        }
+
+        /* Caption of Modal Image (Image Text) - Same Width as the Image */
+        .caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+
+        /* Add Animation - Zoom in the Modal */
+        .modal-content, .caption {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from {transform:scale(0)}
+            to {transform:scale(1)}
+        }
+
+        /* The Close Button */
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* 100% Image Width on Smaller Screens */
+        @media only screen and (max-width: 700px){
+            .modal-content {
+                width: 100%;
+            }
         }
 
     </style>
@@ -466,13 +556,24 @@
             $.each(value, function (index, value) {
                 data += '<div class="col-auto px-0">' +
                     '<div class="row">' +
-                    '<div class="col-12 d-flex justify-content-center service-item">' +
-                    '<img src="/clients-list/image/' + value.path_img_small + '" class="img-our">' +
+                    '<div class="col-12 d-flex justify-content-center service-item myImg" onclick="modalImg('+index+')">' +
+                    '<img src="/clients-list/image/' + value.path_img_small + '" ' +
+                    'class="img-our myImg" id="myImg' + index + '">' +
                     '</div>' +
                     '<div class="col-12 pt-4 pb-5 text-center text-width">' +
                     '<span class="font-weight-bold">' + value.name + '</span>' +
                     '</div>' +
                     '</div>' +
+                    '</div>' +
+                    '<div id="myModal' + index + '" class="modal">' +
+                    '<span class="close" id="close' + index + '">&times;</span>' +
+                    // '<img class="modal-content" id="img0' + index + '">' +
+                    '<div class="row">' +
+                    '<div class="col-12 d-flex justify-content-center service-item-full">' +
+                    '<img class="" src="/clients-list/image/' + value.path_img_large + '" ' +
+                    '<div id="caption' + index + '" class="caption"></div>' +
+                    '</div>'+
+                    '</div>'+
                     '</div>'
             });
             return data
@@ -516,6 +617,22 @@
 
                     }]
             });
+        }
+
+        function modalImg(value) {
+            var modal = document.getElementById("myModal"+value);
+            // var img = document.getElementById("myImg"+value);
+            // var modalImg = document.getElementById("img0"+value);
+            var captionText = document.getElementById("caption"+value);
+            // img.onclick = function () {
+                modal.style.display = "block";
+                // modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+            // }
+            var span = document.getElementById("close"+value);
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
         }
     </script>
 @endpush
