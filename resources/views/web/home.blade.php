@@ -16,12 +16,37 @@
             height: 312px;
         }
 
-        .img-circle {
+        .img-circle-ser {
             border-radius: 50%;
             width: 158px;
             height: 158px;
             box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
         }
+
+
+        .box-img-circle {
+            display: flex;
+            align-items: center;
+
+        }
+
+        .box-circle {
+            border-radius: 50%;
+            min-width: 156px !important;
+            min-height: 156px !important;
+            box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .img-circle {
+            /*border-radius: 50%;*/
+            max-width: 145px;
+            max-height: 158px;
+
+        }
+
 
         .text-width {
             width: 30px;
@@ -121,7 +146,9 @@
             transition: 0.3s;
         }
 
-        .myImg:hover {opacity: 0.7;}
+        .myImg:hover {
+            opacity: 0.7;
+        }
 
         /* The Modal (background) */
         .modal {
@@ -134,8 +161,8 @@
             width: 100%; /* Full width */
             height: 100%; /* Full height */
             /*overflow: auto; !* Enable scroll if needed *!*/
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+            background-color: rgb(0, 0, 0); /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
             overflow: hidden;
         }
 
@@ -166,8 +193,12 @@
         }
 
         @keyframes zoom {
-            from {transform:scale(0)}
-            to {transform:scale(1)}
+            from {
+                transform: scale(0)
+            }
+            to {
+                transform: scale(1)
+            }
         }
 
         /* The Close Button */
@@ -189,7 +220,7 @@
         }
 
         /* 100% Image Width on Smaller Screens */
-        @media only screen and (max-width: 700px){
+        @media only screen and (max-width: 700px) {
             .modal-content {
                 width: 100%;
             }
@@ -205,7 +236,8 @@
                         <ol class="carousel-indicators">
                             @foreach($slide as $key=>$item)
                                 @if($key == 0)
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="{{$key}}" class="active"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="{{$key}}"
+                                        class="active"></li>
                                 @else
                                     <li data-target="#carouselExampleIndicators" data-slide-to="{{$key}}"></li>
                                 @endif
@@ -357,9 +389,9 @@
                                 @else
                                     <div class="col-auto px-5">
                                         <div class="row">
-                                            <div class="col-12 circle">
+                                            <div class="col-12 d-flex justify-content-center service-item">
                                                 <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
-                                                     class="img-circle">
+                                                     class="service-img">
                                             </div>
                                             <div class="col-12 pt-4 pb-5 text-center text-width">
                                                 <span class="font-weight-bold ">บริการออกแบบเว็บไซต์ และระบบเฉพาะตามความต้องการ</span>
@@ -368,10 +400,10 @@
                                     </div>
                                     <div class="col-auto px-5">
                                         <div class="row">
-                                            <div class="col-12 circle">
+                                            <div class="col-12 d-flex justify-content-center service-item">
                                                 <img
                                                     src="{{ URL::asset('/assets/images/service/service-application.svg') }}"
-                                                    class="img-circle">
+                                                    class="service-img">
                                             </div>
                                             <div class="col-12 pt-4 pb-5 text-center text-width">
                                                 <span class="font-weight-bold">บริการทำแอปพลิเคชันทุกแพลตฟอร์ม</span>
@@ -380,9 +412,9 @@
                                     </div>
                                     <div class="col-auto px-5">
                                         <div class="row">
-                                            <div class="col-12 circle">
+                                            <div class="col-12 d-flex justify-content-center service-item">
                                                 <img src="{{ URL::asset('/assets/images/service/service-mobile.svg') }}"
-                                                     class="img-circle">
+                                                     class="service-img">
                                             </div>
                                             <div class="col-12 pt-4 pb-5 text-center text-width">
                                 <span
@@ -639,9 +671,11 @@
                 @if($company_logo)
                     <div class="row autoplay d-flex justify-content-center pt-5 mt-3">
                         @foreach($company_logo as $item)
-                            <div class="col-auto px-5 d-flex justify-content-center">
-                                <img src="{{url('/company-logo-list/image/'.$item->path_img)}}"
-                                     class="img-circle">
+                            <div class="col-auto px-5 d-flex justify-content-center box-img-circle">
+                                <div class="box-circle">
+                                    <img src="{{url('/company-logo-list/image/'.$item->path_img)}}"
+                                         class="img-circle">
+                                </div>
                             </div>
                         @endforeach
                     </div>
@@ -773,7 +807,7 @@
             $.each(value, function (index, value) {
                 data += '<div class="col-auto px-0 pt-5">' +
                     '<div class="row">' +
-                    '<div class="col-12 d-flex justify-content-center service-item myImg" onclick="modalImg('+index+')">' +
+                    '<div class="col-12 d-flex justify-content-center service-item myImg" onclick="modalImg(' + index + ')">' +
                     '<img src="/clients-list/image/' + value.path_img_small + '" ' +
                     'class="img-our myImg" id="myImg' + index + '">' +
                     '</div>' +
@@ -789,24 +823,24 @@
                     '<div class="col-12 d-flex justify-content-center service-item-full">' +
                     '<img class="" src="/clients-list/image/' + value.path_img_large + '" ' +
                     '<div id="caption' + index + '" class="caption"></div>' +
-                    '</div>'+
-                    '</div>'+
+                    '</div>' +
+                    '</div>' +
                     '</div>'
             });
             return data
         }
 
         function modalImg(value) {
-            var modal = document.getElementById("myModal"+value);
+            var modal = document.getElementById("myModal" + value);
             // var img = document.getElementById("myImg"+value);
             // var modalImg = document.getElementById("img0"+value);
-            var captionText = document.getElementById("caption"+value);
+            var captionText = document.getElementById("caption" + value);
             // img.onclick = function () {
             modal.style.display = "block";
             // modalImg.src = this.src;
             captionText.innerHTML = this.alt;
             // }
-            var span = document.getElementById("close"+value);
+            var span = document.getElementById("close" + value);
             span.onclick = function () {
                 modal.style.display = "none";
             }
