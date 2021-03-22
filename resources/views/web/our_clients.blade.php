@@ -4,17 +4,31 @@
         .text-width {
             width: 30px
         }
+        .box-img-circle {
+            display: flex;
+            align-items: center;
 
-        .img-circle {
+        }
+        .box-circle{
             border-radius: 50%;
-            width: 158px;
-            height: 158px;
+            min-width: 156px !important;
+            min-height: 156px !important;
             box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .img-circle {
+            /*border-radius: 50%;*/
+            max-width: 145px;
+            max-height: 158px;
+
         }
 
         .img-our {
             max-width: 320px;
             max-height: 203px;
+
         }
 
         .service-item {
@@ -131,7 +145,6 @@
         }
 
         .modal.img-show[style="display: block;"] {
-            color: red;
             padding: 0;
             display: flex !important;
             align-items: center;
@@ -224,41 +237,57 @@
             @if($company_logo)
                 <div class="row autoplay d-flex justify-content-center pt-5 mt-3">
                     @foreach($company_logo as $item)
-                        <div class="col-auto px-5 d-flex justify-content-center">
-                            <img src="{{url('/company-logo-list/image/'.$item->path_img)}}"
-                                 class="img-circle">
+                        <div class="col-auto px-5 d-flex justify-content-center box-img-circle">
+                            <div class="box-circle">
+                                <img src="{{url('/company-logo-list/image/'.$item->path_img)}}"
+                                     class="img-circle">
+                            </div>
                         </div>
                     @endforeach
                 </div>
             @else
                 <div class="row autoplay d-flex justify-content-center pt-5 mt-3">
-                    <div class="col-auto px-5 d-flex justify-content-center">
+                    <div class="col-auto px-5 d-flex justify-content-center box-img-circle">
+                        <div class="box-circle">
                         <img src="{{ URL::asset('/assets/images/client/major.svg') }}"
                              class="img-circle">
+                        </div>
                     </div>
-                    <div class="col-auto px-5  d-flex justify-content-center">
+                    <div class="col-auto px-5  d-flex justify-content-center box-img-circle">
+                        <div class="box-circle">
                         <img src="{{ URL::asset('/assets/images/client/plan-b.svg') }}"
                              class="img-circle">
+                        </div>
                     </div>
-                    <div class="col-auto px-5  d-flex justify-content-center">
+                    <div class="col-auto px-5  d-flex justify-content-center box-img-circle">
+                        <div class="box-circle">
                         <img src="{{ URL::asset('/assets/images/client/spa.svg') }}"
                              class="img-circle">
+                        </div>
                     </div>
-                    <div class="col-auto px-5 d-flex justify-content-center">
+                    <div class="col-auto px-5 d-flex justify-content-center box-img-circle">
+                        <div class="box-circle">
                         <img src="{{ URL::asset('/assets/images/client/unii.svg') }}"
                              class="img-circle">
+                        </div>
                     </div>
-                    <div class="col-auto px-5 d-flex justify-content-center">
+                    <div class="col-auto px-5 d-flex justify-content-center box-img-circle">
+                        <div class="box-circle">
                         <img src="{{ URL::asset('/assets/images/client/sharp.svg') }}"
                              class="img-circle">
+                        </div>
                     </div>
-                    <div class="col-auto px-5 d-flex justify-content-center">
+                    <div class="col-auto px-5 d-flex justify-content-center box-img-circle">
+                        <div class="box-circle">
                         <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
                              class="img-circle">
+                        </div>
                     </div>
-                    <div class="col-auto px-5 d-flex justify-content-center">
+                    <div class="col-auto px-5 d-flex justify-content-center box-img-circle">
+                        <div class="box-circle">
                         <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
                              class="img-circle">
+                        </div>
                     </div>
                 </div>
             @endif
