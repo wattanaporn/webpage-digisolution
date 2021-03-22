@@ -19,8 +19,10 @@ class OurClientsController extends Controller
         $our_client = Content::select('id', 'meta_title', 'meta_description', 'meta_keyword', 'title', 'content', 'path_img_banner')
             ->where('page_type', 'our-client-main')
             ->first();
-        $company_logo = CompanyLogo::select('path_img')->where('type','logo')->get();
+        $company_logo = CompanyLogo::select('path_img')->where('type', 'logo')->get();
         $server_list = Content::select('id', 'name')->where('page_type', 'service-list')->get();
+        $client = OurClient::select('id')
+            ->get();
         if (!$our_client) {
             $our_client = new Content();
         }
@@ -106,10 +108,24 @@ class OurClientsController extends Controller
     public function OurClientList(Request $request)
     {
         $tab = $request->get('tap');
+        $current_page = $request->get('page');
+        $per_page = $request->get('per_page');
+        $page = ($current_page * $per_page);
+        $client = OurClient::select('id', 'service_list_id', 'link', 'name', 'path_img_small', 'path_img_large')
+            ->where('service_list_id', $tab)
+            ->skip($page)->take($per_page)
+            ->get();
+        return response()->json(['data' => $client, 'success' => true], 200);
+    }
+
+    public function OurClientListTap(Request $request)
+    {
+        $tab = $request->get('tap');
         $client = OurClient::select('id', 'service_list_id', 'link', 'name', 'path_img_small', 'path_img_large')
             ->where('service_list_id', $tab)
             ->get();
-        return response()->json(['data' => $client, 'success' => true], 200);
+        $count_client = count($client);
+        return response()->json(['data' => $count_client, 'success' => true], 200);
     }
 
     public function ImageOurClientList($path)

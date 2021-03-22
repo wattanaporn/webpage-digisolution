@@ -103,7 +103,6 @@
         }
 
 
-
         /* Style the Image Used to Trigger the Modal */
         .myImg {
             border-radius: 5px;
@@ -111,23 +110,34 @@
             transition: 0.3s;
         }
 
-        .myImg:hover {opacity: 0.7;}
+        .myImg:hover {
+            opacity: 0.7;
+        }
 
         /* The Modal (background) */
         .modal {
             display: none; /* Hidden by default */
             position: fixed; /* Stay in place */
             z-index: 100; /* Sit on top */
-            padding-top: 50px; /* Location of the box */
+            padding-top: 200px; /* Location of the box */
             left: 0;
             top: 0;
             width: 100%; /* Full width */
             height: 100%; /* Full height */
             /*overflow: auto; !* Enable scroll if needed *!*/
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+            background-color: rgb(0, 0, 0); /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
             overflow: hidden;
         }
+
+        .modal.img-show[style="display: block;"] {
+            color: red;
+            padding: 0;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+        }
+
 
         /* Modal Content (Image) */
         .modal-content {
@@ -145,7 +155,7 @@
             max-width: 700px;
             text-align: center;
             color: #ccc;
-            padding: 10px 0;
+            padding: 10px;
             height: 150px;
         }
 
@@ -156,8 +166,12 @@
         }
 
         @keyframes zoom {
-            from {transform:scale(0)}
-            to {transform:scale(1)}
+            from {
+                transform: scale(0)
+            }
+            to {
+                transform: scale(1)
+            }
         }
 
         /* The Close Button */
@@ -179,7 +193,7 @@
         }
 
         /* 100% Image Width on Smaller Screens */
-        @media only screen and (max-width: 700px){
+        @media only screen and (max-width: 700px) {
             .modal-content {
                 width: 100%;
             }
@@ -272,77 +286,15 @@
                             @if($key === 0)
                                 <div class="tab-pane fade show active" id="_{{$list->id}}" role="tabpanel"
                                      aria-labelledby="home-tab">
-                                        <div id="box_{{$list->id}}"></div>
-                                    <div class="row">
-                                        <div class="col-12 d-flex justify-content-end">
-                                            <ul class="pagination d-flex justify-content-center flex-wrap pagination-rounded-flat pagination-success">
-                                                <li class="page-item"><a class="page-link" href="#"
-                                                                         data-abc="true"><span
-                                                            aria-hidden="true">&laquo;</span>
-                                                        <span class="sr-only">Previous</span></a></li>
-                                                <li class="page-item"><a class="page-link" href="#"
-                                                                         data-abc="true"><</a>
-                                                </li>
-                                                <li class="page-item active"><a class="page-link" href="#"
-                                                                                data-abc="true">1</a>
-                                                </li>
-                                                <li class="page-item"><a class="page-link" href="#"
-                                                                         data-abc="true">2</a>
-                                                </li>
-                                                <li class="page-item"><a class="page-link" href="#"
-                                                                         data-abc="true">3</a>
-                                                </li>
-                                                <li class="page-item"><a class="page-link" href="#"
-                                                                         data-abc="true">4</a>
-                                                </li>
-                                                <li class="page-item"><a class="page-link" href="#"
-                                                                         data-abc="true">></a>
-                                                </li>
-                                                <li class="page-item"><a class="page-link" href="#"
-                                                                         data-abc="true"><span
-                                                            aria-hidden="true">&raquo;</span>
-                                                        <span class="sr-only">Next</span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                    <div id="box_{{$list->id}}"></div>
+                                    <div id="pagging_{{$list->id}}"></div>
                                 </div>
                             @else
                                 <div class="tab-pane fade" id="_{{$list->id}}" role="tabpanel"
                                      aria-labelledby="profile-tab">
                                     <div id="box_{{$list->id}}">
                                     </div>
-                                    <div class="row">
-                                        <div class="col-12 d-flex justify-content-end">
-                                            <ul class="pagination d-flex justify-content-center flex-wrap pagination-rounded-flat pagination-success">
-                                                <li class="page-item"><a class="page-link" href="#"
-                                                                         data-abc="true"><span
-                                                            aria-hidden="true">&laquo;</span>
-                                                        <span class="sr-only">Previous</span></a></li>
-                                                <li class="page-item"><a class="page-link" href="#"
-                                                                         data-abc="true"><</a>
-                                                </li>
-                                                <li class="page-item active"><a class="page-link" href="#"
-                                                                                data-abc="true">1</a>
-                                                </li>
-                                                <li class="page-item"><a class="page-link" href="#"
-                                                                         data-abc="true">2</a>
-                                                </li>
-                                                <li class="page-item"><a class="page-link" href="#"
-                                                                         data-abc="true">3</a>
-                                                </li>
-                                                <li class="page-item"><a class="page-link" href="#"
-                                                                         data-abc="true">4</a>
-                                                </li>
-                                                <li class="page-item"><a class="page-link" href="#"
-                                                                         data-abc="true">></a>
-                                                </li>
-                                                <li class="page-item"><a class="page-link" href="#"
-                                                                         data-abc="true"><span
-                                                            aria-hidden="true">&raquo;</span>
-                                                        <span class="sr-only">Next</span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                    <div id="pagging_{{$list->id}}"></div>
                                 </div>
                             @endif
                         @endforeach
@@ -520,12 +472,16 @@
     <script>
         $(document).ready(function () {
             meta();
-            loadDataClients({!! json_encode($server_list[0]->id) !!});
+            // pagination(1, 0, 0)
+            {{--loadDataClients({!! json_encode($server_list[0]->id) !!}, 0);--}}
+            loadDataClientsTap({!! json_encode($server_list[0]->id) !!});
             auto();
+
         });
 
         function changTab(data) {
-            loadDataClients(data)
+            loadDataClients(data, 0)
+            loadDataClientsTap(data)
         }
 
         function meta() {
@@ -534,9 +490,17 @@
             document.getElementsByTagName('meta')["description"].content = '{{$our_client->meta_description}}';
         }
 
-        function loadDataClients(data_id) {
+        function pagination(data_id, page, p_count) {
+            for (var i = 0; i <= p_count; i++) {
+                $('.acti_' + i).removeClass('active');
+            }
+            $('.acti_' + (page + 1)).toggleClass('active')
+            loadDataClients(data_id, page)
+        }
+
+        function loadDataClients(data_id, page) {
             $.ajax({
-                url: '{!! route('our-clients-list') !!}' + '?tap=' + data_id,
+                url: '{!! route('our-clients-list') !!}' + '?tap=' + data_id + '&page=' + page + '&per_page=9',
                 type: 'GET',
                 processData: false,
                 contentType: false,
@@ -556,7 +520,7 @@
             $.each(value, function (index, value) {
                 data += '<div class="col-auto px-0">' +
                     '<div class="row">' +
-                    '<div class="col-12 d-flex justify-content-center service-item myImg" onclick="modalImg('+index+')">' +
+                    '<div class="col-12 d-flex justify-content-center service-item myImg" onclick="modalImg(' + index + ')">' +
                     '<img src="/clients-list/image/' + value.path_img_small + '" ' +
                     'class="img-our myImg" id="myImg' + index + '">' +
                     '</div>' +
@@ -565,17 +529,73 @@
                     '</div>' +
                     '</div>' +
                     '</div>' +
-                    '<div id="myModal' + index + '" class="modal">' +
+                    '<div id="myModal' + index + '" class="modal img-show">' +
                     '<span class="close" id="close' + index + '">&times;</span>' +
                     // '<img class="modal-content" id="img0' + index + '">' +
                     '<div class="row">' +
                     '<div class="col-12 d-flex justify-content-center service-item-full">' +
                     '<img class="" src="/clients-list/image/' + value.path_img_large + '" ' +
                     '<div id="caption' + index + '" class="caption"></div>' +
-                    '</div>'+
-                    '</div>'+
+                    '</div>' +
+                    '</div>' +
                     '</div>'
             });
+            return data
+        }
+
+        function loadDataClientsTap(data_id) {
+            $.ajax({
+                url: '{!! route('our-clients-list-tap') !!}' + '?tap=' + data_id,
+                type: 'GET',
+                processData: false,
+                contentType: false,
+                success: function (res) {
+                    if (res.data) {
+                        var div_page = $('<div></div>')
+                        div_page.html(GetDynamicPage(res.data, data_id))
+                        $('#pagging_' + data_id).empty()
+                        $('#pagging_' + data_id).append(div_page)
+                        pagination(1, 0, 0)
+                    }
+                }
+            })
+        }
+
+        function GetDynamicPage(page, tab) {
+            var per_page = Math.round(parseInt(page / 9)) + 1;
+            console.log('page', page)
+            console.log('per', per_page)
+
+            if (per_page <= 1) {
+                return
+            }
+            var data = '';
+
+            data = ' <div class="row">' +
+                '<div class="col-12 d-flex justify-content-end">' +
+                '<ul class="pagination d-flex justify-content-center flex-wrap pagination-rounded-flat pagination-success">' +
+                '<li class="page-item" onclick="pagination(' + tab + ',0,' + per_page + ')">' +
+                '<a class="page-link" data-abc="true">' +
+                '<span aria-hidden="true">&laquo;</span>' +
+                '<span class="sr-only">Previous</span></a>' +
+                '</li>'
+
+            for (var i = 0; i < per_page; i++) {
+                data += '<li class="page-item acti_' + (i + 1) + '"' +
+                    'onclick="pagination(' + tab + ',' + i + ' ,' + per_page + ')">' +
+                    '<a class="page-link" data-abc="true">' + (i + 1) + '</a>' +
+                    '</li>'
+            }
+            data += '<li class="page-item"' +
+                'onclick="pagination(' + tab + ',' + (per_page - 1) + ',' + per_page + ')">' +
+                '<a class="page-link" data-abc="true">' +
+                '<span aria-hidden="true">&raquo;</span>' +
+                '<span class="sr-only">Next</span></a>' +
+                '</li>' +
+                '</ul>' +
+                '</div>' +
+                '</div>'
+
             return data
         }
 
@@ -620,16 +640,16 @@
         }
 
         function modalImg(value) {
-            var modal = document.getElementById("myModal"+value);
+            var modal = document.getElementById("myModal" + value);
             // var img = document.getElementById("myImg"+value);
             // var modalImg = document.getElementById("img0"+value);
-            var captionText = document.getElementById("caption"+value);
+            var captionText = document.getElementById("caption" + value);
             // img.onclick = function () {
-                modal.style.display = "block";
-                // modalImg.src = this.src;
-                captionText.innerHTML = this.alt;
+            modal.style.display = "block";
+            // modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
             // }
-            var span = document.getElementById("close"+value);
+            var span = document.getElementById("close" + value);
             span.onclick = function () {
                 modal.style.display = "none";
             }

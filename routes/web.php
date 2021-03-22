@@ -34,6 +34,7 @@ Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('/company-logo-list/image/{path}', 'OurClientsController@ImageCompanyLogo');
     Route::get('/our-clients', 'OurClientsController@index')->name('our-clients');
     Route::get('/our-clients-list', 'OurClientsController@OurClientList')->name('our-clients-list');
+    Route::get('/our-clients-list-tap', 'OurClientsController@OurClientListTap')->name('our-clients-list-tap');
     Route::get('/clients-list/image/{path}', 'OurClientsController@ImageOurClientList')->name('clients-list-img');
 
     Route::post('/sent-contact', 'ContactController@SentContact')->name('sent-contact');
