@@ -97,10 +97,10 @@
         </div>
 
 
-        <a class="navbar-logo" href="Dashboard.Default.html">
-            <span class="logo d-none d-xs-block"></span>
-            <span class="logo-mobile d-block d-xs-none"></span>
-        </a>
+{{--        <a class="navbar-logo" href="Dashboard.Default.html">--}}
+{{--            <span class="logo d-none d-xs-block"></span>--}}
+{{--            <span class="logo-mobile d-block d-xs-none"></span>--}}
+{{--        </a>--}}
 
         <div class="navbar-right">
             <div class="header-icons d-inline-block align-middle">
