@@ -252,7 +252,7 @@
 @section('content')
     <div id="block-content">
         <section class="banner">
-            @if($slide)
+            @if(count($slide)>0)
                 <div class="banner-images">
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
@@ -328,7 +328,7 @@
         <section class="what-wedo">
             <div class="container">
                 <div class="row wedo-pad-top">
-                    @if($contact->what_we_do)
+                    @if($contact)
                         <div class="col-lg-7 col-md-12">
                             <div class="row">
                                 <div class="col-12 text-center">
@@ -390,7 +390,7 @@
                         {{--                    </div>--}}
                         <div class="col-md-12">
                             <div class="row d-flex justify-content-center pt-5">
-                                @if($service_list)
+                                @if(count($service_list)>0)
                                     @foreach($service_list as $item)
                                         <div class="col-auto px-5">
                                             <div class="row">
@@ -464,7 +464,7 @@
                             <span class="head-contain-font font-weight-bold text-white">CLIENT</span>
                         </div>
                         <div class="col-12 mt-5 pt-3">
-                            @if($server_list)
+                            @if(count($server_list)>0)
                                 <div class="container mt-5 pt-3 pb-5">
                                     <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                                         @foreach($server_list as $key=>$list)
@@ -690,7 +690,7 @@
         </div>
         <section class="logo-Client">
             <div class="container pt-5">
-                @if($company_logo)
+                @if(count($company_logo)>0)
                     <div class="row autoplay d-flex justify-content-center pt-5 mt-3">
                         @foreach($company_logo as $item)
                             <div class="col-auto px-5 d-flex justify-content-center box-img-circle">
@@ -702,34 +702,48 @@
                         @endforeach
                     </div>
                 @else
-                    <div class="row autoplay d-flex justify-content-center pt-5 mt-5">
-                        <div class="col-auto px-5 d-flex justify-content-center">
-                            <img src="{{ URL::asset('/assets/images/client/major.svg') }}"
-                                 class="img-circle">
+                    <div class="row autoplay2 d-flex justify-content-center pt-5 mt-5">
+                        <div class="col-auto px-5 d-flex justify-content-center box-img-circle">
+                            <div class="box-circle">
+                                <img src="{{ URL::asset('/assets/images/client/major.svg') }}"
+                                     class="img-circle">
+                            </div>
                         </div>
-                        <div class="col-auto px-5  d-flex justify-content-center">
-                            <img src="{{ URL::asset('/assets/images/client/plan-b.svg') }}"
-                                 class="img-circle">
+                        <div class="col-auto px-5  d-flex justify-content-center box-img-circle">
+                            <div class="box-circle">
+                                <img src="{{ URL::asset('/assets/images/client/plan-b.svg') }}"
+                                     class="img-circle">
+                            </div>
                         </div>
-                        <div class="col-auto px-5  d-flex justify-content-center">
-                            <img src="{{ URL::asset('/assets/images/client/spa.svg') }}"
-                                 class="img-circle">
+                        <div class="col-auto px-5  d-flex justify-content-center box-img-circle">
+                            <div class="box-circle">
+                                <img src="{{ URL::asset('/assets/images/client/spa.svg') }}"
+                                     class="img-circle">
+                            </div>
                         </div>
-                        <div class="col-auto px-5 d-flex justify-content-center">
-                            <img src="{{ URL::asset('/assets/images/client/unii.svg') }}"
-                                 class="img-circle">
+                        <div class="col-auto px-5 d-flex justify-content-center box-img-circle">
+                            <div class="box-circle">
+                                <img src="{{ URL::asset('/assets/images/client/unii.svg') }}"
+                                     class="img-circle">
+                            </div>
                         </div>
-                        <div class="col-auto px-5 d-flex justify-content-center">
-                            <img src="{{ URL::asset('/assets/images/client/sharp.svg') }}"
-                                 class="img-circle">
+                        <div class="col-auto px-5 d-flex justify-content-center box-img-circle">
+                            <div class="box-circle">
+                                <img src="{{ URL::asset('/assets/images/client/sharp.svg') }}"
+                                     class="img-circle">
+                            </div>
                         </div>
-                        <div class="col-auto px-5 d-flex justify-content-center">
-                            <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
-                                 class="img-circle">
+                        <div class="col-auto px-5 d-flex justify-content-center box-img-circle">
+                            <div class="box-circle">
+                                <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
+                                     class="img-circle">
+                            </div>
                         </div>
-                        <div class="col-auto px-5 d-flex justify-content-center">
-                            <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
-                                 class="img-circle">
+                        <div class="col-auto px-5 d-flex justify-content-center box-img-circle">
+                            <div class="box-circle">
+                                <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
+                                     class="img-circle">
+                            </div>
                         </div>
                     </div>
                 @endif
@@ -759,9 +773,14 @@
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
     <script>
+        document.title = '{{$contact_main->meta_title}}'
+        document.getElementsByTagName('meta')["keywords"].content = '{{$contact_main->meta_keyword}}';
+        document.getElementsByTagName('meta')["description"].content = '{{$contact_main->meta_description}}';
+
         $(document).ready(function () {
             auto();
-            loadDataClients({!! json_encode($server_list[0]->id) !!});
+            autoImg();
+            loadDataClients('{{$server_list_id}}')
         });
 
         function auto() {
@@ -774,6 +793,38 @@
             }
             $('.autoplay').slick({
                 slidesToShow: items,
+                slidesToScroll: 1,
+                draggable: true,
+                autoplay: false,
+                autoplaySpeed: 2000,
+                responsive: [{
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        infinite: true
+                    }
+
+                }, {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        dots: true
+                    }
+                },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 1,
+                            dots: true
+                        }
+
+                    }]
+            });
+        }
+
+        function autoImg() {
+            $('.autoplay2').slick({
+                slidesToShow: 5,
                 slidesToScroll: 1,
                 draggable: true,
                 autoplay: false,

@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="row d-flex justify-content-center pt-5">
-                @if($service_list)
+                @if(count($service_list)>0)
                     @foreach($service_list as $item)
                         <a href="{!! url('/service-list-detail') !!}/{{$item->id}}">
                             <div class="col-auto px-5">

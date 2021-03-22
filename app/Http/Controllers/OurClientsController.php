@@ -26,7 +26,13 @@ class OurClientsController extends Controller
         if (!$our_client) {
             $our_client = new Content();
         }
-        return view('web.our_clients', compact('our_client', 'company_logo', 'server_list'));
+        if (count($server_list)>0){
+            $server_list_id = $server_list[0]['id'];
+
+        }else{
+            $server_list_id = 0;
+        }
+        return view('web.our_clients', compact('our_client', 'company_logo', 'server_list','server_list_id'));
     }
 
     /**
