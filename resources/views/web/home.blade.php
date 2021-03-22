@@ -109,6 +109,21 @@
             align-items: center;
         }
 
+        .client-item {
+            width: 370px;
+            height: 203px;
+            display: flex;
+            align-items: center;
+        }
+
+
+        .service-item-full {
+            /*width: 320px;*/
+            /*height: 203px;*/
+            display: flex;
+            align-items: center;
+        }
+
         .service-img {
             max-width: 250px;
             max-height: 150px;
@@ -224,6 +239,13 @@
             .modal-content {
                 width: 100%;
             }
+        }
+
+        .modal.img-show[style="display: block;"] {
+            padding: 0;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 @endpush('css')
@@ -807,7 +829,7 @@
             $.each(value, function (index, value) {
                 data += '<div class="col-auto px-0 pt-5">' +
                     '<div class="row">' +
-                    '<div class="col-12 d-flex justify-content-center service-item myImg" onclick="modalImg(' + index + ')">' +
+                    '<div class="col-12 d-flex justify-content-center client-item myImg" onclick="modalImg(' + index + ')">' +
                     '<img src="/clients-list/image/' + value.path_img_small + '" ' +
                     'class="img-our myImg" id="myImg' + index + '">' +
                     '</div>' +
@@ -816,7 +838,7 @@
                     '</div>' +
                     '</div>' +
                     '</div>' +
-                    '<div id="myModal' + index + '" class="modal">' +
+                    '<div id="myModal' + index + '" class="modal img-show">' +
                     '<span class="close" id="close' + index + '">&times;</span>' +
                     // '<img class="modal-content" id="img0' + index + '">' +
                     '<div class="row">' +

@@ -32,7 +32,7 @@
         }
 
         .service-item {
-            width: 320px;
+            width: 370px;
             height: 203px;
             display: flex;
             align-items: center;
