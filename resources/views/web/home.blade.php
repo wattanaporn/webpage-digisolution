@@ -2,7 +2,7 @@
 @push('css')
     <style>
         .wedo-pad-top {
-            padding-top: 200px;
+            padding-top: 100px;
         }
 
         @media only screen and (max-width: 992px) {
@@ -16,21 +16,43 @@
             height: 312px;
         }
 
-        .img-circle {
+        .img-circle-ser {
             border-radius: 50%;
             width: 158px;
             height: 158px;
             box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .text-width {
-            width: 30px
+
+        .box-img-circle {
+            display: flex;
+            align-items: center;
+
         }
 
-        .img-our {
-            width: 320px;
-            height: 203px;
+        .box-circle {
+            border-radius: 50%;
+            min-width: 156px !important;
+            min-height: 156px !important;
+            box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+
+        .img-circle {
+            /*border-radius: 50%;*/
+            max-width: 145px;
+            max-height: 158px;
+
+        }
+
+
+        .text-width {
+            width: 30px;
+            word-break: break-all;
+        }
+
 
         .slick-prev:before {
             content: "<" !important;
@@ -49,24 +71,23 @@
             border-left: #ffffff;
             border-right: #ffffff;
             padding-top: 10px;
-            /*background: white;*/
-            color: black;
-            /*font-weight: bold;*/
+            color: #777777;
         }
 
         .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
             color: #FFFFFF !important;
             background: transparent;
-            border-color: transparent;
+            border-bottom: none;
+            /*border-color: transparent;*/
         }
 
-        .border-active-tab {
-            border-bottom: 8px solid #007AE8;
-            border-radius: 5px;
-            width: 50px;
-            position: absolute;
-            margin-top: -4px;
-        }
+        /*.border-active-tab {*/
+        /*    border-bottom: 8px solid #007AE8;*/
+        /*    border-radius: 5px;*/
+        /*    width: 50px;*/
+        /*    position: absolute;*/
+        /*    margin-top: -4px;*/
+        /*}*/
 
         .txt-bold {
             color: #777777;
@@ -81,141 +102,358 @@
             border-radius: 50px;
         }
 
-        .pagination,
-        .jsgrid .jsgrid-pager {
+        .service-item {
+            width: 250px;
+            height: 150px;
             display: flex;
-            padding-left: 0;
-            list-style: none;
-            border-radius: 0.25rem
+            align-items: center;
         }
 
-        .page-link {
-            color: black
+        .client-item {
+            width: 370px;
+            height: 203px;
+            display: flex;
+            align-items: center;
         }
 
-        .pagination.pagination-rounded-flat .page-item {
-            margin: 0 .25rem
+
+        .service-item-full {
+            /*width: 320px;*/
+            /*height: 203px;*/
+            display: flex;
+            align-items: center;
         }
 
-        .pagination-rounded-flat {
+        .service-img {
+            max-width: 250px;
+            max-height: 150px;
         }
 
-        .pagination-success .page-item.active .page-link {
-            background: #007AE8;
-            border-color: #007AE8;
-            color: white;
-            width: 30px;
+        .img-our {
+            max-width: 320px;
+            max-height: 203px;
         }
 
-        .pagination.pagination-rounded-flat .page-item .page-link {
-            border: none;
-            border-radius: 50px
+        .client-service-item {
+            width: 320px;
+            height: 203px;
+            display: flex;
+            align-items: center;
+        }
+
+        .banner-images {
+            width: 100%;
+            height: 480px;
+            display: flex;
+            align-items: center;
+            background: black;
+        }
+
+        .img-slit {
+            width: 100%;
+            max-height: 480px;
+        }
+
+        /* Style the Image Used to Trigger the Modal */
+        .myImg {
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .myImg:hover {
+            opacity: 0.7;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 100; /* Sit on top */
+            padding-top: 50px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            /*overflow: auto; !* Enable scroll if needed *!*/
+            background-color: rgb(0, 0, 0); /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+            overflow: hidden;
+        }
+
+        /* Modal Content (Image) */
+        .modal-content {
+            margin: auto;
+            display: block;
+            /*width: 80%;*/
+            max-width: 700px;
+        }
+
+        /* Caption of Modal Image (Image Text) - Same Width as the Image */
+        .caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+
+        /* Add Animation - Zoom in the Modal */
+        .modal-content, .caption {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from {
+                transform: scale(0)
+            }
+            to {
+                transform: scale(1)
+            }
+        }
+
+        /* The Close Button */
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* 100% Image Width on Smaller Screens */
+        @media only screen and (max-width: 700px) {
+            .modal-content {
+                width: 100%;
+            }
+        }
+
+        .modal.img-show[style="display: block;"] {
+            padding: 0;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 @endpush('css')
 @section('content')
     <div id="block-content">
         <section class="banner">
-            <div class="banner-images">
-                <img src="{{ URL::asset('/images/banner.jpg') }}" alt="">
-            </div>
+            @if($slide)
+                <div class="banner-images">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            @foreach($slide as $key=>$item)
+                                @if($key == 0)
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="{{$key}}"
+                                        class="active"></li>
+                                @else
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="{{$key}}"></li>
+                                @endif
+                            @endforeach
+                        </ol>
+                        <div class="carousel-inner">
+                            @foreach($slide as $key=>$item)
+                                @if($key == 0)
+                                    <div class="carousel-item active">
+                                        <img src="{{url('/slide/image/'.$item->path_img)}}" class="img-slit">
+                                    </div>
+                                @else
+                                    <div class="carousel-item">
+                                        <img src="{{url('/slide/image/'.$item->path_img)}}" class="img-slit">
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                           data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                           data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            @else
+                <div class="banner-images">
+                    <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators2" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators2" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators2" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="{{ URL::asset('/images/banner.jpg') }}" alt="" class="img-slit">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{URL::asset('/assets/images/banner.svg')}}"
+                                     class="img-slit">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ URL::asset('/images/banner.jpg') }}" alt="" class="img-slit">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators2" role="button"
+                           data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators2" role="button"
+                           data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            @endif
         </section>
 
         <section class="what-wedo">
             <div class="container">
                 <div class="row wedo-pad-top">
-                    <div class="col-lg-7 col-md-12">
-                        <div class="row">
-                            <div class="col-12 text-center">
-                                <span class="head-contain-font font-weight-light mr-3">WHAT</span>
-                                <span class="head-contain-font font-weight-bold">WE DO</span>
+                    @if($contact->what_we_do)
+                        <div class="col-lg-7 col-md-12">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <span class="head-contain-font font-weight-light mr-3">WHAT</span>
+                                    <span class="head-contain-font font-weight-bold">WE DO</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    {!! $contact->what_we_do !!}
+                                </div>
+                            </div>
+
+                        </div>
+                    @else
+                        <div class="col-lg-7 col-md-12">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <span class="head-contain-font font-weight-light mr-3">WHAT</span>
+                                    <span class="head-contain-font font-weight-bold">WE DO</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 pt-3">
+                                    <p class="txt-grey">
+                                        ให้บริการทางด้าน Technology และ Digital Innovation
+                                        แบบครบวงจรให้แก่ลูกค้าอาทิเช่น
+                                        พัฒนาระบบ System Online, Website, Custom ERP System, และ Digital
+                                        Transformation Solution รวมถึง Digital Media และ Events ทั้ง Online และ Offline
+                                        ทุกประเภท เพื่อให้สามารถ ตอบโจทย์ ตามความต้องการของลูกค้าทุกกลุ่มทุกประเภท
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-12 pt-3">
-                                <p class="txt-grey">
-                                    ให้บริการทางด้าน Technology และ Digital Innovation แบบครบวงจรให้แก่ลูกค้าอาทิเช่น
-                                    พัฒนาระบบ System Online, Website, Custom ERP System, และ Digital
-                                    Transformation Solution รวมถึง Digital Media และ Events ทั้ง Online และ Offline
-                                    ทุกประเภท เพื่อให้สามารถ ตอบโจทย์ ตามความต้องการของลูกค้าทุกกลุ่มทุกประเภท
-                                </p>
-                            </div>
+                        <div class="col-lg-5 div-logo-what-we-do text-center">
+                            <img src="{{ URL::asset('/assets/images/home/wedo-logo.svg') }}"
+                                 class="ml-5 pt-3 img-logo-what-we-do">
                         </div>
-                    </div>
-                    <div class="col-lg-5 div-logo-what-we-do text-center">
-                        <img src="{{ URL::asset('/assets/images/home/wedo-logo.svg') }}"
-                             class="ml-5 pt-3 img-logo-what-we-do">
-                    </div>
+                    @endif
                 </div>
             </div>
         </section>
 
         <div class="our-service">
-            <div class="container">
-                <div class="row pt-3">
+            <div class="our-service-top">
+                <div class="row pt-4">
                     <div class="col-12 text-center">
                         <span class="head-contain-font font-weight-light mr-3">OUR</span>
                         <span class="head-contain-font font-weight-bold">SERVICE</span>
                     </div>
-                    <div class="col-md-12">
-                        CK
-                        {{--                        <div class="our-service-core">--}}
-                        {{--                            <div class="our-service-info-left">--}}
-                        {{--                                <div class="our-service-images-left">--}}
-                        {{--                                    <img src="{{ URL::asset('/images/our-service-img-left.svg') }}" alt="">--}}
-                        {{--                                </div>--}}
-                        {{--                                <div class="our-service-title-left">--}}
-                        {{--                                    <span--}}
-                        {{--                                        class="our-serv-tl">บริการออกแบบเว็บไซต์ และระบบเฉพาะ<br/>ตามความต้องการ</span>--}}
-                        {{--                                </div>--}}
-                        {{--                                <div class="our-service-content-left">--}}
-                        {{--                                    <p>--}}
-                        {{--                                        ออกแบบและพัฒนาเว็บไซต์ ระบบออนไลน์ โดย ออก--}}
-                        {{--                                        แบบตามรายละเอียดงานที่ลูกค้าต้องการ เพื่อให้ตรง--}}
-                        {{--                                        ตามความต้องการมากที่สุด รวมถึงการดูแลหลังการ--}}
-                        {{--                                        ขายที่ครบครัน--}}
-                        {{--                                    </p>--}}
-                        {{--                                </div>--}}
-                        {{--                            </div>--}}
-                        {{--                            <div class="our-service-info-center">--}}
-                        {{--                                <div class="our-service-title-center">--}}
-                        {{--                                    <span class="our-serv-tl">บริการทำแอปพลิเคชันทุกแพลตฟอร์ม</span>--}}
-                        {{--                                </div>--}}
-                        {{--                                <div class="our-service-content-center">--}}
-                        {{--                                    <p>--}}
-                        {{--                                        ตอบโจทย์ทุกความต้องการจากลูกค้าโดยโปรเกมมิ่ง--}}
-                        {{--                                        ผู้เชี่ยวชาญด้านการพัฒนาสื่อดิจิทัลที่ได้รับความไว้--}}
-                        {{--                                        วางใจจากบริษัทชั้นนำ--}}
-                        {{--                                    </p>--}}
-                        {{--                                </div>--}}
-                        {{--                                <div class="our-service-images-center">--}}
-                        {{--                                    <img src="{{ URL::asset('/images/our-service-img-center.svg') }}" alt="">--}}
-                        {{--                                </div>--}}
-                        {{--                            </div>--}}
-                        {{--                            <div class="our-service-info-right">--}}
-                        {{--                                <div class="our-service-images-right">--}}
-                        {{--                                    <img src="{{ URL::asset('/images/our-service-img-right.svg') }}" alt="">--}}
-                        {{--                                </div>--}}
-                        {{--                                <div class="our-service-title-right">--}}
-                        {{--                                    <span--}}
-                        {{--                                        class="our-serv-tr">บริการดูแล Social Marketing และ Digital Media Design</span>--}}
-                        {{--                                </div>--}}
-                        {{--                                <div class="our-service-content-right">--}}
-                        {{--                                    <p>--}}
-                        {{--                                        ให้บริการทำ Social Marketing อาทิเช่นFacebook,--}}
-                        {{--                                        Instagram รวมไปถึงทำ Digital Media Design--}}
-                        {{--                                        ทั้ง Online และ Offline ทั้งหมด--}}
-                        {{--                                    </p>--}}
-                        {{--                                </div>--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
+                </div>
+            </div>
+            <div class="our-service-contain">
+                <div class="container">
+                    <div class="row pt-3">
+                        {{--                    <div class="col-12 text-center">--}}
+                        {{--                        <span class="head-contain-font font-weight-light mr-3">OUR</span>--}}
+                        {{--                        <span class="head-contain-font font-weight-bold">SERVICE</span>--}}
+                        {{--                    </div>--}}
+                        <div class="col-md-12">
+                            <div class="row d-flex justify-content-center pt-5">
+                                @if($service_list)
+                                    @foreach($service_list as $item)
+                                        <div class="col-auto px-5">
+                                            <div class="row">
+                                                <div class="col-12 d-flex justify-content-center service-item">
+                                                    <img src="{{url('/service/image-icon/'.$item->path_img)}}"
+                                                         class="service-img">
+                                                </div>
+                                                <div class="col-12 pt-3 text-center text-width">
+                                                <span class="font-weight-bold"
+                                                      style="color: #000000">{{$item->name}}</span>
+                                                </div>
+                                                <div class="col-12 pt-2 pb-5 text-width">
+                                                    {!! $item->detail !!}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @else
+                                    <div class="col-auto px-5">
+                                        <div class="row">
+                                            <div class="col-12 d-flex justify-content-center service-item">
+                                                <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
+                                                     class="service-img">
+                                            </div>
+                                            <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                <span class="font-weight-bold ">บริการออกแบบเว็บไซต์ และระบบเฉพาะตามความต้องการ</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto px-5">
+                                        <div class="row">
+                                            <div class="col-12 d-flex justify-content-center service-item">
+                                                <img
+                                                    src="{{ URL::asset('/assets/images/service/service-application.svg') }}"
+                                                    class="service-img">
+                                            </div>
+                                            <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                <span class="font-weight-bold">บริการทำแอปพลิเคชันทุกแพลตฟอร์ม</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto px-5">
+                                        <div class="row">
+                                            <div class="col-12 d-flex justify-content-center service-item">
+                                                <img src="{{ URL::asset('/assets/images/service/service-mobile.svg') }}"
+                                                     class="service-img">
+                                            </div>
+                                            <div class="col-12 pt-4 pb-5 text-center text-width">
+                                <span
+                                    class="font-weight-bold">บริการดูแล Social Marketing และ Digital Media Design</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-
+            <div class="our-service-bottom">
             </div>
         </div>
-
 
         <div class="our-client">
             <div class="container">
@@ -225,231 +463,225 @@
                             <span class="head-contain-font font-weight-light mr-3 text-white">OUR</span>
                             <span class="head-contain-font font-weight-bold text-white">CLIENT</span>
                         </div>
-                        <div class="mt-5 pt-3">
-                            <!-- Nav tabs -->
-                            <ul class="nav nav-tabs nav-justified">
-                                <li class="nav-item" onclick="tab1()">
-
-                                    <a class="nav-link nav-1" data-toggle="tab" href="#Website_Design">
-                                        <span class="txt-bold-nav-1 text-white">Website Design</span></a>
-
-                                    <div class="row">
-                                        <div class="col-12 d-flex justify-content-center">
-                                            <div class="border-active-tab tab1">
+                        <div class="col-12 mt-5 pt-3">
+                            @if($server_list)
+                                <div class="container mt-5 pt-3 pb-5">
+                                    <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                                        @foreach($server_list as $key=>$list)
+                                            @if($key === 0)
+                                                <li class="nav-item" onclick="changTab({{$list->id}})">
+                                                    <a class="nav-link active" id="{{$list->id}}" data-toggle="tab"
+                                                       href="#_{{$list->id}}" role="tab"
+                                                       aria-controls="home" aria-selected="true">{{$list->name}}</a>
+                                                </li>
+                                            @else
+                                                <li class="nav-item" onclick="changTab({{$list->id}})">
+                                                    <a class="nav-link" id="{{$list->id}}" data-toggle="tab"
+                                                       href="#_{{$list->id}}"
+                                                       role="tab"
+                                                       aria-controls="home" aria-selected="true">{{$list->name}}</a>
+                                                </li>
+                                            @endif
+                                        @endforeach
+                                    </ul>
+                                    <div class="tab-content" id="myTabContent">
+                                        @foreach($server_list as $key=>$list)
+                                            @if($key === 0)
+                                                <div class="tab-pane fade show active" id="_{{$list->id}}"
+                                                     role="tabpanel"
+                                                     aria-labelledby="home-tab">
+                                                    <div id="box_{{$list->id}}"></div>
+                                                </div>
+                                            @else
+                                                <div class="tab-pane fade" id="_{{$list->id}}" role="tabpanel"
+                                                     aria-labelledby="profile-tab">
+                                                    <div id="box_{{$list->id}}">
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                </div>
+                            @else
+                                <ul class="nav nav-tabs nav-justified" id="myTab2" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
+                                           role="tab"
+                                           aria-controls="home" aria-selected="true">Website Design</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile"
+                                           role="tab"
+                                           aria-controls="profile" aria-selected="false">Application Design</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact"
+                                           role="tab"
+                                           aria-controls="contact" aria-selected="false">Online Marketing</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="myTab2Content">
+                                    <div class="tab-pane fade show active" id="home" role="tabpanel"
+                                         aria-labelledby="home-tab">
+                                        <div class="row pt-5 justify-content-sm-center justify-content-xl-start">
+                                            <div class="col-auto px-0">
+                                                <div class="row">
+                                                    <div class="col-12 d-flex justify-content-center">
+                                                        <img
+                                                            src="{{ URL::asset('/assets/images/client/our-client-img-cd.png') }}"
+                                                            class="img-our">
+                                                    </div>
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                        <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto px-0">
+                                                <div class="row">
+                                                    <div class="col-12 d-flex justify-content-center">
+                                                        <img
+                                                            src="{{ URL::asset('/assets/images/client/our-client-img-ct.png') }}"
+                                                            class="img-our">
+                                                    </div>
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                        <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto px-0">
+                                                <div class="row">
+                                                    <div class="col-12 d-flex justify-content-center">
+                                                        <img
+                                                            src="{{ URL::asset('/assets/images/client/our-client-img-ld.png') }}"
+                                                            class="img-our">
+                                                    </div>
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                        <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto px-0">
+                                                <div class="row">
+                                                    <div class="col-12 d-flex justify-content-center">
+                                                        <img
+                                                            src="{{ URL::asset('/assets/images/client/our-client-img-lt.png') }}"
+                                                            class="img-our">
+                                                    </div>
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                        <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </li>
-                                <li class="nav-item" onclick="tab2()">
-                                    <a class="nav-link" data-toggle="tab" href="#Application_Design">
-                                        <span class="txt-bold-nav-2 text-white">Application Design</span></a>
-                                    <div class="row">
-                                        <div class="col-12 d-flex justify-content-center">
-                                            <div class="border-active-tab tab2">
+                                    <div class="tab-pane fade" id="profile" role="tabpanel"
+                                         aria-labelledby="profile-tab">
+                                        <div class="row pt-5 justify-content-sm-center justify-content-xl-start">
+                                            <div class="col-auto px-0">
+                                                <div class="row">
+                                                    <div class="col-12 d-flex justify-content-center">
+                                                        <img
+                                                            src="{{ URL::asset('/assets/images/client/our-client-img-lt.png') }}"
+                                                            class="img-our">
+                                                    </div>
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                        <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto px-0">
+                                                <div class="row">
+                                                    <div class="col-12 d-flex justify-content-center">
+                                                        <img
+                                                            src="{{ URL::asset('/assets/images/client/our-client-img-rd.png') }}"
+                                                            class="img-our">
+                                                    </div>
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                        <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto px-0">
+                                                <div class="row">
+                                                    <div class="col-12 d-flex justify-content-center">
+                                                        <img
+                                                            src="{{ URL::asset('/assets/images/client/our-client-img-rt.png') }}"
+                                                            class="img-our">
+                                                    </div>
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                        <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto px-0">
+                                                <div class="row">
+                                                    <div class="col-12 d-flex justify-content-center">
+                                                        <img
+                                                            src="{{ URL::asset('/assets/images/client/our-client-img-rt.png') }}"
+                                                            class="img-our">
+                                                    </div>
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                        <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </li>
-                                <li class="nav-item" onclick="tab3()">
-                                    <a class="nav-link" data-toggle="tab" href="#Online_Marketing">
-                                        <span class="txt-bold-nav-3 text-white">Online Marketing</span></a>
-                                    <div class="row">
-                                        <div class="col-12 d-flex justify-content-center">
-                                            <div class="border-active-tab tab3">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <!-- Tab panes -->
-                            <div class="tab-content">
-                                <div id="Website_Design" class="tab-pane active">
-                                    <div class="row pt-5 justify-content-sm-center justify-content-xl-start">
-                                        <div class="col-auto">
-                                            <div class="row">
-                                                <div class="col-12 d-flex justify-content-center">
-                                                    <img
-                                                        src="{{ URL::asset('/assets/images/client/our-client-img-cd.png') }}"
-                                                        class="img-our">
-                                                </div>
-                                                <div class="col-12 pt-4 pb-5 text-center text-width">
-                                                    <span class="font-weight-bold text-white">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                    <div class="tab-pane fade" id="contact" role="tabpanel"
+                                         aria-labelledby="contact-tab">
+                                        <div class="row pt-5 justify-content-sm-center justify-content-xl-start">
+                                            <div class="col-auto px-0">
+                                                <div class="row">
+                                                    <div class="col-12 d-flex justify-content-center">
+                                                        <img
+                                                            src="{{ URL::asset('/assets/images/client/our-client-img-cd.png') }}"
+                                                            class="img-our">
+                                                    </div>
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                        <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-auto px-0">
-                                            <div class="row">
-                                                <div class="col-12 d-flex justify-content-center">
-                                                    <img
-                                                        src="{{ URL::asset('/assets/images/client/our-client-img-ct.png') }}"
-                                                        class="img-our">
-                                                </div>
-                                                <div class="col-12 pt-4 pb-5 text-center text-width">
-                                                    <span class="font-weight-bold text-white">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto px-0">
-                                            <div class="row">
-                                                <div class="col-12 d-flex justify-content-center">
-                                                    <img
-                                                        src="{{ URL::asset('/assets/images/client/our-client-img-ld.png') }}"
-                                                        class="img-our">
-                                                </div>
-                                                <div class="col-12 pt-4 pb-5 text-center text-width">
-                                                    <span class="font-weight-bold text-white">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                            <div class="col-auto px-0">
+                                                <div class="row">
+                                                    <div class="col-12 d-flex justify-content-center">
+                                                        <img
+                                                            src="{{ URL::asset('/assets/images/client/our-client-img-cd.png') }}"
+                                                            class="img-our">
+                                                    </div>
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                        <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-auto px-0">
-                                            <div class="row">
-                                                <div class="col-12 d-flex justify-content-center">
-                                                    <img
-                                                        src="{{ URL::asset('/assets/images/client/our-client-img-lt.png') }}"
-                                                        class="img-our">
+                                            <div class="col-auto px-0">
+                                                <div class="row">
+                                                    <div class="col-12 d-flex justify-content-center">
+                                                        <img
+                                                            src="{{ URL::asset('/assets/images/client/our-client-img-cd.png') }}"
+                                                            class="img-our">
+                                                    </div>
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                        <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                                    </div>
                                                 </div>
-                                                <div class="col-12 pt-4 pb-5 text-center text-width">
-                                                    <span class="font-weight-bold text-white">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                            </div>
+                                            <div class="col-auto px-0">
+                                                <div class="row">
+                                                    <div class="col-12 d-flex justify-content-center">
+                                                        <img
+                                                            src="{{ URL::asset('/assets/images/client/our-client-img-cd.png') }}"
+                                                            class="img-our">
+                                                    </div>
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                        <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div id="Application_Design" class="container tab-pane fade">
-                                    <div class="row pt-5 justify-content-sm-center justify-content-xl-start">
-                                        <div class="col-auto px-0">
-                                            <div class="row">
-                                                <div class="col-12 d-flex justify-content-center">
-                                                    <img
-                                                        src="{{ URL::asset('/assets/images/client/our-client-img-lt.png') }}"
-                                                        class="img-our">
-                                                </div>
-                                                <div class="col-12 pt-4 pb-5 text-center text-width">
-                                                    <span class="font-weight-bold text-white">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto px-0">
-                                            <div class="row">
-                                                <div class="col-12 d-flex justify-content-center">
-                                                    <img
-                                                        src="{{ URL::asset('/assets/images/client/our-client-img-rd.png') }}"
-                                                        class="img-our">
-                                                </div>
-                                                <div class="col-12 pt-4 pb-5 text-center text-width">
-                                                    <span class="font-weight-bold text-white">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto px-0">
-                                            <div class="row">
-                                                <div class="col-12 d-flex justify-content-center">
-                                                    <img
-                                                        src="{{ URL::asset('/assets/images/client/our-client-img-rt.png') }}"
-                                                        class="img-our">
-                                                </div>
-                                                <div class="col-12 pt-4 pb-5 text-center text-width">
-                                                    <span class="font-weight-bold text-white">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto px-0">
-                                            <div class="row">
-                                                <div class="col-12 d-flex justify-content-center">
-                                                    <img
-                                                        src="{{ URL::asset('/assets/images/client/our-client-img-rt.png') }}"
-                                                        class="img-our">
-                                                </div>
-                                                <div class="col-12 pt-4 pb-5 text-center text-width">
-                                                    <span class="font-weight-bold text-white">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="Online_Marketing" class="container tab-pane fade">
-                                    <div class="row pt-5 justify-content-sm-center justify-content-xl-start">
-                                        <div class="col-auto px-0">
-                                            <div class="row">
-                                                <div class="col-12 d-flex justify-content-center">
-                                                    <img
-                                                        src="{{ URL::asset('/assets/images/client/our-client-img-cd.png') }}"
-                                                        class="img-our">
-                                                </div>
-                                                <div class="col-12 pt-4 pb-5 text-center text-width">
-                                                    <span
-                                                        class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto px-0">
-                                            <div class="row">
-                                                <div class="col-12 d-flex justify-content-center">
-                                                    <img
-                                                        src="{{ URL::asset('/assets/images/client/our-client-img-cd.png') }}"
-                                                        class="img-our">
-                                                </div>
-                                                <div class="col-12 pt-4 pb-5 text-center text-width">
-                                                    <span
-                                                        class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto px-0">
-                                            <div class="row">
-                                                <div class="col-12 d-flex justify-content-center">
-                                                    <img
-                                                        src="{{ URL::asset('/assets/images/client/our-client-img-cd.png') }}"
-                                                        class="img-our">
-                                                </div>
-                                                <div class="col-12 pt-4 pb-5 text-center text-width">
-                                                    <span
-                                                        class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto px-0">
-                                            <div class="row">
-                                                <div class="col-12 d-flex justify-content-center">
-                                                    <img
-                                                        src="{{ URL::asset('/assets/images/client/our-client-img-cd.png') }}"
-                                                        class="img-our">
-                                                </div>
-                                                <div class="col-12 pt-4 pb-5 text-center text-width">
-                                                    <span
-                                                        class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-12 d-flex justify-content-end">
-                                        <ul class="pagination d-flex justify-content-center flex-wrap pagination-rounded-flat pagination-success">
-                                            <li class="page-item"><a class="page-link" href="#" data-abc="true"><span
-                                                        aria-hidden="true">&laquo;</span>
-                                                    <span class="sr-only">Previous</span></a></li>
-                                            <li class="page-item"><a class="page-link" href="#" data-abc="true"><</a>
-                                            </li>
-                                            <li class="page-item active"><a class="page-link" href="#"
-                                                                            data-abc="true">1</a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="#" data-abc="true">2</a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="#" data-abc="true">3</a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="#" data-abc="true">4</a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="#" data-abc="true">></a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="#" data-abc="true"><span
-                                                        aria-hidden="true">&raquo;</span>
-                                                    <span class="sr-only">Next</span></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                            @endif
                         </div>
 
                     </div>
@@ -458,36 +690,49 @@
         </div>
         <section class="logo-Client">
             <div class="container pt-5">
-                <div class="row autoplay d-flex justify-content-center pt-5 mt-5">
-                    <div class="col-auto px-5 d-flex justify-content-center">
-                        <img src="{{ URL::asset('/assets/images/client/major.svg') }}"
-                             class="img-circle">
+                @if($company_logo)
+                    <div class="row autoplay d-flex justify-content-center pt-5 mt-3">
+                        @foreach($company_logo as $item)
+                            <div class="col-auto px-5 d-flex justify-content-center box-img-circle">
+                                <div class="box-circle">
+                                    <img src="{{url('/company-logo-list/image/'.$item->path_img)}}"
+                                         class="img-circle">
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
-                    <div class="col-auto px-5  d-flex justify-content-center">
-                        <img src="{{ URL::asset('/assets/images/client/plan-b.svg') }}"
-                             class="img-circle">
+                @else
+                    <div class="row autoplay d-flex justify-content-center pt-5 mt-5">
+                        <div class="col-auto px-5 d-flex justify-content-center">
+                            <img src="{{ URL::asset('/assets/images/client/major.svg') }}"
+                                 class="img-circle">
+                        </div>
+                        <div class="col-auto px-5  d-flex justify-content-center">
+                            <img src="{{ URL::asset('/assets/images/client/plan-b.svg') }}"
+                                 class="img-circle">
+                        </div>
+                        <div class="col-auto px-5  d-flex justify-content-center">
+                            <img src="{{ URL::asset('/assets/images/client/spa.svg') }}"
+                                 class="img-circle">
+                        </div>
+                        <div class="col-auto px-5 d-flex justify-content-center">
+                            <img src="{{ URL::asset('/assets/images/client/unii.svg') }}"
+                                 class="img-circle">
+                        </div>
+                        <div class="col-auto px-5 d-flex justify-content-center">
+                            <img src="{{ URL::asset('/assets/images/client/sharp.svg') }}"
+                                 class="img-circle">
+                        </div>
+                        <div class="col-auto px-5 d-flex justify-content-center">
+                            <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
+                                 class="img-circle">
+                        </div>
+                        <div class="col-auto px-5 d-flex justify-content-center">
+                            <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
+                                 class="img-circle">
+                        </div>
                     </div>
-                    <div class="col-auto px-5  d-flex justify-content-center">
-                        <img src="{{ URL::asset('/assets/images/client/spa.svg') }}"
-                             class="img-circle">
-                    </div>
-                    <div class="col-auto px-5 d-flex justify-content-center">
-                        <img src="{{ URL::asset('/assets/images/client/unii.svg') }}"
-                             class="img-circle">
-                    </div>
-                    <div class="col-auto px-5 d-flex justify-content-center">
-                        <img src="{{ URL::asset('/assets/images/client/sharp.svg') }}"
-                             class="img-circle">
-                    </div>
-                    <div class="col-auto px-5 d-flex justify-content-center">
-                        <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
-                             class="img-circle">
-                    </div>
-                    <div class="col-auto px-5 d-flex justify-content-center">
-                        <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
-                             class="img-circle">
-                    </div>
-                </div>
+                @endif
             </div>
         </section>
 
@@ -500,7 +745,7 @@
                             <span class="head-contain-font font-weight-bold">SHARING</span>
                         </div>
                         <div class="col-12 text-center pt-5">
-                            CK
+
                         </div>
                     </div>
                 </div>
@@ -516,12 +761,19 @@
     <script>
         $(document).ready(function () {
             auto();
-            tab1();
+            loadDataClients({!! json_encode($server_list[0]->id) !!});
         });
 
         function auto() {
+            var items = 0;
+            var item = '{{count($company_logo)}}'
+            if (item < 5) {
+                items = item
+            } else {
+                items = 5;
+            }
             $('.autoplay').slick({
-                slidesToShow: 4,
+                slidesToShow: items,
                 slidesToScroll: 1,
                 draggable: true,
                 autoplay: false,
@@ -551,32 +803,70 @@
             });
         }
 
-        function tab1() {
-            $('.tab1').show();
-            $('.tab2').hide();
-            $('.tab3').hide();
-            $('.txt-bold-nav-1').addClass('txt-bold');
-            $('.txt-bold-nav-2').removeClass('txt-bold');
-            $('.txt-bold-nav-3').removeClass('txt-bold');
+        function changTab(data) {
+            loadDataClients(data)
         }
 
-        function tab2() {
-            $('.tab1').hide();
-            $('.tab2').show();
-            $('.tab3').hide();
-            $('.txt-bold-nav-1').removeClass('txt-bold');
-            $('.txt-bold-nav-2').addClass('txt-bold');
-            $('.txt-bold-nav-3').removeClass('txt-bold');
-
+        function loadDataClients(data_id) {
+            $.ajax({
+                url: '{!! route('home-our-clients-list') !!}' + '?tap=' + data_id,
+                type: 'GET',
+                processData: false,
+                contentType: false,
+                success: function (res) {
+                    if (res.data) {
+                        var div = $('<div ' + 'class="row pt-3 justify-content-sm-center justify-content-xl-start"' + '></div>')
+                        div.html(GetDynamicBox(res.data))
+                        $('#box_' + data_id).empty()
+                        $('#box_' + data_id).append(div)
+                    }
+                }
+            })
         }
 
-        function tab3() {
-            $('.tab1').hide();
-            $('.tab2').hide();
-            $('.tab3').show();
-            $('.txt-bold-nav-1').removeClass('txt-bold');
-            $('.txt-bold-nav-2').removeClass('txt-bold');
-            $('.txt-bold-nav-3').addClass('txt-bold');
+        function GetDynamicBox(value) {
+            var data = '';
+            $.each(value, function (index, value) {
+                data += '<div class="col-auto px-0 pt-5">' +
+                    '<div class="row">' +
+                    '<div class="col-12 d-flex justify-content-center client-item myImg" onclick="modalImg(' + index + ')">' +
+                    '<img src="/clients-list/image/' + value.path_img_small + '" ' +
+                    'class="img-our myImg" id="myImg' + index + '">' +
+                    '</div>' +
+                    '<div class="col-12 pt-4 pb-5 text-center text-width">' +
+                    '<span class="font-weight-bold text-white">' + value.name + '</span>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div id="myModal' + index + '" class="modal img-show">' +
+                    '<span class="close" id="close' + index + '">&times;</span>' +
+                    // '<img class="modal-content" id="img0' + index + '">' +
+                    '<div class="row">' +
+                    '<div class="col-12 d-flex justify-content-center service-item-full">' +
+                    '<img class="" src="/clients-list/image/' + value.path_img_large + '" ' +
+                    '<div id="caption' + index + '" class="caption"></div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>'
+            });
+            return data
         }
+
+        function modalImg(value) {
+            var modal = document.getElementById("myModal" + value);
+            // var img = document.getElementById("myImg"+value);
+            // var modalImg = document.getElementById("img0"+value);
+            var captionText = document.getElementById("caption" + value);
+            // img.onclick = function () {
+            modal.style.display = "block";
+            // modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+            // }
+            var span = document.getElementById("close" + value);
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+        }
+
     </script>
 @endpush

@@ -31,14 +31,22 @@
 @endpush('css')
 @section('content')
     <div>
-        <div>
-            <img src="{{ URL::asset('/assets/images/banner.svg') }}" class="sub-banner">
+        <img src="{{URL::asset('/assets/images/banner.svg')}}"
+             style="display: {{isset($contact_main->path_img_banner)?'none':'block'}}"
+             class="img-banner">
+        <div class="pb-5 box-banner" style="display: {{isset($contact_main->path_img_banner)?'inline-block':'none'}}">
+            <img src="{{url('/contact/image/'.$contact_main->path_img_banner)}}"
+                 class="img-banner">
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-12 text-center pt-5">
-                    <span class="head-contain-font font-weight-light mr-3">ติดต่อเรา</span>
-                    <span class="head-contain-font font-weight-bold">DIGI SOLUTION</span>
+                <div class="col-12 text-center head-title pt-5">
+                    @if($contact_main->title)
+                        {!! $contact_main->title !!}
+                    @else
+                        <span class="head-contain-font font-weight-light mr-3">ติดต่อเรา</span>
+                        <span class="head-contain-font font-weight-bold">DIGI SOLUTION</span>
+                    @endif
                 </div>
             </div>
             <div class="row pt-5">
@@ -58,9 +66,13 @@
                             <img src="{{ URL::asset('/assets/images/contact/contact-location.png') }}">
                         </div>
                         <div class="col-11">
-                            <span class="txt-grey">199/445 ถนนเชียงใหม่-แม่โจ้ ตำบล หนองจ๊อม
+                            @if($contact->address)
+                                <span class="txt-grey">{{$contact->address}}</span>
+                            @else
+                                <span class="txt-grey">199/445 ถนนเชียงใหม่-แม่โจ้ ตำบล หนองจ๊อม
                                 อำเภอ สันทราย
                                 จังหวัดเชียงใหม่ 50210</span>
+                            @endif
                         </div>
                     </div>
                     <div class="row pt-3">
@@ -68,7 +80,11 @@
                             <img src="{{ URL::asset('/assets/images/contact/contact-tell.png') }}">
                         </div>
                         <div class="col-11">
-                            <span class="txt-grey">(+66) 99 999 9999</span>
+                            @if($contact->address)
+                                <span class="txt-grey">{{$contact->tell}}</span>
+                            @else
+                                <span class="txt-grey">(+66) 99 999 9999</span>
+                            @endif
                         </div>
                     </div>
                     <div class="row pt-3">
@@ -76,7 +92,11 @@
                             <img src="{{ URL::asset('/assets/images/contact/contact-mail.png') }}">
                         </div>
                         <div class="col-11">
-                            <span class="txt-grey">info@digisolution.com</span>
+                            @if($contact->address)
+                                <span class="txt-grey">{{$contact->email}}</span>
+                            @else
+                                <span class="txt-grey">info@digisolution.com</span>
+                            @endif
                         </div>
                     </div>
                     <div class="row pt-3 pb-3">
@@ -86,37 +106,45 @@
                     </div>
                 </div>
                 <div class="col-md-12 col-xl-6" id="contact">
-                    <div class="row">
-                        <div class="col-12">
-                            <input class="form-control contact-input" type="text" name="full_name"
-                                   placeholder="ชื่อ - นามสกุล">
+                    <form class="form form-horizontal"
+                          action="{{route('sent-contact')}}"
+                          method="post"
+                          autocomplete="off"
+                          enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        <div class="row pb-4">
+                            <div class="col-12">
+                                <input class="form-control contact-input" type="text" name="full_name"
+                                       placeholder="ชื่อ - นามสกุล">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <input class="form-control contact-input" type="text" name="tell" placeholder="เบอร์โทร">
+                        <div class="row pb-4">
+                            <div class="col-12">
+                                <input class="form-control contact-input" type="text" name="tell"
+                                       placeholder="เบอร์โทร">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <input class="form-control contact-input" type="text" name="email" placeholder="อีเมล">
+                        <div class="row pb-4">
+                            <div class="col-12">
+                                <input class="form-control contact-input" type="text" name="email" placeholder="อีเมล">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <input class="form-control contact-input" type="text" name="subject"
-                                   placeholder="เรื่องที่ติดต่อ">
+                        <div class="row pb-4">
+                            <div class="col-12">
+                                <input class="form-control contact-input" type="text" name="topic"
+                                       placeholder="เรื่องที่ติดต่อ">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
+                        <div class="row pb-4">
+                            <div class="col-12">
                             <textarea class="form-control contact-input" id="note" name="note" rows="4"
                                       placeholder="ข้อความ"></textarea>
+                            </div>
                         </div>
-                    </div>
-                    <button type="submit" class="btn btn-md btn-sent">
-                        SEND
-                    </button>
+                        <button type="submit" class="btn btn-md btn-sent">
+                            SEND
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -128,10 +156,23 @@
         defer>
     </script>
     <script>
+        document.title = '{{$contact_main->meta_title}}'
+        document.getElementsByTagName('meta')["keywords"].content = '{{$contact_main->meta_keyword}}';
+        document.getElementsByTagName('meta')["description"].content = '{{$contact_main->meta_description}}';
+
         function initMap() {
+            var lat;
+            var long;
+            if ('{{$contact->lat}}' !== '' && '{{$contact->lat}}' !== '') {
+                lat = parseFloat('{{$contact->lat}}');
+                long = parseFloat('{{$contact->long}}');
+            } else {
+                lat = 18.8308;
+                long = 99.0167;
+            }
             const myLatLng = {
-                lat: 18.8308,
-                lng: 99.0167
+                lat: lat,
+                lng: long
             };
             const map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 16,
