@@ -5,7 +5,12 @@
             width: 30px
         }
 
+        .slick-list {
+            height: 190px !important;
+        }
+
         .box-img-circle {
+            padding-top: 10px;
             display: flex;
             align-items: center;
 
@@ -509,7 +514,7 @@
             {{--loadDataClientsTap({!! json_encode($server_list[0]->id) !!});--}}
             {{--loadDataClients('{{$server_list_id}}', 0)--}}
             loadDataClientsTap('{{$server_list_id}}')
-            loadDataClients('{{$server_list_id}}',0)
+            loadDataClients('{{$server_list_id}}', 0)
             auto();
             autoImg();
 

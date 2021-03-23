@@ -23,8 +23,12 @@
             box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
         }
 
+        .slick-list{
+            height: 190px !important;
+        }
 
         .box-img-circle {
+            padding-top: 10px ;
             display: flex;
             align-items: center;
 
@@ -34,7 +38,7 @@
             border-radius: 50%;
             min-width: 156px !important;
             min-height: 156px !important;
-            box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -49,8 +53,8 @@
 
 
         .text-width {
-            width: 30px;
-            word-break: break-all;
+            width: 60px;
+            /*word-break: break-all;*/
         }
 
 
@@ -398,8 +402,8 @@
                                                     <img src="{{url('/service/image-icon/'.$item->path_img)}}"
                                                          class="service-img">
                                                 </div>
-                                                <div class="col-12 pt-3 text-center text-width">
-                                                <span class="font-weight-bold"
+                                                <div class="col-12 pt-3 text-center">
+                                                <span class="font-weight-bold text-width"
                                                       style="color: #000000">{{$item->name}}</span>
                                                 </div>
                                                 <div class="col-12 pt-2 pb-5 text-width">

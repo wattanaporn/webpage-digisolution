@@ -2,8 +2,8 @@
 @push('css')
     <style>
         #main-content-title {
-            height: 120px;
-            box-shadow: 0px 1px 0px #E3E3E3;
+            height: 121px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25) !important;
             font-size: 16px;
             color: #3064C6;
             position: fixed;
@@ -164,6 +164,7 @@
                             width="350" height="130" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
                             allowfullscreen="true"
                             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>`)
+                        $('#copyright').text('©copyright 2021 All Rights Reserved by digi solution co.,LTD');
 
                     }
                 }
