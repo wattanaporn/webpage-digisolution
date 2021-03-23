@@ -40,6 +40,9 @@
             max-height: 200px;
 
         }
+        .ahref:hover {
+            text-decoration: none !important;
+        }
     </style>
 @endpush('css')
 @section('content')
@@ -65,7 +68,7 @@
             <div class="row d-flex justify-content-center pt-5">
                 @if(count($service_list)>0)
                     @foreach($service_list as $item)
-                        <a href="{!! url('/service-list-detail') !!}/{{$item->id}}">
+                        <a href="{!! url('/service-list-detail') !!}/{{$item->id}}" class="ahref">
                             <div class="col-auto px-5">
                                 <div class="row">
 {{--                                    <div class="col-12 circle">--}}

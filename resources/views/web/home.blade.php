@@ -261,6 +261,16 @@
             align-items: center;
             justify-content: center;
         }
+
+        .ahref {
+            color: #777777 !important;
+        }
+
+        .ahref:hover {
+            color: #777777 !important;
+            text-decoration: none !important;
+        }
+
     </style>
 @endpush('css')
 @section('content')
@@ -403,24 +413,27 @@
                         {{--                        <span class="head-contain-font font-weight-bold">SERVICE</span>--}}
                         {{--                    </div>--}}
                         <div class="col-md-12">
-                            <div class="row d-flex justify-content-center pt-5">
+                            <div class="link-detail row d-flex justify-content-center pt-5">
                                 @if(count($service_list)>0)
                                     @foreach($service_list as $item)
-                                        <div class="col-auto px-5 mw-div">
-                                            <div class="row">
-                                                <div class="col-12 d-flex justify-content-center service-item">
-                                                    <img src="{{url('/service/image-icon/'.$item->path_img)}}"
-                                                         class="service-img">
-                                                </div>
-                                                <div class="col-12 pt-3 text-center">
+                                        <a href="{!! url('/service-list-detail') !!}/{{$item->id}}" class="ahref">
+                                            <div class="col-auto px-5 mw-div">
+                                                <div class="row">
+                                                    <div class="col-12 d-flex justify-content-center service-item">
+                                                        <img src="{{url('/service/image-icon/'.$item->path_img)}}"
+                                                             class="service-img">
+                                                    </div>
+                                                    <div class="col-12 pt-3 text-center">
                                                 <span class="font-weight-bold text-width"
                                                       style="color: #000000">{{$item->name}}</span>
-                                                </div>
-                                                <div class="col-12 pt-2 pb-5 text-width">
-                                                    {!! $item->detail !!}
+                                                    </div>
+                                                    <div class="col-12 pt-2 pb-5 text-width">
+                                                        {!! $item->detail !!}
+                                                        {{--                                                        {{ $item->detail }}--}}
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     @endforeach
                                 @else
                                     <div class="col-auto px-5 mw-div">
