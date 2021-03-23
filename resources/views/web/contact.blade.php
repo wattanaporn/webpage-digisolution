@@ -40,7 +40,7 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-12 text-center head-title pt-5">
+                <div class="col-12 text-center pt-5">
                     @if($contact_main->title)
                         {!! $contact_main->title !!}
                     @else

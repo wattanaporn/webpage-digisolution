@@ -45,8 +45,9 @@
     <div id="main-content-title">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container">
-                <div id="logo">
-                </div>
+                {{--                <div id="logo">--}}
+                {{--                </div>--}}
+                <img src="{{ URL::asset('/images/logo_digiso.png') }}" class="logo">
                 <button class="navbar-toggler" type="button"
                         data-toggle="collapse"
                         data-target="#navbarNavAltMarkup"
@@ -77,8 +78,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-lg-4 pt-5 text-center">
-                    <div id="logo_footer">
-                    </div>
+                    {{--                    <div id="logo_footer">--}}
+                    {{--                    </div>--}}
+                    <img src="{{ URL::asset('/images/logo_digiso.png') }}" class="logo-footer">
                 </div>
                 <div class="col-md-12 col-lg-4 pt-5">
                     <div class="row">
@@ -139,7 +141,7 @@
                 processData: false,
                 contentType: false,
                 success: function (res) {
-                    if (res.data) {
+                    if (res.data !== null) {
                         if (res.data.copyright) {
                             $('#copyright').text(res.data.copyright);
                         } else {
@@ -149,16 +151,13 @@
                         $('#tell').text(res.data.tell);
                         $('#email').text(res.data.email);
                         appendDiv(res.data.facebook_page);
-                        logo(res.data.path_logo);
+                        // logo(res.data.path_logo);
                     } else {
                         $('#facebook_page').html(`<iframe
                             src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FDigisolutionofficial%2F&tabs=timeline&width=350&height=130&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1066555983401141"
                             width="350" height="130" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
                             allowfullscreen="true"
                             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>`)
-
-                        $('#logo_footer').html(`<img src="{{ URL::asset('/images/logo_digiso.png') }}" class="logo-footer">`)
-                        $('#logo').html(`<img src="{{ URL::asset('/images/logo_digiso.png') }}" class="logo">`)
 
                     }
                 }
