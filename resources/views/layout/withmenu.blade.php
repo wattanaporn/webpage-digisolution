@@ -2,7 +2,7 @@
 @push('css')
     <style>
         #main-content-title {
-            height: 121px;
+            height: 122px;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25) !important;
             font-size: 16px;
             color: #3064C6;
@@ -30,7 +30,7 @@
         }
 
         #main-content-footer-copyright {
-            padding: 5px;
+            padding-bottom: 15px;
             font-size: 13px;
             color: #3064C6;
             font-weight: bold;

@@ -2,7 +2,7 @@
 @push('css')
     <style>
         .wedo-pad-top {
-            padding-top: 100px;
+            padding-top: 50px;
         }
 
         @media only screen and (max-width: 992px) {
@@ -23,12 +23,12 @@
             box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .slick-list{
+        .slick-list {
             height: 190px !important;
         }
 
         .box-img-circle {
-            padding-top: 10px ;
+            padding-top: 10px;
             display: flex;
             align-items: center;
 
@@ -57,7 +57,12 @@
             word-break: break-word;
         }
 
-        .mw-div{
+        .text-width-null {
+            width: 30px !important;
+            word-break: break-word;
+        }
+
+        .mw-div {
             max-width: 380px;
         }
 
@@ -152,7 +157,7 @@
 
         .banner-images {
             width: 100%;
-            height: 480px;
+            /*height: 480px;*/
             display: flex;
             align-items: center;
             background: black;
@@ -418,7 +423,7 @@
                                         </div>
                                     @endforeach
                                 @else
-                                    <div class="col-auto px-5">
+                                    <div class="col-auto px-5 mw-div">
                                         <div class="row">
                                             <div class="col-12 d-flex justify-content-center service-item">
                                                 <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
@@ -429,7 +434,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-auto px-5">
+                                    <div class="col-auto px-5 mw-div">
                                         <div class="row">
                                             <div class="col-12 d-flex justify-content-center service-item">
                                                 <img
@@ -441,7 +446,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-auto px-5">
+                                    <div class="col-auto px-5 mw-div">
                                         <div class="row">
                                             <div class="col-12 d-flex justify-content-center service-item">
                                                 <img src="{{ URL::asset('/assets/images/service/service-mobile.svg') }}"
@@ -540,8 +545,8 @@
                                                             src="{{ URL::asset('/assets/images/client/our-client-img-cd.png') }}"
                                                             class="img-our">
                                                     </div>
-                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
-                                                        <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width-null">
+                                                        <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) ss</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -552,7 +557,7 @@
                                                             src="{{ URL::asset('/assets/images/client/our-client-img-ct.png') }}"
                                                             class="img-our">
                                                     </div>
-                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width-null">
                                                         <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
                                                     </div>
                                                 </div>
@@ -564,7 +569,7 @@
                                                             src="{{ URL::asset('/assets/images/client/our-client-img-ld.png') }}"
                                                             class="img-our">
                                                     </div>
-                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width-null">
                                                         <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
                                                     </div>
                                                 </div>
@@ -576,7 +581,7 @@
                                                             src="{{ URL::asset('/assets/images/client/our-client-img-lt.png') }}"
                                                             class="img-our">
                                                     </div>
-                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width-null">
                                                         <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
                                                     </div>
                                                 </div>
@@ -593,7 +598,7 @@
                                                             src="{{ URL::asset('/assets/images/client/our-client-img-lt.png') }}"
                                                             class="img-our">
                                                     </div>
-                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width-null">
                                                         <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
                                                     </div>
                                                 </div>
@@ -605,7 +610,7 @@
                                                             src="{{ URL::asset('/assets/images/client/our-client-img-rd.png') }}"
                                                             class="img-our">
                                                     </div>
-                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width-null">
                                                         <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
                                                     </div>
                                                 </div>
@@ -617,7 +622,7 @@
                                                             src="{{ URL::asset('/assets/images/client/our-client-img-rt.png') }}"
                                                             class="img-our">
                                                     </div>
-                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width-null">
                                                         <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
                                                     </div>
                                                 </div>
@@ -629,7 +634,7 @@
                                                             src="{{ URL::asset('/assets/images/client/our-client-img-rt.png') }}"
                                                             class="img-our">
                                                     </div>
-                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width-null">
                                                         <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
                                                     </div>
                                                 </div>
@@ -646,7 +651,7 @@
                                                             src="{{ URL::asset('/assets/images/client/our-client-img-cd.png') }}"
                                                             class="img-our">
                                                     </div>
-                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width-null">
                                                         <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
                                                     </div>
                                                 </div>
@@ -658,7 +663,7 @@
                                                             src="{{ URL::asset('/assets/images/client/our-client-img-cd.png') }}"
                                                             class="img-our">
                                                     </div>
-                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width-null">
                                                         <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
                                                     </div>
                                                 </div>
@@ -670,7 +675,7 @@
                                                             src="{{ URL::asset('/assets/images/client/our-client-img-cd.png') }}"
                                                             class="img-our">
                                                     </div>
-                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width-null">
                                                         <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
                                                     </div>
                                                 </div>
@@ -682,7 +687,7 @@
                                                             src="{{ URL::asset('/assets/images/client/our-client-img-cd.png') }}"
                                                             class="img-our">
                                                     </div>
-                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width-null">
                                                         <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
                                                     </div>
                                                 </div>
