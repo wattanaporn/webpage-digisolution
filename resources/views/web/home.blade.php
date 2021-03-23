@@ -53,8 +53,12 @@
 
 
         .text-width {
-            width: 60px;
-            /*word-break: break-all;*/
+            /*width: 30px !important;*/
+            word-break: break-word;
+        }
+
+        .mw-div{
+            max-width: 380px;
         }
 
 
@@ -75,13 +79,14 @@
             border-left: #ffffff;
             border-right: #ffffff;
             padding-top: 10px;
-            color: #777777;
+            color: #ffffff;
         }
 
         .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
             color: #FFFFFF !important;
             background: transparent;
             border-bottom: none;
+            font-weight: bold;
             /*border-color: transparent;*/
         }
 
@@ -396,7 +401,7 @@
                             <div class="row d-flex justify-content-center pt-5">
                                 @if(count($service_list)>0)
                                     @foreach($service_list as $item)
-                                        <div class="col-auto px-5">
+                                        <div class="col-auto px-5 mw-div">
                                             <div class="row">
                                                 <div class="col-12 d-flex justify-content-center service-item">
                                                     <img src="{{url('/service/image-icon/'.$item->path_img)}}"
