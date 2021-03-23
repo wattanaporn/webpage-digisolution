@@ -203,7 +203,7 @@
                     </li>
                     <li>
                         <a href="{{route('admin.company-logo.index')}}">
-                            <i class="iconsminds-plaxo"></i> logo
+                            <i class="iconsminds-plaxo"></i> client logo
                         </a>
                     </li>
                     <li>

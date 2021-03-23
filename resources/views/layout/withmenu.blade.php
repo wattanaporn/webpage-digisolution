@@ -65,7 +65,7 @@
                 </div>
                 <div class="collapse navbar-collapse bg-white" id="navbarNavAltMarkup">
                     <div class="navbar-nav px-2 pt-2">
-                        <a class="nav-item nav-link mr-4 active_menu_1" href="{{route('web')}}">Home</a>
+                        <a class="nav-item nav-link mr-4 active_menu_1" href="{{route('web')}}">HOME</a>
                         <a class="nav-item nav-link mr-4 active_menu_2" href="{{route('about-us')}}">ABOUT</a>
                         <a class="nav-item nav-link mr-4 active_menu_3" href="{{route('service')}}">SERVICE</a>
                         <a class="nav-item nav-link mr-4 active_menu_4" href="{{route('our-clients')}}">OUR CLIENTS</a>
@@ -81,7 +81,7 @@
     </div>
     <div id="main-content-footer">
         <div class="container">
-            <div class="row">
+            <div class="row pt-4 pb-4">
                 <div class="col-md-12 col-lg-4 pt-5 text-center">
                     {{--                    <div id="logo_footer">--}}
                     {{--                    </div>--}}

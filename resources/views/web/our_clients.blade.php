@@ -71,7 +71,7 @@
 
         .nav-tabs .nav-link.active {
             font-weight: bold;
-            color: black;
+            color: #007AE8 !important;
         }
 
         /*.border-active-tab {*/
