@@ -39,6 +39,11 @@
             z-index: 10;
             border-top: 1px solid #E5E5E5;
         }
+
+        .navbar-nav .nav-link.active {
+            /*font-weight: bold;*/
+            color: #007AE8 !important;
+        }
     </style>
 @endpush
 @section('content')
@@ -60,12 +65,12 @@
                 </div>
                 <div class="collapse navbar-collapse bg-white" id="navbarNavAltMarkup">
                     <div class="navbar-nav px-2 pt-2">
-                        <a class="nav-item nav-link mr-4" href="{{route('web')}}">Home</a>
-                        <a class="nav-item nav-link mr-4" href="{{route('about-us')}}">ABOUT</a>
-                        <a class="nav-item nav-link mr-4" href="{{route('service')}}">SERVICE</a>
-                        <a class="nav-item nav-link mr-4" href="{{route('our-clients')}}">OUR CLIENTS</a>
-                        <a class="nav-item nav-link mr-4" href="#">ARTICLE</a>
-                        <a class="nav-item nav-link" href="{{route('contact')}}"> CONTACT US</a>
+                        <a class="nav-item nav-link mr-4 active_menu_1" href="{{route('web')}}">Home</a>
+                        <a class="nav-item nav-link mr-4 active_menu_2" href="{{route('about-us')}}">ABOUT</a>
+                        <a class="nav-item nav-link mr-4 active_menu_3" href="{{route('service')}}">SERVICE</a>
+                        <a class="nav-item nav-link mr-4 active_menu_4" href="{{route('our-clients')}}">OUR CLIENTS</a>
+                        <a class="nav-item nav-link mr-4 active_menu_5" href="#">ARTICLE</a>
+                        <a class="nav-item nav-link active_menu_6" href="{{route('contact')}}"> CONTACT US</a>
                     </div>
                 </div>
             </div>
@@ -132,6 +137,7 @@
     <script>
         $(document).ready(function () {
             loadData();
+            activeMenu();
         });
 
         function loadData() {
@@ -183,6 +189,25 @@
             } else {
                 $('#logo_footer').html(`<img src="{{ URL::asset('/images/logo_digiso.png') }}" class="logo-footer">`)
                 $('#logo').html(`<img src="{{ URL::asset('/images/logo_digiso.png') }}" class="logo">`)
+            }
+        }
+        function activeMenu() {
+            var pathname = window.location.pathname;
+            for (var i = 0; i <= 6; i++) {
+                $('.active_menu_' + i).removeClass('active');
+            }
+            if (pathname === '/') {
+                $('.active_menu_1').toggleClass('active')
+            } else if (pathname === '/about-us') {
+                $('.active_menu_2').toggleClass('active')
+            } else if (pathname === '/service') {
+                $('.active_menu_3').toggleClass('active')
+            } else if (pathname === '/our-clients') {
+                $('.active_menu_4').toggleClass('active')
+            } else if (pathname === '/') {
+                $('.active_menu_4').toggleClass('active')
+            } else {
+                $('.active_menu_6').toggleClass('active')
             }
         }
 

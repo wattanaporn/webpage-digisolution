@@ -238,7 +238,7 @@
                 </div>
             </div>
             @if(count($company_logo)>0)
-                <div class="row autoplay d-flex justify-content-center pt-5 mt-3">
+                <div class="row autoplay d-flex justify-content-center pt-5 mt-3 pb-5">
                     @foreach($company_logo as $item)
                         <div class="col-auto px-5 d-flex justify-content-center box-img-circle">
                             <div class="box-circle">
