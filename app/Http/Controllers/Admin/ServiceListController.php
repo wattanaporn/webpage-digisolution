@@ -145,7 +145,7 @@ class ServiceListController extends Controller
         $id = $request->get('service_list_id');
         if ($id) {
             $check = OurClient::select('service_list_id')->where('service_list_id', $id)->get();
-            if (!$check) {
+            if ($check) {
                 $service_list_delete = Content::find($id);
                 $service_list_delete->delete();
                 if ($service_list_delete) {
