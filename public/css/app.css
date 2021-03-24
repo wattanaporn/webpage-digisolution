@@ -113,7 +113,7 @@ nav ul li a {
 section.what-wedo {
     width: 100%;
     /* เดิม 816 px */
-    height: 750px;
+    min-height: 750px;
     background: url("../images/what-we-do-bg.svg");
     background-position-x: calc(50% - 38px);
     background-position-y: calc(20% - 40px);

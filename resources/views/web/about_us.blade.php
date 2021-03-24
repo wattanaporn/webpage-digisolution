@@ -10,7 +10,7 @@
 
             width: 100%;
             /* เดิม 816 px */
-            height: 750px;
+            min-height: 750px;
             background: url("/assets/images/about_us/bg-about.svg");
             background-position-x: calc(50% - 38px);
             /*background-position-y: calc(20% - 40px);*/
@@ -45,7 +45,7 @@
         <div class="some-class">
             <div class="container">
                 <div class="row pad-top-txt-about">
-                    <div class="col-12 text-center head-title">
+                    <div class="col-12 text-center">
                         @if($about->title)
                             {!! $about->title !!}
                         @else
