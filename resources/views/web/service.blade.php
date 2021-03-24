@@ -24,8 +24,8 @@
 
         .box-circle{
             border-radius: 50%;
-            min-width: 278px !important;
-            min-height: 278px !important;
+            min-width: 230px !important;
+            min-height: 230px !important;
             box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
             border: 3px solid #007AE8;
             padding: 5px;
@@ -36,9 +36,12 @@
 
         .img-circle {
             /*border-radius: 50%;*/
-            max-width: 240px;
-            max-height: 250px;
+            max-width: 200px;
+            max-height: 200px;
 
+        }
+        .ahref:hover {
+            text-decoration: none !important;
         }
     </style>
 @endpush('css')
@@ -63,9 +66,9 @@
                 </div>
             </div>
             <div class="row d-flex justify-content-center pt-5">
-                @if($service_list)
+                @if(count($service_list)>0)
                     @foreach($service_list as $item)
-                        <a href="{!! url('/service-list-detail') !!}/{{$item->id}}">
+                        <a href="{!! url('/service-list-detail') !!}/{{$item->id}}" class="ahref">
                             <div class="col-auto px-5">
                                 <div class="row">
 {{--                                    <div class="col-12 circle">--}}
@@ -88,9 +91,11 @@
                 @else
                     <div class="col-auto px-5">
                         <div class="row">
-                            <div class="col-12 circle">
-                                <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
-                                     class="img-circle">
+                            <div class="col-auto col-12 d-flex justify-content-center box-img-circle">
+                                <div class="box-circle">
+                                    <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
+                                         class="img-circle">
+                                </div>
                             </div>
                             <div class="col-12 pt-4 pb-5 text-center text-width">
                                 <span class="font-weight-bold ">บริการออกแบบเว็บไซต์ และระบบเฉพาะตามความต้องการ</span>
@@ -99,9 +104,11 @@
                     </div>
                     <div class="col-auto px-5">
                         <div class="row">
-                            <div class="col-12 circle">
-                                <img src="{{ URL::asset('/assets/images/service/service-application.svg') }}"
-                                     class="img-circle">
+                            <div class="col-auto col-12 d-flex justify-content-center box-img-circle">
+                                <div class="box-circle">
+                                    <img src="{{ URL::asset('/assets/images/service/service-application.svg') }}"
+                                         class="img-circle">
+                                </div>
                             </div>
                             <div class="col-12 pt-4 pb-5 text-center text-width">
                                 <span class="font-weight-bold">บริการทำแอปพลิเคชันทุกแพลตฟอร์ม</span>
@@ -110,9 +117,11 @@
                     </div>
                     <div class="col-auto px-5">
                         <div class="row">
-                            <div class="col-12 circle">
-                                <img src="{{ URL::asset('/assets/images/service/service-mobile.svg') }}"
-                                     class="img-circle">
+                            <div class="col-auto col-12 d-flex justify-content-center box-img-circle">
+                                <div class="box-circle">
+                                    <img src="{{ URL::asset('/assets/images/service/service-mobile.svg') }}"
+                                         class="img-circle">
+                                </div>
                             </div>
                             <div class="col-12 pt-4 pb-5 text-center text-width">
                                 <span

@@ -10,7 +10,7 @@
 @endpush('css')
 @section('content')
     <div>
-        <h1>{{$logo->id?"Edit logo":"Create logo"}}</h1>
+        <h1>{{$logo->id?"Edit client logo":"Create client logo"}}</h1>
         {{--        <nav class="breadcrumb-container d-none d-sm-block d-lg-inline-block" aria-label="breadcrumb">--}}
         {{--            <ol class="breadcrumb pt-0">--}}
         {{--                <li class="breadcrumb-item">--}}
@@ -51,7 +51,7 @@
                             </div>
                             <div style="font-size: 14px;line-height: 18px;color: #C8C7CC;padding-top: 15px">
                                 วางไฟล์ตรงนี้
-                                หรือเลือกไฟล์ (JPEG, PNG, BMP, GIF)
+                                หรือเลือกไฟล์ (JPEG, PNG, BMP, GIF) ที่มีขนาดความสูงไม่เกิน 140px และความกว้างไม่เกิน 140px
                             </div>
                             <input type="file" onchange="readURLIcon(this);" id="imguploadicon" name="image_icon"
                                    accept=".jpg, .jpeg, .png"

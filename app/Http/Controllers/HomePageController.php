@@ -24,7 +24,25 @@ class HomePageController extends Controller
         $company_logo = CompanyLogo::select('path_img')->where('type','logo')->get();
         $slide = CompanyLogo::select('path_img')->where('type','slide')->get();
         $server_list = Content::select('id', 'name')->where('page_type', 'service-list')->get();
-        return view('web.home', compact('contact', 'service_list','company_logo','server_list','slide'));
+
+        $contact_main = Content::select('id', 'meta_title', 'meta_description', 'meta_keyword', 'title', 'content', 'path_img_banner')
+            ->where('page_type', 'contact-main')
+            ->first();
+        if ($contact_main) {
+            $contact_main = $contact_main;
+        }
+        else{
+            $contact_main =  new Content();
+        }
+        if (count($server_list)>0){
+            $server_list_id = $server_list[0]['id'];
+
+        }else{
+            $server_list_id = 0;
+        }
+//        dd($company_logo);
+
+        return view('web.home', compact('contact', 'service_list','company_logo','server_list','slide','contact_main','server_list_id'));
     }
 
     /**

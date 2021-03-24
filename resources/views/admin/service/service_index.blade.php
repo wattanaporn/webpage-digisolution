@@ -77,7 +77,7 @@
                             </div>
                             <div style="font-size: 14px;line-height: 18px;color: #C8C7CC;padding-top: 15px">
                                 วางไฟล์ตรงนี้
-                                หรือเลือกไฟล์ (JPEG, PNG, BMP, GIF)
+                                หรือเลือกไฟล์ (JPEG, PNG, BMP, GIF) ที่มีขนาดความสูง 192px
                             </div>
                             <input type="file" onchange="readURL(this);" id="imgupload" name="image"
                                    accept=".jpg, .jpeg, .png"

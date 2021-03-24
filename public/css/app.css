@@ -23,7 +23,7 @@ html {
 
 .img-banner {
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
 }
 .box-banner {
     width: 100%;
@@ -749,6 +749,7 @@ section.logo-Client {
 
 .txt-grey {
     color: #777777;
+    font-weight: 400 !important;
 }
 
 

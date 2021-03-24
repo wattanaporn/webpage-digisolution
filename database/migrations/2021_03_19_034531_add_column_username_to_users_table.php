@@ -15,7 +15,18 @@ class AddColumnUsernameToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('username', 255)->nullable();
+            $table->dropColumn('email');
         });
+
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('email',255)->nullable();
+        });
+
+        \DB::table('users')->insert([
+            'name' => 'Digiso',
+            'username' => 'digiso',
+            'password' => '$2y$10$qqo/AooBiwQtNuG3JFOq/edO1t2GgasSd2VnEcn1yL7uYFFjmknZ.' //Digiso2021
+        ]);
     }
 
     /**

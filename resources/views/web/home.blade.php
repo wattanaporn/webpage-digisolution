@@ -2,7 +2,7 @@
 @push('css')
     <style>
         .wedo-pad-top {
-            padding-top: 100px;
+            padding-top: 50px;
         }
 
         @media only screen and (max-width: 992px) {
@@ -23,8 +23,12 @@
             box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
         }
 
+        .slick-list {
+            height: 190px !important;
+        }
 
         .box-img-circle {
+            padding-top: 10px;
             display: flex;
             align-items: center;
 
@@ -34,7 +38,7 @@
             border-radius: 50%;
             min-width: 156px !important;
             min-height: 156px !important;
-            box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -49,8 +53,17 @@
 
 
         .text-width {
-            width: 30px;
-            word-break: break-all;
+            /*width: 30px !important;*/
+            word-break: break-word;
+        }
+
+        .text-width-null {
+            width: 30px !important;
+            word-break: break-word;
+        }
+
+        .mw-div {
+            max-width: 380px;
         }
 
 
@@ -71,13 +84,14 @@
             border-left: #ffffff;
             border-right: #ffffff;
             padding-top: 10px;
-            color: #777777;
+            color: #ffffff;
         }
 
         .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
             color: #FFFFFF !important;
             background: transparent;
             border-bottom: none;
+            font-weight: bold;
             /*border-color: transparent;*/
         }
 
@@ -143,7 +157,7 @@
 
         .banner-images {
             width: 100%;
-            height: 480px;
+            /*height: 480px;*/
             display: flex;
             align-items: center;
             background: black;
@@ -247,12 +261,22 @@
             align-items: center;
             justify-content: center;
         }
+
+        .ahref {
+            color: #777777 !important;
+        }
+
+        .ahref:hover {
+            color: #777777 !important;
+            text-decoration: none !important;
+        }
+
     </style>
 @endpush('css')
 @section('content')
     <div id="block-content">
         <section class="banner">
-            @if($slide)
+            @if(count($slide)>0)
                 <div class="banner-images">
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
@@ -328,7 +352,7 @@
         <section class="what-wedo">
             <div class="container">
                 <div class="row wedo-pad-top">
-                    @if($contact->what_we_do)
+                    @if($contact)
                         <div class="col-lg-7 col-md-12">
                             <div class="row">
                                 <div class="col-12 text-center">
@@ -389,27 +413,30 @@
                         {{--                        <span class="head-contain-font font-weight-bold">SERVICE</span>--}}
                         {{--                    </div>--}}
                         <div class="col-md-12">
-                            <div class="row d-flex justify-content-center pt-5">
-                                @if($service_list)
+                            <div class="link-detail row d-flex justify-content-center pt-5">
+                                @if(count($service_list)>0)
                                     @foreach($service_list as $item)
-                                        <div class="col-auto px-5">
-                                            <div class="row">
-                                                <div class="col-12 d-flex justify-content-center service-item">
-                                                    <img src="{{url('/service/image-icon/'.$item->path_img)}}"
-                                                         class="service-img">
-                                                </div>
-                                                <div class="col-12 pt-3 text-center text-width">
-                                                <span class="font-weight-bold"
+                                        <a href="{!! url('/service-list-detail') !!}/{{$item->id}}" class="ahref">
+                                            <div class="col-auto px-5 mw-div">
+                                                <div class="row">
+                                                    <div class="col-12 d-flex justify-content-center service-item">
+                                                        <img src="{{url('/service/image-icon/'.$item->path_img)}}"
+                                                             class="service-img">
+                                                    </div>
+                                                    <div class="col-12 pt-3 text-center">
+                                                <span class="font-weight-bold text-width"
                                                       style="color: #000000">{{$item->name}}</span>
-                                                </div>
-                                                <div class="col-12 pt-2 pb-5 text-width">
-                                                    {!! $item->detail !!}
+                                                    </div>
+                                                    <div class="col-12 pt-2 pb-5 text-width">
+                                                        {!! $item->detail !!}
+                                                        {{--                                                        {{ $item->detail }}--}}
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     @endforeach
                                 @else
-                                    <div class="col-auto px-5">
+                                    <div class="col-auto px-5 mw-div">
                                         <div class="row">
                                             <div class="col-12 d-flex justify-content-center service-item">
                                                 <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
@@ -420,7 +447,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-auto px-5">
+                                    <div class="col-auto px-5 mw-div">
                                         <div class="row">
                                             <div class="col-12 d-flex justify-content-center service-item">
                                                 <img
@@ -432,7 +459,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-auto px-5">
+                                    <div class="col-auto px-5 mw-div">
                                         <div class="row">
                                             <div class="col-12 d-flex justify-content-center service-item">
                                                 <img src="{{ URL::asset('/assets/images/service/service-mobile.svg') }}"
@@ -464,7 +491,7 @@
                             <span class="head-contain-font font-weight-bold text-white">CLIENT</span>
                         </div>
                         <div class="col-12 mt-5 pt-3">
-                            @if($server_list)
+                            @if(count($server_list)>0)
                                 <div class="container mt-5 pt-3 pb-5">
                                     <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                                         @foreach($server_list as $key=>$list)
@@ -531,8 +558,8 @@
                                                             src="{{ URL::asset('/assets/images/client/our-client-img-cd.png') }}"
                                                             class="img-our">
                                                     </div>
-                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
-                                                        <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width-null">
+                                                        <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) ss</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -543,7 +570,7 @@
                                                             src="{{ URL::asset('/assets/images/client/our-client-img-ct.png') }}"
                                                             class="img-our">
                                                     </div>
-                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width-null">
                                                         <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
                                                     </div>
                                                 </div>
@@ -555,7 +582,7 @@
                                                             src="{{ URL::asset('/assets/images/client/our-client-img-ld.png') }}"
                                                             class="img-our">
                                                     </div>
-                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width-null">
                                                         <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
                                                     </div>
                                                 </div>
@@ -567,7 +594,7 @@
                                                             src="{{ URL::asset('/assets/images/client/our-client-img-lt.png') }}"
                                                             class="img-our">
                                                     </div>
-                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width-null">
                                                         <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
                                                     </div>
                                                 </div>
@@ -584,7 +611,7 @@
                                                             src="{{ URL::asset('/assets/images/client/our-client-img-lt.png') }}"
                                                             class="img-our">
                                                     </div>
-                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width-null">
                                                         <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
                                                     </div>
                                                 </div>
@@ -596,7 +623,7 @@
                                                             src="{{ URL::asset('/assets/images/client/our-client-img-rd.png') }}"
                                                             class="img-our">
                                                     </div>
-                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width-null">
                                                         <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
                                                     </div>
                                                 </div>
@@ -608,7 +635,7 @@
                                                             src="{{ URL::asset('/assets/images/client/our-client-img-rt.png') }}"
                                                             class="img-our">
                                                     </div>
-                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width-null">
                                                         <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
                                                     </div>
                                                 </div>
@@ -620,7 +647,7 @@
                                                             src="{{ URL::asset('/assets/images/client/our-client-img-rt.png') }}"
                                                             class="img-our">
                                                     </div>
-                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width-null">
                                                         <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
                                                     </div>
                                                 </div>
@@ -637,7 +664,7 @@
                                                             src="{{ URL::asset('/assets/images/client/our-client-img-cd.png') }}"
                                                             class="img-our">
                                                     </div>
-                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width-null">
                                                         <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
                                                     </div>
                                                 </div>
@@ -649,7 +676,7 @@
                                                             src="{{ URL::asset('/assets/images/client/our-client-img-cd.png') }}"
                                                             class="img-our">
                                                     </div>
-                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width-null">
                                                         <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
                                                     </div>
                                                 </div>
@@ -661,7 +688,7 @@
                                                             src="{{ URL::asset('/assets/images/client/our-client-img-cd.png') }}"
                                                             class="img-our">
                                                     </div>
-                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width-null">
                                                         <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
                                                     </div>
                                                 </div>
@@ -673,7 +700,7 @@
                                                             src="{{ URL::asset('/assets/images/client/our-client-img-cd.png') }}"
                                                             class="img-our">
                                                     </div>
-                                                    <div class="col-12 pt-4 pb-5 text-center text-width">
+                                                    <div class="col-12 pt-4 pb-5 text-center text-width-null">
                                                         <span class="font-weight-bold">บริษัท แพลน บี มีเดีย จำกัด (มหาชน) </span>
                                                     </div>
                                                 </div>
@@ -690,7 +717,7 @@
         </div>
         <section class="logo-Client">
             <div class="container pt-5">
-                @if($company_logo)
+                @if(count($company_logo)>0)
                     <div class="row autoplay d-flex justify-content-center pt-5 mt-3">
                         @foreach($company_logo as $item)
                             <div class="col-auto px-5 d-flex justify-content-center box-img-circle">
@@ -702,34 +729,48 @@
                         @endforeach
                     </div>
                 @else
-                    <div class="row autoplay d-flex justify-content-center pt-5 mt-5">
-                        <div class="col-auto px-5 d-flex justify-content-center">
-                            <img src="{{ URL::asset('/assets/images/client/major.svg') }}"
-                                 class="img-circle">
+                    <div class="row autoplay2 d-flex justify-content-center pt-5 mt-5">
+                        <div class="col-auto px-5 d-flex justify-content-center box-img-circle">
+                            <div class="box-circle">
+                                <img src="{{ URL::asset('/assets/images/client/major.svg') }}"
+                                     class="img-circle">
+                            </div>
                         </div>
-                        <div class="col-auto px-5  d-flex justify-content-center">
-                            <img src="{{ URL::asset('/assets/images/client/plan-b.svg') }}"
-                                 class="img-circle">
+                        <div class="col-auto px-5  d-flex justify-content-center box-img-circle">
+                            <div class="box-circle">
+                                <img src="{{ URL::asset('/assets/images/client/plan-b.svg') }}"
+                                     class="img-circle">
+                            </div>
                         </div>
-                        <div class="col-auto px-5  d-flex justify-content-center">
-                            <img src="{{ URL::asset('/assets/images/client/spa.svg') }}"
-                                 class="img-circle">
+                        <div class="col-auto px-5  d-flex justify-content-center box-img-circle">
+                            <div class="box-circle">
+                                <img src="{{ URL::asset('/assets/images/client/spa.svg') }}"
+                                     class="img-circle">
+                            </div>
                         </div>
-                        <div class="col-auto px-5 d-flex justify-content-center">
-                            <img src="{{ URL::asset('/assets/images/client/unii.svg') }}"
-                                 class="img-circle">
+                        <div class="col-auto px-5 d-flex justify-content-center box-img-circle">
+                            <div class="box-circle">
+                                <img src="{{ URL::asset('/assets/images/client/unii.svg') }}"
+                                     class="img-circle">
+                            </div>
                         </div>
-                        <div class="col-auto px-5 d-flex justify-content-center">
-                            <img src="{{ URL::asset('/assets/images/client/sharp.svg') }}"
-                                 class="img-circle">
+                        <div class="col-auto px-5 d-flex justify-content-center box-img-circle">
+                            <div class="box-circle">
+                                <img src="{{ URL::asset('/assets/images/client/sharp.svg') }}"
+                                     class="img-circle">
+                            </div>
                         </div>
-                        <div class="col-auto px-5 d-flex justify-content-center">
-                            <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
-                                 class="img-circle">
+                        <div class="col-auto px-5 d-flex justify-content-center box-img-circle">
+                            <div class="box-circle">
+                                <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
+                                     class="img-circle">
+                            </div>
                         </div>
-                        <div class="col-auto px-5 d-flex justify-content-center">
-                            <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
-                                 class="img-circle">
+                        <div class="col-auto px-5 d-flex justify-content-center box-img-circle">
+                            <div class="box-circle">
+                                <img src="{{ URL::asset('/assets/images/service/service-web.svg') }}"
+                                     class="img-circle">
+                            </div>
                         </div>
                     </div>
                 @endif
@@ -759,9 +800,14 @@
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
     <script>
+        document.title = '{{$contact_main->meta_title}}'
+        document.getElementsByTagName('meta')["keywords"].content = '{{$contact_main->meta_keyword}}';
+        document.getElementsByTagName('meta')["description"].content = '{{$contact_main->meta_description}}';
+
         $(document).ready(function () {
             auto();
-            loadDataClients({!! json_encode($server_list[0]->id) !!});
+            autoImg();
+            loadDataClients('{{$server_list_id}}')
         });
 
         function auto() {
@@ -774,6 +820,38 @@
             }
             $('.autoplay').slick({
                 slidesToShow: items,
+                slidesToScroll: 1,
+                draggable: true,
+                autoplay: false,
+                autoplaySpeed: 2000,
+                responsive: [{
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        infinite: true
+                    }
+
+                }, {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        dots: true
+                    }
+                },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 1,
+                            dots: true
+                        }
+
+                    }]
+            });
+        }
+
+        function autoImg() {
+            $('.autoplay2').slick({
+                slidesToShow: 5,
                 slidesToScroll: 1,
                 draggable: true,
                 autoplay: false,

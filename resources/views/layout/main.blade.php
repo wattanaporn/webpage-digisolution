@@ -10,6 +10,7 @@
         <meta name="keywords" content="livestreaming, wexib, event, exhibitor, show, liveshow, Ecommerce, อีเว้นท์, งานแสดงสินค้า, มหกรรม, นิทรรศการ, streaming, งานอีเว้นท์">
     <title>DiGi Solution</title>
     <link rel="stylesheet" href="/css/app.css">
+    <link rel = "icon" href ="{{url('/images/favicon_digiso.svg')}}" type = "image/x-icon">
     <script src="{{url('assets/js/jquery-3.4.1.min.js')}}"></script>
     <script src="{{url('assets/js/jquery.ba-throttle-debounce.js')}}"></script>
     <script src="{{url('assets/framework/bootstrap4/bootstrap.bundle.min.js')}}"></script>
