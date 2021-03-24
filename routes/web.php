@@ -14,7 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::namespace('App\Http\Controllers')->group(function () {
+    Route::get('digiso-login','Auth\LoginController@demoLogin');
+    Route::post('save-digiso-login','Auth\LoginController@saveLogin')->name('save_digiso_login');
     Route::get('/', 'HomePageController@index')->name('web');
     Route::get('/contact-footer', 'HomePageController@ContactFooter')->name('contact-footer');
     Route::get('contact/image-logo/{path}', 'HomePageController@ImageLogo');
