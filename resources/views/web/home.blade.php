@@ -57,6 +57,10 @@
             word-break: break-word;
         }
 
+        .text-width-client{
+            width: 30px !important;
+        }
+
         .text-width-null {
             width: 30px !important;
             word-break: break-word;
@@ -914,7 +918,7 @@
                     '<img src="/clients-list/image/' + value.path_img_small + '" ' +
                     'class="img-our myImg" id="myImg' + index + '">' +
                     '</div>' +
-                    '<div class="col-12 pt-4 pb-5 text-center text-width">' +
+                    '<div class="col-12 pt-4 pb-5 text-center text-width-client">' +
                     '<span class="font-weight-bold text-white">' + value.name + '</span>' +
                     '</div>' +
                     '</div>' +

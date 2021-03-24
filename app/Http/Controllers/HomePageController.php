@@ -129,6 +129,7 @@ class HomePageController extends Controller
         $tab = $request->get('tap');
         $client = OurClient::select('id', 'service_list_id', 'link', 'name', 'path_img_small', 'path_img_large')
             ->where('service_list_id', $tab)
+            ->orderby('updated_at','desc')
             ->limit(6)
             ->get();
         return response()->json(['data' => $client, 'success' => true], 200);

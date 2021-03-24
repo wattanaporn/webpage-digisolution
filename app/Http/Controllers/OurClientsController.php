@@ -119,6 +119,7 @@ class OurClientsController extends Controller
         $page = ($current_page * $per_page);
         $client = OurClient::select('id', 'service_list_id', 'link', 'name', 'path_img_small', 'path_img_large')
             ->where('service_list_id', $tab)
+            ->orderby('updated_at','desc')
             ->skip($page)->take($per_page)
             ->get();
         return response()->json(['data' => $client, 'success' => true], 200);
@@ -129,6 +130,7 @@ class OurClientsController extends Controller
         $tab = $request->get('tap');
         $client = OurClient::select('id', 'service_list_id', 'link', 'name', 'path_img_small', 'path_img_large')
             ->where('service_list_id', $tab)
+            ->orderby('updated_at','desc')
             ->get();
         $count_client = count($client);
         return response()->json(['data' => $count_client, 'success' => true], 200);
