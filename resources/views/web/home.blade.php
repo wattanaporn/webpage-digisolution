@@ -360,12 +360,15 @@
                                     <span class="head-contain-font font-weight-bold">WE DO</span>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-lg-5 col-md-12">
+                        </div>
+                        <div class="col-lg-12 col-md-12">
                             <div class="row">
                                 <div class="col-12">
                                     {!! $contact->what_we_do !!}
                                 </div>
                             </div>
-
                         </div>
                     @else
                         <div class="col-lg-7 col-md-12">
