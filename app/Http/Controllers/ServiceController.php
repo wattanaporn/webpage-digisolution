@@ -24,6 +24,7 @@ class ServiceController extends Controller
 
         $service_list = Content::select('id', 'path_img', 'name')
             ->where('page_type', 'service-list')
+            ->orderby('updated_at','desc')
             ->get();
         return view('web.service', compact('service', 'service_list'));
     }

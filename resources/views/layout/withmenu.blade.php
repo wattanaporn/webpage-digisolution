@@ -52,7 +52,9 @@
             <div class="container">
                 {{--                <div id="logo">--}}
                 {{--                </div>--}}
-                <img src="{{ URL::asset('/images/logo_digiso.png') }}" class="logo">
+                <a href="{{route('web')}}">
+                    <img src="{{ URL::asset('/images/logo_digiso.png') }}" class="logo">
+                </a>
                 <button class="navbar-toggler" type="button"
                         data-toggle="collapse"
                         data-target="#navbarNavAltMarkup"
@@ -192,6 +194,7 @@
                 $('#logo').html(`<img src="{{ URL::asset('/images/logo_digiso.png') }}" class="logo">`)
             }
         }
+
         function activeMenu() {
             var pathname = window.location.pathname;
             for (var i = 0; i <= 6; i++) {

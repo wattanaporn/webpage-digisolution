@@ -274,6 +274,10 @@
             color: #777777 !important;
             text-decoration: none !important;
         }
+        .max-height-vh{
+            max-height: 100vh;
+            max-width: 100vh;
+        }
 
     </style>
 @endpush('css')
@@ -928,7 +932,7 @@
                     // '<img class="modal-content" id="img0' + index + '">' +
                     '<div class="row">' +
                     '<div class="col-12 d-flex justify-content-center service-item-full">' +
-                    '<img class="" src="/clients-list/image/' + value.path_img_large + '" ' +
+                    '<img class="max-height-vh" src="/clients-list/image/' + value.path_img_large + '" ' +
                     '<div id="caption' + index + '" class="caption"></div>' +
                     '</div>' +
                     '</div>' +

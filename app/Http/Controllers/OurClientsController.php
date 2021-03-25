@@ -19,8 +19,14 @@ class OurClientsController extends Controller
         $our_client = Content::select('id', 'meta_title', 'meta_description', 'meta_keyword', 'title', 'content', 'path_img_banner')
             ->where('page_type', 'our-client-main')
             ->first();
-        $company_logo = CompanyLogo::select('path_img')->where('type', 'logo')->get();
-        $server_list = Content::select('id', 'name')->where('page_type', 'service-list')->get();
+        $company_logo = CompanyLogo::select('path_img')
+            ->where('type', 'logo')
+            ->orderby('updated_at','desc')
+            ->get();
+        $server_list = Content::select('id', 'name')
+            ->where('page_type', 'service-list')
+            ->orderby('updated_at','desc')
+            ->get();
         $client = OurClient::select('id')
             ->get();
         if (!$our_client) {
