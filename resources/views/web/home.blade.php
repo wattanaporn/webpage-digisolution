@@ -57,6 +57,10 @@
             word-break: break-word;
         }
 
+        .text-width-client {
+            width: 30px !important;
+        }
+
         .text-width-null {
             width: 30px !important;
             word-break: break-word;
@@ -269,6 +273,11 @@
         .ahref:hover {
             color: #777777 !important;
             text-decoration: none !important;
+        }
+
+        .max-height-vh {
+            max-height: 100vh;
+            max-width: 100vh;
         }
 
     </style>
@@ -897,7 +906,7 @@
                 success: function (res) {
                     if (res.data) {
                         var div = $('<div ' + 'class="row pt-3 justify-content-sm-center justify-content-xl-start"' + '></div>')
-                        div.html(GetDynamicBox(res.data))
+                        div.html(GetDynamicBox(data_id, res.data))
                         $('#box_' + data_id).empty()
                         $('#box_' + data_id).append(div)
                     }
@@ -905,27 +914,27 @@
             })
         }
 
-        function GetDynamicBox(value) {
+        function GetDynamicBox(data_id, value) {
             var data = '';
             $.each(value, function (index, value) {
                 data += '<div class="col-auto px-0 pt-5">' +
                     '<div class="row">' +
-                    '<div class="col-12 d-flex justify-content-center client-item myImg" onclick="modalImg(' + index + ')">' +
+                    '<div class="col-12 d-flex justify-content-center client-item myImg" onclick="modalImg(' + data_id + ',' + index + ')">' +
                     '<img src="/clients-list/image/' + value.path_img_small + '" ' +
-                    'class="img-our myImg" id="myImg' + index + '">' +
+                    'class="img-our myImg" id="myImg_' + data_id + '_' + index + '">' +
                     '</div>' +
-                    '<div class="col-12 pt-4 pb-5 text-center text-width">' +
+                    '<div class="col-12 pt-4 pb-5 text-center text-width-client">' +
                     '<span class="font-weight-bold text-white">' + value.name + '</span>' +
                     '</div>' +
                     '</div>' +
                     '</div>' +
-                    '<div id="myModal' + index + '" class="modal img-show">' +
-                    '<span class="close" id="close' + index + '">&times;</span>' +
+                    '<div id="myModal_' + data_id + '_' + index + '" class="modal img-show">' +
+                    '<span class="close" id="close_' + data_id + '_' + index + '">&times;</span>' +
                     // '<img class="modal-content" id="img0' + index + '">' +
                     '<div class="row">' +
                     '<div class="col-12 d-flex justify-content-center service-item-full">' +
-                    '<img class="" src="/clients-list/image/' + value.path_img_large + '" ' +
-                    '<div id="caption' + index + '" class="caption"></div>' +
+                    '<img class="max-height-vh" src="/clients-list/image/' + value.path_img_large + '" ' +
+                    '<div id="caption_' + data_id + '_' + index + '" class="caption"></div>' +
                     '</div>' +
                     '</div>' +
                     '</div>'
@@ -933,17 +942,17 @@
             return data
         }
 
-        function modalImg(value) {
-            var modal = document.getElementById("myModal" + value);
+        function modalImg(data_id, value) {
+            var modal = document.getElementById("myModal_" + data_id + '_' + value);
             // var img = document.getElementById("myImg"+value);
             // var modalImg = document.getElementById("img0"+value);
-            var captionText = document.getElementById("caption" + value);
+            var captionText = document.getElementById("caption_" + data_id + '_' + value);
             // img.onclick = function () {
             modal.style.display = "block";
             // modalImg.src = this.src;
             captionText.innerHTML = this.alt;
             // }
-            var span = document.getElementById("close" + value);
+            var span = document.getElementById("close_" + data_id + '_' + value);
             span.onclick = function () {
                 modal.style.display = "none";
             }
