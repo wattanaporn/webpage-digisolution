@@ -277,7 +277,13 @@
 
         .max-height-vh {
             max-height: 100vh;
-            max-width: 100vh;
+            max-width: 80vh;
+        }
+        @media only screen and (max-width: 700px) {
+            .max-height-vh {
+                max-height: 100vh;
+                max-width: 32vh;
+            }
         }
 
     </style>
