@@ -100,7 +100,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="row pt-3 pb-3">
+                    <div class="row pt-4 pb-4">
                         <div class="col-12">
                             <div id="map"></div>
                         </div>
@@ -142,10 +142,12 @@
                                       placeholder="ข้อความ"></textarea>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-md btn-sent">
+                        <button type="submit" class="btn btn-md btn-sent pb-3">
                             SEND
                         </button>
+
                     </form>
+                    <br>
                 </div>
             </div>
         </div>

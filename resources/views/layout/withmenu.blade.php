@@ -210,8 +210,10 @@
                 $('.active_menu_4').toggleClass('active')
             } else if (pathname === '/') {
                 $('.active_menu_4').toggleClass('active')
-            } else {
+            } else if (pathname === '/contact') {
                 $('.active_menu_6').toggleClass('active')
+            }else{
+                $('.active_menu_3').toggleClass('active')
             }
         }
 

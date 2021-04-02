@@ -31,6 +31,9 @@
                 display: none;
             }
         }
+        .img-banner-default{
+            width: 100%;
+        }
     </style>
 @endpush('css')
 @section('content')
